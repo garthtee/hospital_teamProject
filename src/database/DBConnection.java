@@ -33,7 +33,7 @@ public class DBConnection {
 
 
         try {
-            String query = "select * from employee";
+            String query = "select * from employee;";
             resultSet = statement.executeQuery(query);
 
             while(resultSet.next()) {
@@ -62,7 +62,7 @@ public class DBConnection {
                                double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn) {
         try {
             PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
             preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
             preparedStatement.setString(2, fNameIn);
             preparedStatement.setString(3, sNameIn);
@@ -87,6 +87,17 @@ public class DBConnection {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print("Catch");
+        }
+    }
+
+    public void removeEmployee(Employee employee) {
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("DELETE from employee WHERE emp_ID = ?;");
+            preparedStatement.setInt(1, employee.getEmp_ID());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.getStackTrace();
         }
     }
 }

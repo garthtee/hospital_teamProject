@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Created by garthtee on 3/1/16.
+ * Created by Garth Toland on 3/1/16.
+ * Description:
  */
 public class AdminPage extends JFrame implements ActionListener {
 
@@ -24,13 +25,22 @@ public class AdminPage extends JFrame implements ActionListener {
     private DBConnection dbConnection = new DBConnection();
     ArrayList<Employee> employeeList = new ArrayList<>();
     private Employee selectedEmployee;
+    private DefaultListModel<Employee> defaultListModel;
+
+    public void employeesToList() {
+        employeeList = dbConnection.getEmployees(); // adding database records to employee list
+        defaultListModel = new DefaultListModel<>();
+        for (Employee employee : employeeList)
+            defaultListModel.addElement(employee);
+    }
 
     public AdminPage() {
 
         setLayout(new BorderLayout());
         setTitle("Manage Employees");
 
-        employeeList = dbConnection.getEmployees(); // adding database records to employee list
+        employeesToList();
+
 
         // Panel Left Top //
         panelLeftTop = new JPanel();
@@ -40,7 +50,7 @@ public class AdminPage extends JFrame implements ActionListener {
         
         // Panel 1 //
         p1 = new JPanel();
-        list = new JList(employeeList.toArray()); //data has type Object[]
+        list = new JList(defaultListModel); //data has type Object[]
         scrollPane.getViewport().setView(list);
         scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -90,6 +100,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 createEmployeeFrame.pack();
                 createEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 createEmployeeFrame.setLocationRelativeTo(null);
+                this.dispose();
                 break;
             case "Remove Employee":
                 if (selectedEmployee != null) { // if an employee is selected
@@ -98,14 +109,15 @@ public class AdminPage extends JFrame implements ActionListener {
                             "Delete employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
                         String name = selectedEmployee.getfName();
-                        employeeList.remove(selectedEmployee);
-                        Employee[] array = employeeList.toArray(new Employee[employeeList.size()]);
-                        list.setListData(array);
+                        dbConnection.removeEmployee(selectedEmployee);
+                        employeesToList();
+                        list.setModel(defaultListModel);
+//                        employeeList.remove(selectedEmployee);
+//                        Employee[] array = employeeList.toArray(new Employee[employeeList.size()]);
+//                        list.setListData(array);
                         JOptionPane.showMessageDialog(null, name + " has been removed.");
                         break;
                     }
-
-
                 } else // if no employee selected
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
