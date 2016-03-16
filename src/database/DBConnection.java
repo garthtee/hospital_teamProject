@@ -1,0 +1,92 @@
+package database;
+
+import core.Employee;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+/**
+ * Created by garth on 10/03/2016.
+ */
+public class DBConnection {
+
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
+
+    public DBConnection() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "");
+            statement = connection.createStatement();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Employee> getEmployees() {
+
+        ArrayList<Employee> employeeList = new ArrayList<>();
+
+
+        try {
+            String query = "select * from employee";
+            resultSet = statement.executeQuery(query);
+
+            while(resultSet.next()) {
+                int emp_id = resultSet.getInt("emp_ID");
+                String fName = resultSet.getString("fName");
+                String sName = resultSet.getString("sName");
+                String contactNum = resultSet.getString("contactNum");
+                String email = resultSet.getString("email");
+                Employee employee = new Employee();
+                employee.setEmp_ID(emp_id);
+                employee.setfName(fName);
+                employee.setsName(sName);
+                employee.setContactNum(contactNum);
+                employee.setEmail(email);
+                employeeList.add(employee);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return employeeList;
+    }
+
+    public void createEmployee(String fNameIn, String sNameIn, Calendar DOBIn, String contactNumIn, String emailIn,
+                               double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn) {
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
+            preparedStatement.setString(2, fNameIn);
+            preparedStatement.setString(3, sNameIn);
+            // create a date
+            java.sql.Date sqlDate = new java.sql.Date(DOBIn.getTimeInMillis());
+            // end creating date
+            preparedStatement.setDate(4, sqlDate);
+            preparedStatement.setString(5, contactNumIn);
+            preparedStatement.setString(6, emailIn);
+            preparedStatement.setDouble(7, numHolidaysIn);
+            preparedStatement.setDouble(8, contractHoursIn);
+            preparedStatement.setDouble(9, salary);
+            preparedStatement.setInt(10, 0);
+            preparedStatement.setInt(11, 0);
+            preparedStatement.setString(12, "none");
+            preparedStatement.setInt(13, ward_IDIn);
+            System.out.print("Details; \n" + fNameIn +" " + sNameIn +" " + sqlDate.toString() +" " + contactNumIn +" " + emailIn +" " + numHolidaysIn +" " + contractHoursIn +" " + salary +" " + ward_IDIn);
+            preparedStatement.executeUpdate();
+
+            // Column count doesn't match value count at row 1
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        }
+    }
+}

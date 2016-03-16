@@ -1,0 +1,53 @@
+package core;
+
+/**
+ * Created by garthtee on 3/1/16.
+ */
+public class Ward {
+
+    private int ward_ID;
+    private String wardType;
+    private int reqNurses;
+    private int reqDoctors;
+
+    public Ward() {}
+
+    public Ward(int ward_ID, String wardType, int reqNurses, int reqDoctors) {
+        this.ward_ID = ward_ID;
+        this.wardType = wardType;
+        this.reqNurses = reqNurses;
+        this.reqDoctors = reqDoctors;
+    }
+
+    public int getWard_ID() {
+        return ward_ID;
+    }
+
+    public void setWard_ID(int ward_ID) {
+        this.ward_ID = ward_ID;
+    }
+
+    public String getWardType() {
+        return wardType;
+    }
+
+    public void setWardType(String wardType) {
+        this.wardType = wardType;
+    }
+
+    public int getReqNurses() {
+        return reqNurses;
+    }
+
+    public void setReqNurses(int reqNurses) {
+        this.reqNurses = reqNurses;
+    }
+
+    public int getReqDoctors() {
+        return reqDoctors;
+    }
+
+    public void setReqDoctors(int reqDoctors) {
+        this.reqDoctors = reqDoctors;
+    }
+}
