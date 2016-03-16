@@ -1,10 +1,11 @@
 package core;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+import java.util.ArrayList;
 
 public class SearchEmployeePage extends JFrame implements ActionListener {
 
@@ -12,9 +13,11 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
 	private JTextField txtSearch;
 	private JButton btnSearch, btnCancel;
 	private JPanel panelTop, panelBottom;
+	private ArrayList<Employee> employeeArrayList = new ArrayList<>();
 	
-	public SearchEmployeePage() {
-		
+	public SearchEmployeePage(ArrayList<Employee> employeeList) {
+		employeeArrayList = employeeList;
+
 		setTitle("Search Employees");
 		setLayout(new BorderLayout());
 		
@@ -54,22 +57,26 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
 			this.dispose();
 			break;
 		case "Search":
-			ViewEmployee sp = new ViewEmployee(txtSearch.getText());
-			sp.setVisible(true);
-			sp.pack();
-			sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			sp.setLocationRelativeTo(null);
+            for(Employee employee : employeeArrayList) {
+                if(employee.getfName().contains(txtSearch.getText())) {
+                    ViewEmployee sp = new ViewEmployee(txtSearch.getText());
+                    sp.setVisible(true);
+                    sp.pack();
+                    sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    sp.setLocationRelativeTo(null);
+                }
+            }
 			break;
 		}
 	}
 	
-	// Main Method //
-    public static void main(String[] args) {
-		SearchEmployeePage sp = new SearchEmployeePage();
-	    sp.setVisible(true);
-	    sp.pack();
-	    sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	    sp.setLocationRelativeTo(null);
-    }
+//	// Main Method //
+//    public static void main(String[] args) {
+//		SearchEmployeePage sp = new SearchEmployeePage();
+//	    sp.setVisible(true);
+//	    sp.pack();
+//	    sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//	    sp.setLocationRelativeTo(null);
+//    }
 
 }

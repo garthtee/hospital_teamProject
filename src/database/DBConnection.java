@@ -31,7 +31,6 @@ public class DBConnection {
 
         ArrayList<Employee> employeeList = new ArrayList<>();
 
-
         try {
             String query = "select * from employee;";
             resultSet = statement.executeQuery(query);
@@ -50,7 +49,6 @@ public class DBConnection {
                 employee.setEmail(email);
                 employeeList.add(employee);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -82,8 +80,6 @@ public class DBConnection {
             System.out.print("Details; \n" + fNameIn +" " + sNameIn +" " + sqlDate.toString() +" " + contactNumIn +" " + emailIn +" " + numHolidaysIn +" " + contractHoursIn +" " + salary +" " + ward_IDIn);
             preparedStatement.executeUpdate();
 
-            // Column count doesn't match value count at row 1
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print("Catch");
@@ -100,4 +96,8 @@ public class DBConnection {
             e.getStackTrace();
         }
     }
+
+//    public void updateEmployee(Employee employee, ) {
+//
+//    }
 }

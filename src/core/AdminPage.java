@@ -27,11 +27,11 @@ public class AdminPage extends JFrame implements ActionListener {
     private Employee selectedEmployee;
     private DefaultListModel<Employee> defaultListModel;
 
-    public void employeesToList() {
+    public void createEmployeeModel() {
         employeeList = dbConnection.getEmployees(); // adding database records to employee list
         defaultListModel = new DefaultListModel<>();
         for (Employee employee : employeeList)
-            defaultListModel.addElement(employee);
+            defaultListModel.addElement(employee); // Add employees to Default List Model
     }
 
     public AdminPage() {
@@ -39,8 +39,7 @@ public class AdminPage extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         setTitle("Manage Employees");
 
-        employeesToList();
-
+        createEmployeeModel();
 
         // Panel Left Top //
         panelLeftTop = new JPanel();
@@ -110,11 +109,7 @@ public class AdminPage extends JFrame implements ActionListener {
                     if (chosenOption == 0) {
                         String name = selectedEmployee.getfName();
                         dbConnection.removeEmployee(selectedEmployee);
-                        employeesToList();
-                        list.setModel(defaultListModel);
-//                        employeeList.remove(selectedEmployee);
-//                        Employee[] array = employeeList.toArray(new Employee[employeeList.size()]);
-//                        list.setListData(array);
+                        defaultListModel.removeElement(selectedEmployee);
                         JOptionPane.showMessageDialog(null, name + " has been removed.");
                         break;
                     }
@@ -132,7 +127,7 @@ public class AdminPage extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Employee":
-                    SearchEmployeePage sp = new SearchEmployeePage();
+                    SearchEmployeePage sp = new SearchEmployeePage(employeeList);
                     sp.setVisible(true);
                     sp.pack();
                     sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -16,11 +16,6 @@ public class ViewEmployee extends JFrame implements ActionListener {
     private JButton btnOk;
 
     public ViewEmployee(String employeeName) {
-    	
-    	/*
-    	 * (String fName, String sName, Date dOB, String contactNum, String email, int numHolidays,
-			int contractHours, double salary)
-    	 */
 
         setTitle("View");
         setLayout(new BorderLayout());
