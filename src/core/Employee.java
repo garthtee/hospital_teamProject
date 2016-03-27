@@ -1,5 +1,6 @@
 package core;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Employee {
@@ -12,8 +13,8 @@ public class Employee {
 	private int numHolidays;
 	private int contractHours;
 	private double salary;
-	private int onHoliday = 0;
-	private int offSick = 0;
+	private Double onHoliday = 0.0;
+	private Double offSick = 0.0;
 	private String lastShift;
 	private int ward_ID;
 
@@ -23,8 +24,8 @@ public class Employee {
 		this.fName = fName;
 	}
 
-    public Employee(String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, int ward_ID) {
+	public Employee(String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
+					int contractHours, double salary, int ward_ID) {
 		this.fName = fName;
 		this.sName = sName;
 		this.DOB = dOB;
@@ -33,8 +34,26 @@ public class Employee {
 		this.numHolidays = numHolidays;
 		this.contractHours = contractHours;
 		this.salary = salary;
-		this.onHoliday = 0;
-		this.offSick = 0;
+		this.onHoliday = 0.0;
+		this.offSick = 0.0;
+		this.ward_ID = ward_ID;
+	}
+
+    public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
+                    int contractHours, double salary, Double onHoliday, Double offSick, int ward_ID) {
+		this.emp_ID = emp_ID;
+		this.fName = fName;
+		this.sName = sName;
+		this.DOB = dOB;
+		this.contactNum = contactNum;
+		this.email = email;
+		this.numHolidays = numHolidays;
+		this.contractHours = contractHours;
+		this.salary = salary;
+		this.onHoliday = onHoliday;
+		this.offSick = offSick;
+		this.onHoliday = 0.0;
+		this.offSick = 0.0;
 		this.ward_ID = ward_ID;
 	}
 
@@ -110,19 +129,19 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public int isOnHoliday() {
+	public Double isOnHoliday() {
 		return onHoliday;
 	}
 
-	public void setOnHoliday(int onHoliday) {
+	public void setOnHoliday(Double onHoliday) {
 		this.onHoliday = onHoliday;
 	}
 
-	public int isOffSick() {
+	public Double isOffSick() {
 		return offSick;
 	}
 
-	public void setOffSick(int offSick) {
+	public void setOffSick(Double offSick) {
 		this.offSick = offSick;
 	}
 
@@ -142,12 +161,23 @@ public class Employee {
         this.ward_ID = ward_ID;
     }
 
-	@Override
-	public String toString() {
-
-        return emp_ID + " " + fName + " " + sName + " " + contactNum + " " + email;
-	}
-	
-	
-
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "Employee{" +
+                "emp_ID=" + emp_ID +
+                ", fName='" + fName + '\'' +
+                ", sName='" + sName + '\'' +
+                ", DOB=" + sdf.format(DOB.getTime()) +
+                ", contactNum='" + contactNum + '\'' +
+                ", email='" + email + '\'' +
+                ", numHolidays=" + numHolidays +
+                ", contractHours=" + contractHours +
+                ", salary=" + salary +
+                ", onHoliday=" + onHoliday +
+                ", offSick=" + offSick +
+                ", lastShift='" + lastShift + '\'' +
+                ", ward_ID=" + ward_ID +
+                '}';
+    }
 }

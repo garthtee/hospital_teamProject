@@ -108,6 +108,11 @@ public class CreateEmployee extends JFrame implements ActionListener {
                 break;
             case "Cancel":
                 this.dispose(); // disposes the create employee frame
+                adminPage = new AdminPage();
+                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                adminPage.setSize(600, 500);
+                adminPage.setLocationRelativeTo(null);
+                adminPage.setVisible(true);
                 break;
         }
     }
