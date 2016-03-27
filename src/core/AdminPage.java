@@ -110,7 +110,6 @@ public class AdminPage extends JFrame implements ActionListener {
                         String name = selectedEmployee.getfName();
                         dbConnection.removeEmployee(selectedEmployee);
                         defaultListModel.removeElement(selectedEmployee);
-                        JOptionPane.showMessageDialog(null, name + " has been removed.");
                         break;
                     }
                 } else // if no employee selected
@@ -120,6 +119,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 if (selectedEmployee != null) {
                     UpdateEmployee updateEmployeeFrame = new UpdateEmployee(selectedEmployee);
                     updateEmployeeFrame.setVisible(true);
+                    this.dispose();
                     updateEmployeeFrame.pack();
                     updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     updateEmployeeFrame.setLocationRelativeTo(null);
