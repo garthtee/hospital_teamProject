@@ -97,7 +97,33 @@ public class DBConnection {
         }
     }
 
-//    public void updateEmployee(Employee employee, ) {
-//
-//    }
+    public void updateEmployee(int emp_ID, String fNameIn, String sNameIn, Calendar DOBIn, String contactNumIn, String emailIn,
+                               double numHolidaysIn, double contractHoursIn, double salary, int onHoliday, int offSick,
+                               String lastShift, int ward_ID) {
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE employee SET fName = ?, sName = ?, " +
+                    "DOB = ?, contactNum = ?, email = ?, numHolidays = ?, contractHours = ?, " +
+                    "salary = ?, onHoliday = ?, offSick = ?, lastShift = ?, ward_ID = ?) WHERE emp_ID = " + emp_ID +";");
+            preparedStatement.setString(1, fNameIn);
+            preparedStatement.setString(2, sNameIn);
+
+            java.sql.Date sqlDate = new java.sql.Date(DOBIn.getTimeInMillis()); // create a date
+
+            preparedStatement.setDate(3, sqlDate);
+            preparedStatement.setString(4, contactNumIn);
+            preparedStatement.setString(5, emailIn);
+            preparedStatement.setDouble(6, numHolidaysIn);
+            preparedStatement.setDouble(7, contractHoursIn);
+            preparedStatement.setDouble(8, salary);
+            preparedStatement.setInt(9, onHoliday);
+            preparedStatement.setInt(10, offSick);
+            preparedStatement.setString(11, lastShift);
+            preparedStatement.setInt(12, ward_ID);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
