@@ -152,6 +152,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 adminPage.setSize(600, 500);
                 adminPage.setLocationRelativeTo(null);
                 adminPage.setVisible(true);
+                this.dispose();
                 break;
         }
     }
