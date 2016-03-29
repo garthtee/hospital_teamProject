@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AdminPage.java" afterPath="$PROJECT_DIR$/src/core/AdminPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" afterPath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ViewEmployee.java" afterPath="$PROJECT_DIR$/src/core/ViewEmployee.java" />
     </list>
@@ -27,21 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminPage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-591">
-              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+            <state relative-caret-position="-442">
+              <caret line="19" column="95" selection-start-line="19" selection-start-column="95" selection-end-line="19" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchEmployeePage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchEmployeePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+            <state relative-caret-position="259">
+              <caret line="61" column="55" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -50,8 +54,8 @@
       <file leaf-file-name="ViewEmployee.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+            <state relative-caret-position="255">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -70,7 +74,7 @@
       <file leaf-file-name="UpdateEmployee.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="1717">
               <caret line="110" column="66" selection-start-line="97" selection-start-column="8" selection-end-line="110" selection-end-column="66" />
               <folding />
             </state>
@@ -82,16 +86,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
               <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-              <folding>
-                <element signature="e#786#787#0" expanded="false" />
-                <element signature="e#810#811#0" expanded="false" />
-                <element signature="e#859#860#0" expanded="false" />
-                <element signature="e#894#895#0" expanded="false" />
-                <element signature="e#927#928#0" expanded="false" />
-                <element signature="e#950#951#0" expanded="false" />
-                <element signature="e#997#998#0" expanded="false" />
-                <element signature="e#1030#1031#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,7 +106,7 @@
       <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1673">
+            <state relative-caret-position="1700">
               <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
               <folding>
                 <marker date="1459181995086" expanded="true" signature="902:924" placeholder="select * fro... employee" />
@@ -152,9 +147,9 @@
         <option value="$PROJECT_DIR$/src/core/Employee.java" />
         <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
-        <option value="$PROJECT_DIR$/src/core/AdminPage.java" />
         <option value="$PROJECT_DIR$/src/core/ViewEmployee.java" />
         <option value="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
+        <option value="$PROJECT_DIR$/src/core/AdminPage.java" />
       </list>
     </option>
   </component>
@@ -164,7 +159,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-1688" />
     <option name="y" value="-8" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
@@ -194,6 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -252,7 +248,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -734,7 +729,8 @@
       <workItem from="1459116137703" duration="4769000" />
       <workItem from="1459181999168" duration="93000" />
       <workItem from="1459183538011" duration="329000" />
-      <workItem from="1459190514173" duration="1725000" />
+      <workItem from="1459190514173" duration="1876000" />
+      <workItem from="1459261898698" duration="793000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -764,14 +760,21 @@
       <option name="project" value="LOCAL" />
       <updated>1459190774911</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Search employee working. User cam search by first name.">
+      <created>1459192283541</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1459192283541</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19069000" />
+    <option name="totallyTimeSpent" value="20013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -817,7 +820,8 @@
     <MESSAGE value="Code tidy. Made a start on search employee. Added, but commented out updateEmployee method in DBConnection." />
     <MESSAGE value="Update employee method added" />
     <MESSAGE value="Disposal of update GUI when user is finished updating." />
-    <option name="LAST_COMMIT_MESSAGE" value="Disposal of update GUI when user is finished updating." />
+    <MESSAGE value="Search employee working. User cam search by first name." />
+    <option name="LAST_COMMIT_MESSAGE" value="Search employee working. User cam search by first name." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -830,6 +834,77 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/CreateEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="106" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="110" column="66" selection-start-line="97" selection-start-column="8" selection-end-line="110" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
+          <folding>
+            <marker date="1459181995086" expanded="true" signature="902:924" placeholder="select * fro... employee" />
+            <marker date="1459181995086" expanded="true" signature="3381:3435" placeholder="INSERT INTO employee... " />
+            <marker date="1459181995086" expanded="true" signature="4908:4945" placeholder="DELETE from " />
+            <marker date="1459181995086" expanded="true" signature="5613:5859" placeholder="UPDATE emplo... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
           <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
           <folding />
@@ -856,16 +931,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-            <element signature="e#894#895#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -920,16 +986,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-            <element signature="e#894#895#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -984,16 +1041,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-            <element signature="e#894#895#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,16 +1218,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#810#811#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-            <element signature="e#894#895#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,17 +1240,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-591">
-          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1673">
+        <state relative-caret-position="1700">
           <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
           <folding>
             <marker date="1459181995086" expanded="true" signature="902:924" placeholder="select * fro... employee" />
@@ -1224,24 +1255,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
+        <state relative-caret-position="1717">
           <caret line="110" column="66" selection-start-line="97" selection-start-column="8" selection-end-line="110" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+        <state relative-caret-position="259">
+          <caret line="61" column="55" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="19" column="95" selection-start-line="19" selection-start-column="95" selection-end-line="19" selection-end-column="95" />
           <folding />
         </state>
       </provider>

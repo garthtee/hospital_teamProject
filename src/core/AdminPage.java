@@ -17,8 +17,7 @@ import java.util.ArrayList;
  */
 public class AdminPage extends JFrame implements ActionListener {
 
-    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnLogout;
-    private JLabel lblSpace;
+    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnLogout;
     private JPanel p1, p2, panelLeft, panelLeftTop;
     private JList<Employee> list;
     private JScrollPane scrollPane = new JScrollPane();
@@ -46,7 +45,7 @@ public class AdminPage extends JFrame implements ActionListener {
         JLabel lblTitle = new JLabel("Hospital Admin System");
         lblTitle.setFont(new Font("Sans Serif", Font.ITALIC, 24));
         panelLeftTop.add(lblTitle, BorderLayout.CENTER);
-        
+
         // Panel 1 //
         p1 = new JPanel();
         list = new JList(defaultListModel); //data has type Object[]
@@ -62,8 +61,7 @@ public class AdminPage extends JFrame implements ActionListener {
         });
         p1.add(scrollPane, BorderLayout.SOUTH);
         p1.setBorder(BorderFactory.createTitledBorder("Employees"));
-        
-        
+
         // Panel Left //
         panelLeft = new JPanel();
         panelLeft.add(panelLeftTop, BorderLayout.NORTH);
@@ -77,7 +75,7 @@ public class AdminPage extends JFrame implements ActionListener {
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
         p2.add(btnSearchEmp = new JButton("Search Employee"));
-        p2.add(lblSpace = new JLabel(""));
+        p2.add(btnViewEmp = new JButton("View Employee"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p2, BorderLayout.EAST);
@@ -87,6 +85,7 @@ public class AdminPage extends JFrame implements ActionListener {
         btnRemoveEmp.addActionListener(this);
         btnUpdateEmp.addActionListener(this);
         btnSearchEmp.addActionListener(this);
+        btnViewEmp.addActionListener(this);
         btnLogout.addActionListener(this);
     }
 
@@ -107,7 +106,6 @@ public class AdminPage extends JFrame implements ActionListener {
                                     + selectedEmployee.getfName() + "?",
                             "Delete employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
-                        String name = selectedEmployee.getfName();
                         dbConnection.removeEmployee(selectedEmployee);
                         defaultListModel.removeElement(selectedEmployee);
                         break;
@@ -126,19 +124,30 @@ public class AdminPage extends JFrame implements ActionListener {
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
+            case "View Employee":
+                if (selectedEmployee != null) {
+                    ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
+                    viewEmployee.setVisible(true);
+                    viewEmployee.pack();
+                    viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    viewEmployee.setLocationRelativeTo(null);
+                } else
+                    JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
+                break;
             case "Search Employee":
-                    SearchEmployeePage sp = new SearchEmployeePage(employeeList);
-                    sp.setVisible(true);
-                    sp.pack();
-                    sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    sp.setLocationRelativeTo(null);
+                SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeList);
+                searchEmployeePage.setVisible(true);
+                searchEmployeePage.pack();
+                searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                searchEmployeePage.setLocationRelativeTo(null);
+
                 break;
             case "Log Out":
-                LogInForm gui = new LogInForm();
-                gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                gui.setSize(300, 250);
-                gui.setLocationRelativeTo(null);
-                gui.setVisible(true);
+                LogInForm logInForm = new LogInForm();
+                logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                logInForm.setSize(300, 250);
+                logInForm.setLocationRelativeTo(null);
+                logInForm.setVisible(true);
                 this.dispose();
                 break;
         }

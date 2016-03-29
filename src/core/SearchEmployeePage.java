@@ -59,7 +59,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
 		case "Search": // only searches by first name
             for(Employee employee : employeeArrayList) {
                 if(employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
-                    ViewEmployee sp = new ViewEmployee(txtSearch.getText(), employee);
+                    ViewEmployee sp = new ViewEmployee(employee);
                     sp.setVisible(true);
                     sp.pack();
                     sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

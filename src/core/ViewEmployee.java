@@ -21,7 +21,7 @@ public class ViewEmployee extends JFrame implements ActionListener {
             txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID;
     private JButton btnOk;
 
-    public ViewEmployee(String employeeName, Employee employee) {
+    public ViewEmployee(Employee employee) {
 
         setTitle("View");
         setLayout(new BorderLayout());
