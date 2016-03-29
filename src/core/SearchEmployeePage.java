@@ -40,8 +40,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 selectedItem = String.valueOf(jcbSearch.getSelectedItem());
-                System.out.print("Item = " + selectedItem);
-                if (selectedItem == "Search by:") {
+                if (selectedItem.equals("Search by:")) {
                     JOptionPane.showMessageDialog(null, "You must select: \n" +
                             "ID \nFirst Name \nSurname", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -75,7 +74,6 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                 this.dispose();
                 break;
             case "Search": // only searches by first name
-
                 switch (selectedItem) {
                     case "ID":
                         for (Employee employee : employeeArrayList) {
@@ -90,7 +88,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                                 return;
                             }
                         }
-                        break;
+                    break;
                     case "First Name":
                         for (Employee employee : employeeArrayList) {
                             if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
@@ -104,7 +102,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                                 return;
                             }
                         }
-                        break;
+                    break;
                     case "Surname":
                         for (Employee employee : employeeArrayList) {
                             if (employee.getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
@@ -118,10 +116,8 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                                 return;
                             }
                         }
-                        break;
-
+                     break;
                 }
-
                 break;
         }
     }

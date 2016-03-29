@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage$1.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" afterPath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
     </list>
@@ -40,8 +41,8 @@
       <file leaf-file-name="SearchEmployeePage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+            <state relative-caret-position="-454">
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -726,7 +727,7 @@
       <workItem from="1459181999168" duration="93000" />
       <workItem from="1459183538011" duration="329000" />
       <workItem from="1459190514173" duration="1876000" />
-      <workItem from="1459261898698" duration="2764000" />
+      <workItem from="1459261898698" duration="3336000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -770,11 +771,18 @@
       <option name="project" value="LOCAL" />
       <updated>1459262738096</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Search Employee improved. User can now search by id, first name or surname.">
+      <created>1459264759882</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1459264759882</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21984000" />
+    <option name="totallyTimeSpent" value="22556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
@@ -825,7 +833,8 @@
     <MESSAGE value="Disposal of update GUI when user is finished updating." />
     <MESSAGE value="Search employee working. User cam search by first name." />
     <MESSAGE value="Created new button view employee in AdminPage - user can view all details of selected employee." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created new button view employee in AdminPage - user can view all details of selected employee." />
+    <MESSAGE value="Search Employee improved. User can now search by id, first name or surname." />
+    <option name="LAST_COMMIT_MESSAGE" value="Search Employee improved. User can now search by id, first name or surname." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1283,8 +1292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+        <state relative-caret-position="-454">
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
           <folding />
         </state>
       </provider>
