@@ -14,10 +14,12 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
     private JButton btnSearch, btnCancel;
     private JPanel panelTop, panelBottom;
     private String selectedItem;
-    private ArrayList<Employee> employeeArrayList = new ArrayList<>();
+    private ArrayList<Employee> employeeList = new ArrayList<>();
+    private ArrayList<Employee> tempList = new ArrayList<>();
+    private JComboBox<String> jcbSearch;
 
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
-        employeeArrayList = employeeList;
+        this.employeeList = employeeList;
 
         // search by id or first or last name //
 
@@ -35,15 +37,11 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
         panelTop.setLayout(new BorderLayout());
 
         String[] searches = {"Search by:", "ID", "First Name", "Surname"};
-        JComboBox<String> jcbSearch = new JComboBox<>(searches);
+        jcbSearch = new JComboBox<>(searches);
         jcbSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 selectedItem = String.valueOf(jcbSearch.getSelectedItem());
-                if (selectedItem.equals("Search by:")) {
-                    JOptionPane.showMessageDialog(null, "You must select: \n" +
-                            "ID \nFirst Name \nSurname", "Error", JOptionPane.ERROR_MESSAGE);
-                }
             }
         });
         panelTop.add(jcbSearch, BorderLayout.NORTH);
@@ -73,62 +71,77 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
             case "Cancel":
                 this.dispose();
                 break;
-            case "Search": // only searches by first name
-                switch (selectedItem) {
-                    case "ID":
-                        for (Employee employee : employeeArrayList) {
+            case "Search":
+                if (selectedItem.equals("Search by:")) {
+                    JOptionPane.showMessageDialog(null, "You must select: \n" +
+                            "ID \nFirst Name \nSurname", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                if (selectedItem.equals("ID")) {
+                    boolean employeeFound = false;
+                    for (Employee employee : employeeList) {
+                        try {
                             if (employee.getEmp_ID() == Integer.valueOf(txtSearch.getText())) {
+                                employeeFound=true;
                                 ViewEmployee sp = new ViewEmployee(employee);
                                 sp.setVisible(true);
                                 sp.pack();
                                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                 sp.setLocationRelativeTo(null);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                                jcbSearch.setSelectedIndex(0);
                                 return;
                             }
+                        } catch (NumberFormatException exception) {
+                            JOptionPane.showMessageDialog(null, "You must enter a number", "Error", JOptionPane.ERROR_MESSAGE);
+                            return;
                         }
-                    break;
-                    case "First Name":
-                        for (Employee employee : employeeArrayList) {
-                            if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
-                                ViewEmployee sp = new ViewEmployee(employee);
-                                sp.setVisible(true);
-                                sp.pack();
-                                sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                sp.setLocationRelativeTo(null);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
-                                return;
-                            }
+                    }
+                    if(!employeeFound) { // if employee not found..
+                        employeeFound=false;
+                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        jcbSearch.setSelectedIndex(0);
+                    }
+                }
+                if (selectedItem.equals("First Name")) {
+                    boolean employeeFound = false;
+                    for (Employee employee : employeeList) {
+                        if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                            employeeFound=true;
+                            ViewEmployee sp = new ViewEmployee(employee);
+                            sp.setVisible(true);
+                            sp.pack();
+                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            sp.setLocationRelativeTo(null);
+                            jcbSearch.setSelectedIndex(0);
                         }
-                    break;
-                    case "Surname":
-                        for (Employee employee : employeeArrayList) {
-                            if (employee.getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
-                                ViewEmployee sp = new ViewEmployee(employee);
-                                sp.setVisible(true);
-                                sp.pack();
-                                sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                sp.setLocationRelativeTo(null);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
-                                return;
-                            }
+                    }
+                    if(!employeeFound) { // if employee not found..
+                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        jcbSearch.setSelectedIndex(0);
+                    }
+                }
+                if (selectedItem.equals("Surname")) {
+                    boolean employeeFound = false;
+                    for (Employee employee : employeeList) {
+                        if (employee.getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                            employeeFound=true;
+                            ViewEmployee sp = new ViewEmployee(employee);
+                            sp.setVisible(true);
+                            sp.pack();
+                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            sp.setLocationRelativeTo(null);
+                            jcbSearch.setSelectedIndex(0);
                         }
-                     break;
+                    }
+                    if(!employeeFound) { // if employee not found..
+                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        jcbSearch.setSelectedIndex(0);
+                    }
                 }
                 break;
+            default:
+                JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+                break;
         }
+
     }
-
-//	// Main Method //
-//    public static void main(String[] args) {
-//		SearchEmployeePage sp = new SearchEmployeePage();
-//	    sp.setVisible(true);
-//	    sp.pack();
-//	    sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//	    sp.setLocationRelativeTo(null);
-//    }
-
 }
