@@ -105,15 +105,13 @@
       <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.354922">
-              <caret line="208" column="26" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.51554406">
+              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
               <folding>
-                <element signature="e#436#437#0" expanded="true" />
-                <element signature="e#469#470#0" expanded="true" />
-                <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-                <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-                <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-                <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+                <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+                <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+                <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+                <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
               </folding>
             </state>
           </provider>
@@ -749,7 +747,7 @@
       <workItem from="1459183538011" duration="329000" />
       <workItem from="1459190514173" duration="1876000" />
       <workItem from="1459261898698" duration="3336000" />
-      <workItem from="1459695879687" duration="3373000" />
+      <workItem from="1459695879687" duration="3527000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -811,11 +809,17 @@
       <option name="project" value="LOCAL" />
       <updated>1459698881350</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed connection error in DBConnection. A connection method was created and each method that worked with the DB used the method.">
+      <created>1459699342476</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1459699342476</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25929000" />
+    <option name="totallyTimeSpent" value="26083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -870,7 +874,8 @@
     <MESSAGE value="Search Employee error checking added." />
     <MESSAGE value="Removed a comment." />
     <MESSAGE value="Closing all resources of database  in DBConnection class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Closing all resources of database  in DBConnection class." />
+    <MESSAGE value="Fixed connection error in DBConnection. A connection method was created and each method that worked with the DB used the method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed connection error in DBConnection. A connection method was created and each method that worked with the DB used the method." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -947,12 +952,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1004,12 +1007,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1061,12 +1062,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1118,12 +1117,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1157,12 +1154,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="110" column="81" selection-start-line="110" selection-start-column="81" selection-end-line="110" selection-end-column="81" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1188,12 +1183,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1219,12 +1212,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>
@@ -1343,15 +1334,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.354922">
-          <caret line="208" column="26" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.51554406">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <marker date="1459699221080" expanded="true" signature="1001:1023" placeholder="select * fro... employee" />
-            <marker date="1459699221080" expanded="true" signature="4081:4135" placeholder="INSERT INTO employee... " />
-            <marker date="1459699221080" expanded="true" signature="6216:6253" placeholder="DELETE from " />
-            <marker date="1459699221080" expanded="true" signature="7530:7776" placeholder="UPDATE emplo... " />
+            <marker date="1459699395712" expanded="true" signature="969:991" placeholder="select * fro... employee" />
+            <marker date="1459699395712" expanded="true" signature="4049:4103" placeholder="INSERT INTO employee... " />
+            <marker date="1459699395712" expanded="true" signature="6184:6221" placeholder="DELETE from " />
+            <marker date="1459699395712" expanded="true" signature="7498:7744" placeholder="UPDATE emplo... " />
           </folding>
         </state>
       </provider>

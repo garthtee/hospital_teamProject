@@ -19,9 +19,7 @@ public class DBConnection {
     private Statement statement;
     private ResultSet resultSet;
 
-    public DBConnection() {
-        getDBConnection();
-    }
+    public DBConnection() {}
 
     private void getDBConnection() {
         try {
