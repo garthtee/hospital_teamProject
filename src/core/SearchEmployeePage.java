@@ -21,8 +21,6 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
 
-        // search by id or first or last name //
-
         setTitle("Search Employees");
         setLayout(new BorderLayout());
 
