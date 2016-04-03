@@ -39,7 +39,7 @@ public class DBConnection {
             String query = "select * from employee;";
             resultSet = statement.executeQuery(query);
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 int emp_id = resultSet.getInt("emp_ID");
                 String fName = resultSet.getString("fName");
                 String sName = resultSet.getString("sName");
@@ -81,6 +81,25 @@ public class DBConnection {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         return employeeList;
@@ -107,12 +126,31 @@ public class DBConnection {
             preparedStatement.setInt(11, 0);
             preparedStatement.setString(12, "none");
             preparedStatement.setInt(13, ward_IDIn);
-            System.out.print("Details; \n" + fNameIn +" " + sNameIn +" " + sqlDate.toString() +" " + contactNumIn +" " + emailIn +" " + numHolidaysIn +" " + contractHoursIn +" " + salary +" " + ward_IDIn);
+            System.out.print("Details; \n" + fNameIn + " " + sNameIn + " " + sqlDate.toString() + " " + contactNumIn + " " + emailIn + " " + numHolidaysIn + " " + contractHoursIn + " " + salary + " " + ward_IDIn);
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print("Catch");
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -124,13 +162,32 @@ public class DBConnection {
             preparedStatement.setInt(1, employee.getEmp_ID());
             int count = preparedStatement.executeUpdate();
 
-            if(count > 0)
+            if (count > 0)
                 JOptionPane.showMessageDialog(null, name + " has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
             else
                 JOptionPane.showMessageDialog(null, "Employee not removed.", "Error", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
             e.getStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -139,7 +196,7 @@ public class DBConnection {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("UPDATE employee SET fName = ?, sName = ?, " +
                     "DOB = ?, contactNum = ?, email = ?, numHolidays = ?, contractHours = ?, " +
-                    "salary = ?, onHoliday = ?, offSick = ?, lastShift = ?, ward_ID = ? WHERE emp_ID = " + employee.getEmp_ID() +";");
+                    "salary = ?, onHoliday = ?, offSick = ?, lastShift = ?, ward_ID = ? WHERE emp_ID = " + employee.getEmp_ID() + ";");
             preparedStatement.setString(1, employee.getfName());
             preparedStatement.setString(2, employee.getsName());
 
@@ -157,13 +214,32 @@ public class DBConnection {
             preparedStatement.setInt(12, employee.getWard_ID());
             int count = preparedStatement.executeUpdate();
 
-            if(count > 0)
+            if (count > 0)
                 JOptionPane.showMessageDialog(null, "Employee updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
             else
                 JOptionPane.showMessageDialog(null, "Employee not updated.", "Error", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
