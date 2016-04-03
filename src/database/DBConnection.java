@@ -20,6 +20,10 @@ public class DBConnection {
     private ResultSet resultSet;
 
     public DBConnection() {
+        getDBConnection();
+    }
+
+    private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -32,6 +36,8 @@ public class DBConnection {
     }
 
     public ArrayList<Employee> getEmployees() {
+
+        getDBConnection();
 
         ArrayList<Employee> employeeList = new ArrayList<>();
 
@@ -107,6 +113,9 @@ public class DBConnection {
 
     public void createEmployee(String fNameIn, String sNameIn, Calendar DOBIn, String contactNumIn, String emailIn,
                                double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn) {
+
+        getDBConnection();
+
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
@@ -155,6 +164,9 @@ public class DBConnection {
     }
 
     public void removeEmployee(Employee employee) {
+
+        getDBConnection();
+
         try {
             String name = employee.getfName();
             PreparedStatement preparedStatement;
@@ -169,7 +181,8 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        } finally {
+        }
+        finally {
             try {
                 if (resultSet != null)
                     resultSet.close();
@@ -192,6 +205,9 @@ public class DBConnection {
     }
 
     public void updateEmployee(Employee employee) {
+
+        getDBConnection();
+
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("UPDATE employee SET fName = ?, sName = ?, " +
