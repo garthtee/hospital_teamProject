@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
- * Created by garth on 3/2/2016.
+ * Created by Group 5 on 3/2/2016.
  */
 public class CreateEmployee extends JFrame implements ActionListener {
 

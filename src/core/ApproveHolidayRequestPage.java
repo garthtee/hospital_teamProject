@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by garth on 04/03/2016.
+ * Created by Group 5 on 04/03/2016.
  */
 public class ApproveHolidayRequestPage extends JFrame {
 

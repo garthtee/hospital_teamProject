@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
- * Created by garth on 10/03/2016.
+ * Created by Group 5 on 10/03/2016.
  */
 public class DBConnection {
 
@@ -86,24 +86,9 @@ public class DBConnection {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (resultSet != null)
-                    resultSet.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
 
         return employeeList;
@@ -140,24 +125,9 @@ public class DBConnection {
             e.printStackTrace();
             System.out.print("Catch");
         } finally {
-            try {
-                if (resultSet != null)
-                    resultSet.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
     }
 
@@ -181,24 +151,9 @@ public class DBConnection {
             e.getStackTrace();
         }
         finally {
-            try {
-                if (resultSet != null)
-                    resultSet.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
     }
 
@@ -236,31 +191,34 @@ public class DBConnection {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (resultSet != null)
-                    resultSet.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (connection != null)
-                    connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
     }
 
-    public void closeDatabase() {
+    private void closeConnection() {
         try {
             connection.close();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeStatement() {
+        try {
+            if (statement != null)
+                statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeResultSet() {
+        try {
+            if (resultSet != null)
+                resultSet.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

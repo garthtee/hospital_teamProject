@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Created by Garth Toland on 3/1/16.
+ * Created by Group 5 on 3/1/16.
  * Description:
  */
 public class AdminPage extends JFrame implements ActionListener {

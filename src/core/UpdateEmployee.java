@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
- * Created by garth on 03/03/2016.
+ * Created by Group 5 on 03/03/2016.
  */
 public class UpdateEmployee extends JFrame implements ActionListener {
 
@@ -120,6 +120,11 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "Cancel":
                 this.dispose();
+                AdminPage adminPage = new AdminPage();
+                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                adminPage.setSize(600, 500);
+                adminPage.setLocationRelativeTo(null);
+                adminPage.setVisible(true);
                 break;
             case "Update":
                 // Creating a calendar object and parsing the date text entered by user
@@ -147,12 +152,12 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 // Update employee details in DB
                 DBConnection dbConnection = new DBConnection();
                 dbConnection.updateEmployee(employee);
-                AdminPage adminPage = new AdminPage();
-                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                adminPage.setSize(600, 500);
-                adminPage.setLocationRelativeTo(null);
-                adminPage.setVisible(true);
                 this.dispose();
+                AdminPage adminPage1 = new AdminPage();
+                adminPage1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                adminPage1.setSize(600, 500);
+                adminPage1.setLocationRelativeTo(null);
+                adminPage1.setVisible(true);
                 break;
         }
     }

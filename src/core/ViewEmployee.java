@@ -1,17 +1,13 @@
 package core;
 
-import database.DBConnection;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 /**
- * Created by garth on 3/3/2016.
+ * Created by Group 5 on 3/3/2016.
  */
 public class ViewEmployee extends JFrame implements ActionListener {
 

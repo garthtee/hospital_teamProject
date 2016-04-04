@@ -3,7 +3,7 @@ package core;
 import java.util.Calendar;
 
 /**
- * Created by team on 3/1/16.
+ * Created by Group 5 on 3/1/16.
  */
 public class Shift {
 

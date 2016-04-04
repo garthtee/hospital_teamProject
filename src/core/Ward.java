@@ -1,7 +1,7 @@
 package core;
 
 /**
- * Created by garthtee on 3/1/16.
+ * Created by Group 5 on 3/1/16.
  */
 public class Ward {
 
