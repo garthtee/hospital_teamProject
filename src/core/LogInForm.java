@@ -1,10 +1,13 @@
 package core;
 
+import database.DBConnection;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class LogInForm extends JFrame implements ActionListener {
 
@@ -13,13 +16,14 @@ public class LogInForm extends JFrame implements ActionListener {
     private JPanel panel0, panel1, panel2, panel3;
     private JLabel lblTitle, lblUsername, lblPassword;
     private JButton btnLogin, btnCancel;
+    private DBConnection dbConnection = new DBConnection();
 
     /**
      * Initialize the contents of the frame.
      */
     public LogInForm() {
         setTitle("STAFF  - Welcome");
-        setLayout(new GridLayout(4,1));
+        setLayout(new GridLayout(4, 1));
 
         // PANEL 0
         panel0 = new JPanel();
@@ -70,30 +74,41 @@ public class LogInForm extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Login":
-                if (txtUsername.getText().equals("1234") && txtPassword.getText().equals("1234")) {
-                    EmployeePage gui = new EmployeePage();
-                    gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    gui.setSize(600, 500);
-                    gui.setLocationRelativeTo(null);
-                    gui.setVisible(true);
-                    this.dispose();
+                try {
+                    ArrayList<String> resultList = new ArrayList<>();
+                    resultList = dbConnection.getLoginExistence(Integer.valueOf(txtUsername.getText()), new String(txtPassword.getPassword()));
+                    String existence = resultList.get(0);
+                    String privilege = resultList.get(1);
 
-                }
-                //Admin Log On
-                else if (txtUsername.getText().equals("4321") && txtPassword.getText().equals("4321")) {
-                    AdminPage gui = new AdminPage();
-                    gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    gui.setSize(600, 500);
-                    gui.setLocationRelativeTo(null);
-                    gui.setVisible(true);
-                    this.dispose();
+                    if (existence.equals("true")) {
+                        switch (privilege) {
+                            case "employee":
+                                EmployeePage employeePage = new EmployeePage();
+                                employeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                employeePage.setSize(600, 500);
+                                employeePage.setLocationRelativeTo(null);
+                                employeePage.setVisible(true);
+                                this.dispose();
+                                break;
+                            case "admin":
+                                AdminPage adminPage = new AdminPage();
+                                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                adminPage.setSize(600, 500);
+                                adminPage.setLocationRelativeTo(null);
+                                adminPage.setVisible(true);
+                                this.dispose();
+                                break;
+                        }
+                    }
+                } catch (NumberFormatException exception) {
+                    JOptionPane.showMessageDialog(null, "Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case "Cancel":
                 this.dispose();
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Incorrect login details!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Incorrect login details.", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }

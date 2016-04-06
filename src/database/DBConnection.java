@@ -57,6 +57,9 @@ public class DBConnection {
                 Double offSick = resultSet.getDouble("offSick");
                 int ward_ID = resultSet.getInt("ward_ID");
 
+                String password = resultSet.getString("password");
+                String privilege = resultSet.getString("privilege");
+
                 Employee employee = new Employee();
                 employee.setEmp_ID(emp_id);
                 employee.setfName(fName);
@@ -80,6 +83,8 @@ public class DBConnection {
                 employee.setOnHoliday(onHoliday);
                 employee.setOffSick(offSick);
                 employee.setWard_ID(ward_ID);
+                employee.setPassword(password);
+                employee.setPrivilege(privilege);
 
                 employeeList.add(employee);
             }
@@ -95,13 +100,13 @@ public class DBConnection {
     }
 
     public void createEmployee(String fNameIn, String sNameIn, Calendar DOBIn, String contactNumIn, String emailIn,
-                               double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn) {
+                               double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn, String password, String privilege) {
 
         getDBConnection();
 
         try {
             PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
             preparedStatement.setString(2, fNameIn);
             preparedStatement.setString(3, sNameIn);
@@ -118,7 +123,9 @@ public class DBConnection {
             preparedStatement.setInt(11, 0);
             preparedStatement.setString(12, "none");
             preparedStatement.setInt(13, ward_IDIn);
-            System.out.print("Details; \n" + fNameIn + " " + sNameIn + " " + sqlDate.toString() + " " + contactNumIn + " " + emailIn + " " + numHolidaysIn + " " + contractHoursIn + " " + salary + " " + ward_IDIn);
+            preparedStatement.setString(14, password);
+            preparedStatement.setString(15, privilege);
+//            System.out.print("Details; \n" + fNameIn + " " + sNameIn + " " + sqlDate.toString() + " " + contactNumIn + " " + emailIn + " " + numHolidaysIn + " " + contractHoursIn + " " + salary + " " + ward_IDIn);
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
@@ -165,7 +172,7 @@ public class DBConnection {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("UPDATE employee SET fName = ?, sName = ?, " +
                     "DOB = ?, contactNum = ?, email = ?, numHolidays = ?, contractHours = ?, " +
-                    "salary = ?, onHoliday = ?, offSick = ?, lastShift = ?, ward_ID = ? WHERE emp_ID = " + employee.getEmp_ID() + ";");
+                    "salary = ?, onHoliday = ?, offSick = ?, lastShift = ?, ward_ID = ?, password = ?, privilege = ? WHERE emp_ID = " + employee.getEmp_ID() + ";");
             preparedStatement.setString(1, employee.getfName());
             preparedStatement.setString(2, employee.getsName());
 
@@ -181,6 +188,8 @@ public class DBConnection {
             preparedStatement.setDouble(10, employee.isOffSick());
             preparedStatement.setString(11, employee.getLastShift());
             preparedStatement.setInt(12, employee.getWard_ID());
+            preparedStatement.setString(13, employee.getPassword());
+            preparedStatement.setString(14, employee.getPrivilege());
             int count = preparedStatement.executeUpdate();
 
             if (count > 0)
@@ -195,6 +204,44 @@ public class DBConnection {
             closeStatement();
             closeConnection();
         }
+    }
+
+    public ArrayList<String> getLoginExistence(int username, String password) {
+
+        getDBConnection();
+
+        String exists = "false";
+        String privilege = "null";
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("SELECT * FROM employee WHERE emp_id = ? AND password = ?");
+            preparedStatement.setInt(1, username);
+            preparedStatement.setString(2, password);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                privilege = resultSet.getString("privilege");
+            }
+
+            resultSet.beforeFirst();
+
+            if (resultSet.next())
+                exists = "true";
+            else
+                exists = "false";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+        ArrayList<String> resultList = new ArrayList<>();
+        resultList.add(exists);
+        resultList.add(privilege);
+        return resultList;
     }
 
     private void closeConnection() {

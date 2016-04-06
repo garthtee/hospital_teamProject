@@ -19,9 +19,9 @@ public class UpdateEmployee extends JFrame implements ActionListener {
 
     private JButton btnUpdate, btnCancel;
     private JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
-            lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID;
+            lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege;
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID;
+            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege;
 
     public UpdateEmployee(Employee employee) {
 
@@ -30,7 +30,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(12, 2));
+        p1.setLayout(new GridLayout(14, 2));
         lblID = new JLabel("ID: ");
         txtID = new JTextField();
         lblFname = new JLabel("First Name: ");
@@ -55,6 +55,10 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtOffSick = new JTextField();
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
+        lblPassword = new JLabel("Password: ");
+        txtPassword = new JTextField();
+        lblPrivilege = new JLabel("Privilege: ");
+        txtPrivilege = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblID);
@@ -81,6 +85,10 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         p1.add(txtOffSick);
         p1.add(lblWard_ID);
         p1.add(txtWard_ID);
+        p1.add(lblPassword);
+        p1.add(txtPassword);
+        p1.add(lblPrivilege);
+        p1.add(txtPrivilege);
         add(p1, BorderLayout.NORTH);
 
         // Panel 2 //
@@ -109,6 +117,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtOnHoliday.setText(String.valueOf(employee.isOnHoliday()));
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
+        txtPassword.setText(employee.getPassword());
+        txtPrivilege.setText(employee.getPrivilege());
 
         // Setting ID to be uneditable
         txtID.setEditable(false);
@@ -149,6 +159,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 employee.setOnHoliday(Double.valueOf(txtOnHoliday.getText()));
                 employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                 employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
+                employee.setPassword(txtPassword.getText());
+                employee.setPrivilege(txtPrivilege.getText());
                 // Update employee details in DB
                 DBConnection dbConnection = new DBConnection();
                 dbConnection.updateEmployee(employee);
