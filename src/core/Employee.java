@@ -164,20 +164,6 @@ public class Employee {
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return "Employee{" +
-                "emp_ID=" + emp_ID +
-                ", fName='" + fName + '\'' +
-                ", sName='" + sName + '\'' +
-                ", DOB=" + sdf.format(DOB.getTime()) +
-                ", contactNum='" + contactNum + '\'' +
-                ", email='" + email + '\'' +
-                ", numHolidays=" + numHolidays +
-                ", contractHours=" + contractHours +
-                ", salary=" + salary +
-                ", onHoliday=" + onHoliday +
-                ", offSick=" + offSick +
-                ", lastShift='" + lastShift + '\'' +
-                ", ward_ID=" + ward_ID +
-                '}';
+        return emp_ID + "   " + fName + "   "+ sName;
     }
 }
