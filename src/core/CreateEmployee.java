@@ -17,8 +17,10 @@ import java.util.Calendar;
  */
 public class CreateEmployee extends JFrame implements ActionListener {
 
-    private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID;
-    private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID;
+    private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID,
+            lblPassword, lblPrivilege;
+    private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
+            txtPassword, txtPrivilege;
     private JButton btnCreate, btnCancel;
 
     public CreateEmployee() {
@@ -28,7 +30,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(9, 2));
+        p1.setLayout(new GridLayout(11, 2));
         lblFname = new JLabel("First Name: ");
         txtFName = new JTextField();
         lblSname = new JLabel("Surname: ");
@@ -47,6 +49,10 @@ public class CreateEmployee extends JFrame implements ActionListener {
         txtSalary = new JTextField();
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
+        lblPassword = new JLabel("Password: ");
+        txtPassword = new JTextField();
+        lblPrivilege = new JLabel("Privilege: ");
+        txtPrivilege = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblFname);
@@ -67,6 +73,10 @@ public class CreateEmployee extends JFrame implements ActionListener {
         p1.add(txtSalary);
         p1.add(lblWard_ID);
         p1.add(txtWard_ID);
+        p1.add(lblPassword);
+        p1.add(txtPassword);
+        p1.add(lblPrivilege);
+        p1.add(txtPrivilege);
 
         p1.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p1, BorderLayout.NORTH);
@@ -98,7 +108,8 @@ public class CreateEmployee extends JFrame implements ActionListener {
                 }
                 dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
                                             txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
-                                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()));
+                                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
+                                            txtPassword.getText(), txtPrivilege.getText());
                 this.dispose();
                 AdminPage adminPage = new AdminPage();
                 adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

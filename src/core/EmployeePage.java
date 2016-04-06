@@ -25,12 +25,7 @@ public class EmployeePage extends JFrame implements ActionListener {
 		
 			setLayout(new BorderLayout());
 	        setTitle("Employee Home Page");
-		
-	        
-	        
-	        
-	        
-	        
+
 	        title = new JPanel();
 	        JLabel lblTitle = new JLabel("Staff Home Page");
 	        lblTitle.setFont(new Font("Sans Serif", Font.ITALIC, 24));

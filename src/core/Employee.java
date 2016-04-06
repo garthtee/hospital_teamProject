@@ -17,6 +17,8 @@ public class Employee {
 	private Double offSick = 0.0;
 	private String lastShift;
 	private int ward_ID;
+	private String password;
+	private String privilege;
 
     public Employee(){}
 
@@ -40,7 +42,7 @@ public class Employee {
 	}
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, Double onHoliday, Double offSick, int ward_ID) {
+                    int contractHours, double salary, Double onHoliday, Double offSick, int ward_ID, String password, String privilege) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -55,6 +57,8 @@ public class Employee {
 		this.onHoliday = 0.0;
 		this.offSick = 0.0;
 		this.ward_ID = ward_ID;
+		this.password = password;
+		this.privilege = privilege;
 	}
 
 	public int getEmp_ID() {
@@ -161,7 +165,23 @@ public class Employee {
         this.ward_ID = ward_ID;
     }
 
-    @Override
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPrivilege() {
+		return privilege;
+	}
+
+	public void setPrivilege(String privilege) {
+		this.privilege = privilege;
+	}
+
+	@Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return emp_ID + "   " + fName + "   "+ sName;
