@@ -86,6 +86,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                 sp.setLocationRelativeTo(null);
                                 jcbSearch.setSelectedIndex(0);
+                                this.dispose();
                                 return;
                             }
                         } catch (NumberFormatException exception) {
@@ -95,7 +96,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                     }
                     if(!employeeFound) { // if employee not found..
                         employeeFound=false;
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }
@@ -117,7 +120,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }
@@ -139,7 +144,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }
