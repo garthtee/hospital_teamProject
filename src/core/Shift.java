@@ -7,14 +7,22 @@ import java.util.Calendar;
  */
 public class Shift {
 
+
+
     private int shift_ID;
-    private Calendar startTime;
-    private Calendar endTime;
+    private String startTime;
+    private String endTime;
     private String shiftType;
     private int reqDoctors;
     private int reqNurses;
+    private int ward_ID;
+    private String dayOfWeek;
 
-    public Shift(Calendar startTime, Calendar endTime, String shiftType, int reqDoctors, int reqNurses) {
+    public Shift(){
+
+    }
+
+    public Shift(String startTime, String endTime, String shiftType, int reqDoctors, int reqNurses) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.shiftType = shiftType;
@@ -26,19 +34,23 @@ public class Shift {
         return shift_ID;
     }
 
-    public Calendar getStartTime() {
+    public void setShift_ID(int shift_ID) {
+        this.shift_ID = shift_ID;
+    }
+
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Calendar startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Calendar getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Calendar endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -64,6 +76,22 @@ public class Shift {
 
     public void setReqNurses(int reqNurses) {
         this.reqNurses = reqNurses;
+    }
+
+    public int ward_ID() {
+        return ward_ID;
+    }
+
+    public void setWard_ID(int ward_ID) {
+        this.ward_ID = ward_ID;
+    }
+
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(String dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
 	@Override
