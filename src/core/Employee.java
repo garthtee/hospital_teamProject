@@ -1,6 +1,5 @@
 package core;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Employee {
@@ -182,8 +181,8 @@ public class Employee {
 	}
 
 	@Override
-    public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return fName;
-    }
+	public String toString() {
+		return "Employee " + emp_ID +
+				": " + fName + " " + sName;
+	}
 }

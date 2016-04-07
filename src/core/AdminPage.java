@@ -104,7 +104,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 if (selectedEmployee != null) { // if an employee is selected
                     int chosenOption = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove "
                                     + selectedEmployee.getfName() + "?",
-                            "Delete employee", JOptionPane.YES_NO_OPTION);
+                            "Remove employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
                         dbConnection.removeEmployee(selectedEmployee);
                         defaultListModel.removeElement(selectedEmployee);
@@ -153,12 +153,12 @@ public class AdminPage extends JFrame implements ActionListener {
         }
     }
 
-    // Main Method //
-    public static void main(String[] args) {
-        AdminPage gui = new AdminPage();
-        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        gui.setSize(600, 500);
-        gui.setLocationRelativeTo(null);
-        gui.setVisible(true);
-    }
+//    // Main Method //
+//    public static void main(String[] args) {
+//        AdminPage gui = new AdminPage();
+//        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        gui.setSize(600, 500);
+//        gui.setLocationRelativeTo(null);
+//        gui.setVisible(true);
+//    }
 }
