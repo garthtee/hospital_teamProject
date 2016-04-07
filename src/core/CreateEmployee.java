@@ -98,28 +98,45 @@ public class CreateEmployee extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
-                Calendar calendar = Calendar.getInstance();
-                DBConnection dbConnection = new DBConnection();
-                try { // try parsing the string to a Calendar object
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    calendar.setTime(dateFormat.parse(txtDOB.getText()));
-                } catch (ParseException exception) {
-                    exception.printStackTrace();
+                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                    JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(txtDOB.getText().length() < 10) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid date.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(!txtDOB.getText().contains("-")) {
+                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(txtContactNum.getText().length() < 7) {
+                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }  else {
+                    Calendar calendar = Calendar.getInstance();
+                    DBConnection dbConnection = new DBConnection();
+                    try { // try parsing the string to a Calendar object
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        calendar.setTime(dateFormat.parse(txtDOB.getText()));
+                    } catch (ParseException exception) {
+                        exception.printStackTrace();
+                    }
+                    dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
+                            txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
+                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
+                            txtPassword.getText(), txtPrivilege.getText());
+                    this.dispose();
+                    AdminPage adminPage = new AdminPage();
+                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    adminPage.setSize(600, 500);
+                    adminPage.setLocationRelativeTo(null);
+                    adminPage.setVisible(true);
                 }
-                dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
-                                            txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
-                                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                                            txtPassword.getText(), txtPrivilege.getText());
-                this.dispose();
-                AdminPage adminPage = new AdminPage();
-                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                adminPage.setSize(600, 500);
-                adminPage.setLocationRelativeTo(null);
-                adminPage.setVisible(true);
                 break;
             case "Cancel":
                 this.dispose(); // disposes the create employee frame
-                adminPage = new AdminPage();
+                AdminPage adminPage = new AdminPage();
                 adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 adminPage.setSize(600, 500);
                 adminPage.setLocationRelativeTo(null);
