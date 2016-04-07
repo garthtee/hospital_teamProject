@@ -108,7 +108,7 @@ public class EmployeePage extends JFrame implements ActionListener {
         case "Log Out":
         	LogInForm form = new LogInForm();
 			form.setVisible(true);
-			form.pack();
+			form.setSize(300, 250);
 			form.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			form.setLocationRelativeTo(null);
             this.dispose();
