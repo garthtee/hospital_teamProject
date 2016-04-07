@@ -15,8 +15,8 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
     private JPanel panelTop, panelBottom;
     private String selectedItem;
     private ArrayList<Employee> employeeList = new ArrayList<>();
-    private ArrayList<Employee> tempList = new ArrayList<>();
     private JComboBox<String> jcbSearch;
+    ArrayList<Employee> tempList = new ArrayList<>();;
 
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
@@ -100,18 +100,21 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                     }
                 }
                 if (selectedItem.equals("First Name")) {
+                    tempList.clear();
                     boolean employeeFound = false;
-                    for (Employee employee : employeeList) {
-                        if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                    for (int i =0; i <= employeeList.size()-1; i++) {
+                        if (employeeList.get(i).getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
                             employeeFound=true;
-
-                            ViewEmployee sp = new ViewEmployee(employee);
-                            sp.setVisible(true);
-                            sp.pack();
-                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            sp.setLocationRelativeTo(null);
-                            jcbSearch.setSelectedIndex(0);
+                            tempList.add(employeeList.get(i));
                         }
+                    }
+                    if (tempList.size() > 0) {
+                        ViewEmployees gui = new ViewEmployees(tempList, txtSearch.getText());
+                        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        gui.pack();
+                        gui.setLocationRelativeTo(null);
+                        gui.setVisible(true);
+                        jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..
                         JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -119,17 +122,21 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                     }
                 }
                 if (selectedItem.equals("Surname")) {
+                    tempList.clear();
                     boolean employeeFound = false;
-                    for (Employee employee : employeeList) {
-                        if (employee.getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                    for (int i =0; i <= employeeList.size()-1; i++) {
+                        if (employeeList.get(i).getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
                             employeeFound=true;
-                            ViewEmployee sp = new ViewEmployee(employee);
-                            sp.setVisible(true);
-                            sp.pack();
-                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            sp.setLocationRelativeTo(null);
-                            jcbSearch.setSelectedIndex(0);
+                            tempList.add(employeeList.get(i));
                         }
+                    }
+                    if (tempList.size() > 0) {
+                        ViewEmployees gui = new ViewEmployees(tempList, txtSearch.getText());
+                        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        gui.pack();
+                        gui.setLocationRelativeTo(null);
+                        gui.setVisible(true);
+                        jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..
                         JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);

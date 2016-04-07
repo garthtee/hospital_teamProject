@@ -99,6 +99,14 @@ public class LogInForm extends JFrame implements ActionListener {
                                     adminPage.setVisible(true);
                                     this.dispose();
                                     break;
+                                case "manager":
+                                    E_ManagerPage e_managerPage = new E_ManagerPage();
+                                    e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    e_managerPage.setSize(650, 500);
+                                    e_managerPage.setLocationRelativeTo(null);
+                                    e_managerPage.setVisible(true);
+                                    this.dispose();
+                                    break;
                             }
                         }
                     } catch (NumberFormatException exception) {

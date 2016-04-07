@@ -74,7 +74,7 @@ public class AdminPage extends JFrame implements ActionListener {
         p2.add(btnAddEmp = new JButton("Add Employee"));
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
-        p2.add(btnSearchEmp = new JButton("Search Employee"));
+        p2.add(btnSearchEmp = new JButton("Search Employees"));
         p2.add(btnViewEmp = new JButton("View Employee"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -134,10 +134,10 @@ public class AdminPage extends JFrame implements ActionListener {
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
-            case "Search Employee":
+            case "Search Employees":
                 SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeList);
                 searchEmployeePage.setVisible(true);
-                searchEmployeePage.pack();
+                searchEmployeePage.setSize(300, 165);
                 searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 searchEmployeePage.setLocationRelativeTo(null);
 
