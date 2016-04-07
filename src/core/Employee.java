@@ -184,6 +184,6 @@ public class Employee {
 	@Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return emp_ID + "   " + fName + "   "+ sName;
+        return fName;
     }
 }

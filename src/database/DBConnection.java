@@ -244,6 +244,60 @@ public class DBConnection {
         return resultList;
     }
 
+    public void createClockInTime(int emp_ID, Calendar startTime){
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
+            preparedStatement.setInt(1,emp_ID);
+
+            java.sql.Date sqlDate = new java.sql.Date(startTime.getTimeInMillis());
+            preparedStatement.setDate(2,sqlDate);
+
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+    }
+
+    public void createClockOutTime(int emp_ID, Calendar endTime){
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
+
+            preparedStatement.setInt(1,emp_ID);
+
+            java.sql.Date sqlDate = new java.sql.Date(endTime.getTimeInMillis());
+            preparedStatement.setDate(2,sqlDate);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+    }
+
     private void closeConnection() {
         try {
             connection.close();

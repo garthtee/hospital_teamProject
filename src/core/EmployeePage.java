@@ -1,11 +1,15 @@
 package core;
 
+import database.DBConnection;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class EmployeePage extends JFrame implements ActionListener {
 
@@ -17,6 +21,7 @@ public class EmployeePage extends JFrame implements ActionListener {
     private JButton btnBookHoliday, btnClockIn, btnLogout;
     private JLabel lblSpace;
 	private Employee loggedInEmp;
+	private DBConnection dbConnection;
 	private ArrayList<Employee> listOfShifts = new ArrayList<>();
 	
 	
@@ -82,39 +87,54 @@ public class EmployeePage extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		long startTime=0, endTime=0;
+
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss.SSS");
 		switch (e.getActionCommand()) {
-        /*case "Clock In":
-        	int counter=1;
-        	counter++;
-        	if(counter%2==0){
-        		StopWatch.start();
-        	}  
-        	else{
-        		StopWatch.stop();
-        		
-        		StopWatch.getElapsedTime();
-        	}
-        	
-        	
-        	break;*/
-        case "Request Holiday":
-        	bookHolidays sp = new bookHolidays();
-            sp.setVisible(true);
-            sp.pack();
-            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            sp.setLocationRelativeTo(null);
-        	break;
-        case "Log Out":
-        	LogInForm form = new LogInForm();
-			form.setVisible(true);
-			form.setSize(300, 250);
-			form.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			form.setLocationRelativeTo(null);
-            this.dispose();
-        	
-        	break;
+			case "Clock In":
+
+				startTime = System.currentTimeMillis();
+				calendar.setTimeInMillis(startTime);
+				formatter.format(calendar.getTime());
+				btnClockIn.setText("Clock Out");
+				JOptionPane.showMessageDialog( null,"Clock in time: " +formatter.format(calendar.getTime()));
+
+				dbConnection.createClockInTime(1, calendar); //just passing the value one rather than actual user ID
+
+				break;
+			case "Clock Out":
+
+				endTime= System.currentTimeMillis();
+				JOptionPane.showMessageDialog( null,"Clock out time: "+ formatter.format(calendar.getTime()));
+				calendar.setTimeInMillis(endTime);
+				formatter.format(calendar.getTime());
+				btnClockIn.setText("Clock In");
+
+				//System.getProperty("user_ID");
+				dbConnection.createClockOutTime(1,calendar);
+
+				break;
+			case "Request Holiday":
+				bookHolidays sp = new bookHolidays();
+				sp.setVisible(true);
+				sp.pack();
+				sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				sp.setLocationRelativeTo(null);
+				break;
+			case "Log Out":
+				LogInForm logInForm = new LogInForm();
+				logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				logInForm.setSize(300, 250);
+				logInForm.setLocationRelativeTo(null);
+				logInForm.setVisible(true);
+				this.dispose();
+				break;
+
+
 		}
-	
+
 	}
+	
+
 }
