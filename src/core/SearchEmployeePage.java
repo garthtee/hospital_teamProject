@@ -104,6 +104,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                     for (Employee employee : employeeList) {
                         if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
                             employeeFound=true;
+
                             ViewEmployee sp = new ViewEmployee(employee);
                             sp.setVisible(true);
                             sp.pack();

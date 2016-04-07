@@ -231,7 +231,7 @@ public class DBConnection {
             if (resultSet.next())
                 exists = "true";
             else
-                exists = "false";
+                JOptionPane.showMessageDialog(null, "Login incorrect or no user exists.", "Incorrect Login", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
             e.printStackTrace();

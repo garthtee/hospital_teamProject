@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="Login working for employee only.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/EmployeePage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/EmployeePage.class" />
+    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="Added login error handling.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/CreateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/CreateEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/LogInForm.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/LogInForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/CreateEmployee.java" afterPath="$PROJECT_DIR$/src/core/CreateEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Employee.java" afterPath="$PROJECT_DIR$/src/core/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/EmployeePage.java" afterPath="$PROJECT_DIR$/src/core/EmployeePage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/LogInForm.java" afterPath="$PROJECT_DIR$/src/core/LogInForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateEmployee.java" afterPath="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" afterPath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
@@ -34,40 +33,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
+      <file leaf-file-name="AdminPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="101" selection-start-line="44" selection-start-column="101" selection-end-line="44" selection-end-column="134" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogInForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="140" selection-start-line="78" selection-start-column="140" selection-end-line="78" selection-end-column="140" />
+              <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ViewEmployee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogInForm.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34991422">
+              <caret line="79" column="132" selection-start-line="79" selection-start-column="117" selection-end-line="79" selection-end-column="132" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57118356">
-              <caret line="195" column="117" selection-start-line="195" selection-start-column="117" selection-end-line="195" selection-end-column="117" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="226" column="36" selection-start-line="226" selection-start-column="36" selection-end-line="226" selection-end-column="36" />
               <folding>
-                <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-                <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-                <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-                <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-                <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-                <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+                <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+                <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+                <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+                <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+                <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+                <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
               </folding>
             </state>
           </provider>
@@ -77,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/core/CreateEmployee.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="78" selection-end-column="29" />
+              <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -88,6 +95,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Nurse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -118,7 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
         <option value="$PROJECT_DIR$/src/core/AdminPage.java" />
         <option value="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" />
         <option value="$PROJECT_DIR$/src/core/AssignEmployees.java" />
@@ -127,11 +143,15 @@
         <option value="$PROJECT_DIR$/src/core/ViewEmployee.java" />
         <option value="$PROJECT_DIR$/src/core/Ward.java" />
         <option value="$PROJECT_DIR$/src/core/EmployeePage.java" />
-        <option value="$PROJECT_DIR$/src/core/LogInForm.java" />
-        <option value="$PROJECT_DIR$/src/core/Employee.java" />
         <option value="$PROJECT_DIR$/src/core/CreateEmployee.java" />
         <option value="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
+        <option value="$PROJECT_DIR$/src/core/ManagerPage.java" />
         <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/core/LogInForm.java" />
+        <option value="$PROJECT_DIR$/src/core/Employee.java" />
+        <option value="$PROJECT_DIR$/src/core/ViewEmployeesScroller.java" />
+        <option value="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
+        <option value="$PROJECT_DIR$/src/core/ViewEmployees.java" />
       </list>
     </option>
   </component>
@@ -171,6 +191,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,9 +250,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -778,7 +798,8 @@
       <workItem from="1459760437229" duration="1310000" />
       <workItem from="1459868515473" duration="2351000" />
       <workItem from="1459931722969" duration="3092000" />
-      <workItem from="1459975288232" duration="4819000" />
+      <workItem from="1459975288232" duration="5019000" />
+      <workItem from="1460017984282" duration="4673000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -864,15 +885,21 @@
       <option name="project" value="LOCAL" />
       <updated>1459931838471</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Login working for employee and admin. All admin functions (e.g. update create) edited accordingly.">
+      <created>1459980699664</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1459980699664</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38027000" />
+    <option name="totallyTimeSpent" value="42900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -884,7 +911,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32242227" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -927,7 +954,9 @@
     <MESSAGE value="Removed the get connection method in constructor as it's not needed." />
     <MESSAGE value="Comments updated to &quot;Group 5&quot;. UpdateEmployee panel cancel button now takes user back to AdminPanel." />
     <MESSAGE value="To String edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="To String edited." />
+    <MESSAGE value="Login working for employee and admin. All admin functions (e.g. update create) edited accordingly." />
+    <MESSAGE value="Added login error handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added login error handling." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -938,34 +967,17 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1016,12 +1028,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1072,12 +1084,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1128,12 +1140,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1167,12 +1179,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="110" column="81" selection-start-line="110" selection-start-column="81" selection-end-line="110" selection-end-column="81" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1198,12 +1210,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1229,12 +1241,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
         </state>
       </provider>
@@ -1263,22 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AssignEmployeeToWard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03773585">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AssignEmployees.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1457976">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AssignToWard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02915952">
@@ -1303,34 +1299,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46655232">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Shift.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02915952">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1457976">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1351,36 +1323,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+    <entry file="file://$PROJECT_DIR$/src/core/AssignEmployees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02915952">
-          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+    <entry file="file://$PROJECT_DIR$/src/core/AssignEmployeeToWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="140" selection-start-line="78" selection-start-column="140" selection-end-line="78" selection-end-column="140" />
+        <state vertical-scroll-proportion="0.03773585">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="101" selection-start-line="44" selection-start-column="101" selection-end-line="44" selection-end-column="134" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/CreateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="78" selection-end-column="29" />
+          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1393,18 +1355,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57118356">
-          <caret line="195" column="117" selection-start-line="195" selection-start-column="117" selection-end-line="195" selection-end-column="117" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="226" column="36" selection-start-line="226" selection-start-column="36" selection-end-line="226" selection-end-column="36" />
           <folding>
-            <marker date="1459980516589" expanded="true" signature="971:993" placeholder="select * fro... employee" />
-            <marker date="1459980516589" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
-            <marker date="1459980516589" expanded="true" signature="5653:5690" placeholder="DELETE from " />
-            <marker date="1459980516589" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
-            <marker date="1459980516589" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
-            <marker date="1459980516589" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="971:993" placeholder="select * fro... employee" />
+            <marker date="1460019649611" expanded="true" signature="3861:3919" placeholder="INSERT INTO employee... " />
+            <marker date="1460019649611" expanded="true" signature="5653:5690" placeholder="DELETE from " />
+            <marker date="1460019649611" expanded="true" signature="6507:6782" placeholder="UPDATE emplo... " />
+            <marker date="1460019649611" expanded="true" signature="8693:8732" placeholder="SELECT * FRO... employee" />
+            <marker date="1460019649611" expanded="true" signature="8693:8749" placeholder="SELECT * FRO... employee" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3996569">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="23" selection-start-line="97" selection-start-column="23" selection-end-line="97" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34991422">
+          <caret line="79" column="132" selection-start-line="79" selection-start-column="117" selection-end-line="79" selection-end-column="132" />
+          <folding />
         </state>
       </provider>
     </entry>
