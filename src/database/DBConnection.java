@@ -2,9 +2,11 @@ package database;
 
 import core.Employee;
 import core.Shift;
+import core.Shift_Employee;
 import core.Ward;
 
 import javax.swing.*;
+import java.lang.reflect.*;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,7 +23,8 @@ public class DBConnection {
     private Statement statement;
     private ResultSet resultSet;
 
-    public DBConnection() {}
+    public DBConnection() {
+    }
 
     private void getDBConnection() {
         try {
@@ -158,8 +161,7 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        }
-        finally {
+        } finally {
             closeResultSet();
             closeStatement();
             closeConnection();
@@ -272,31 +274,33 @@ public class DBConnection {
         }
     }
 
-    public ArrayList<Ward> getWards(){
-        String query="select * from ward;";
-        ArrayList<Ward> wards=new ArrayList<>();
+    public ArrayList<Ward> getWards() {
+        getDBConnection();
+        String query = "select * from ward;";
+        ArrayList<Ward> wards = new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Ward ward=new Ward();
+            while (resultSet.next()) {
+                Ward ward = new Ward();
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
                 wards.add(ward);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return wards;
     }
-    public ArrayList<Shift> getShifts(){
-        String query="select * from shift;";
-        ArrayList<Shift> shifts=new ArrayList<>();
+
+    public ArrayList<Shift> getShifts() {
+        getDBConnection();
+        String query = "select * from shift;";
+        ArrayList<Shift> shifts = new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Shift shift=new Shift();
+            while (resultSet.next()) {
+                Shift shift = new Shift();
                 shift.setShift_ID(resultSet.getInt("shift_ID"));
                 shift.setStartTime(resultSet.getString("startTime"));
                 shift.setEndTime(resultSet.getString("endTime"));
@@ -305,10 +309,37 @@ public class DBConnection {
                 shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return shifts;
+    }
+
+    public void createShiftEmployee(Shift_Employee shiftEmployee) {
+        getDBConnection();
+        System.out.println(shiftEmployee.toString());
+        /*try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO shift_employee VALUES(?,?,?);");
+            preparedStatement.setInt(1, shiftEmployee.getShift_ID()); // employee id 0 as it's auto incremented in DB
+            preparedStatement.setInt(2, shiftEmployee.getEmployee_ID());
+
+            java.sql.Date sqlDate = new java.sql.Date( shiftEmployee.getDate().getTimeInMillis()); // create a date
+
+            preparedStatement.setDate(3, sqlDate);
+
+//            System.out.print("Details; \n" + fNameIn + " " + sNameIn + " " + sqlDate.toString() + " " + contactNumIn + " " + emailIn + " " + numHolidaysIn + " " + contractHoursIn + " " + salary + " " + ward_IDIn);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+        */
     }
 }
