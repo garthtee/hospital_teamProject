@@ -23,6 +23,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
             lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege;
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
             txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege;
+    private JComboBox<String> jcbType;
+    private String selectedPrivilege;
 
     public UpdateEmployee(Employee employee) {
 
@@ -88,8 +90,19 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         p1.add(txtWard_ID);
         p1.add(lblPassword);
         p1.add(txtPassword);
+
         p1.add(lblPrivilege);
-        p1.add(txtPrivilege);
+//        p1.add(txtPrivilege);
+        String[] types = {"employee", "admin", "manager"};
+        jcbType = new JComboBox<>(types);
+        jcbType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedPrivilege = String.valueOf(jcbType.getSelectedItem());
+            }
+        });
+        p1.add(jcbType);
+
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
 
@@ -120,10 +133,14 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
-        txtPrivilege.setText(employee.getPrivilege());
+        jcbType.setSelectedItem(employee.getPrivilege());
+//        txtPrivilege.setText(employee.getPrivilege());
 
         // Setting ID to be uneditable
         txtID.setEditable(false);
+
+        // Presses update button on enter key press
+        this.getRootPane().setDefaultButton(btnUpdate);
 
     }
 
@@ -139,7 +156,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 adminPage.setVisible(true);
                 break;
             case "Update":
-                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                try {
+                    if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
                     JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                     JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -157,9 +175,6 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Invalid 'on holiday' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(Integer.valueOf(txtOffSick.getText()) > 1 || Integer.valueOf(txtOffSick.getText()) < 0) {
                     JOptionPane.showMessageDialog(null, "Invalid 'off sick' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(!txtPrivilege.getText().equals("employee") || !txtPrivilege.getText().equals("admin") ||
-                        !txtPrivilege.getText().equals("manager")) {
-                    JOptionPane.showMessageDialog(null, "Invalid privilege!", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     // Creating a calendar object and parsing the date text entered by user
                     Calendar calendar = Calendar.getInstance();
@@ -184,7 +199,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                     employee.setOffSick(Integer.valueOf(txtOffSick.getText()));
                     employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                     employee.setPassword(txtPassword.getText());
-                    employee.setPrivilege(txtPrivilege.getText());
+                    employee.setPrivilege(selectedPrivilege);
                     // Update employee details in DB
                     DBConnection dbConnection = new DBConnection();
                     dbConnection.updateEmployee(employee);
@@ -194,8 +209,11 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                     adminPage1.setSize(600, 500);
                     adminPage1.setLocationRelativeTo(null);
                     adminPage1.setVisible(true);
-                    break;
+                        break;
                 }
+                } catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Cannot have a letter where a number is expected.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

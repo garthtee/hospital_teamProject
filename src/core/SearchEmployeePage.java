@@ -61,6 +61,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
         // Add actionListeners
         btnCancel.addActionListener(this);
         btnSearch.addActionListener(this);
+
+        // Presses search button on enter key press
+        this.getRootPane().setDefaultButton(btnSearch);
     }
 
     @Override

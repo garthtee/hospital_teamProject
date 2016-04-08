@@ -22,6 +22,8 @@ public class CreateEmployee extends JFrame implements ActionListener {
     private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
             txtPassword, txtPrivilege;
     private JButton btnCreate, btnCancel;
+    private JComboBox<String> jcbType;
+    private String selectedPrivilege;
 
     public CreateEmployee() {
 
@@ -76,7 +78,16 @@ public class CreateEmployee extends JFrame implements ActionListener {
         p1.add(lblPassword);
         p1.add(txtPassword);
         p1.add(lblPrivilege);
-        p1.add(txtPrivilege);
+
+        String[] types = {"employee", "admin", "manager"};
+        jcbType = new JComboBox<>(types);
+        jcbType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedPrivilege = String.valueOf(jcbType.getSelectedItem());
+            }
+        });
+        p1.add(jcbType);
 
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
@@ -92,46 +103,52 @@ public class CreateEmployee extends JFrame implements ActionListener {
         // Add button action listeners
         btnCancel.addActionListener(this);
         btnCreate.addActionListener(this);
+
+        // Presses create button on enter key press
+        this.getRootPane().setDefaultButton(btnCreate);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
-                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
-                    JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
-                    JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
-                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(txtContactNum.getText().length() < 7) {
-                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(Double.valueOf(txtNumHoldiays.getText()) > 40) {
-                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(Integer.valueOf(txtWard_ID.getText()) > 10) {
-                    JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(!txtPrivilege.getText().equals("employee") || !txtPrivilege.getText().equals("admin") ||
-                        !txtPrivilege.getText().equals("manager")) {
-                    JOptionPane.showMessageDialog(null, "Invalid privilege!", "Error", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    Calendar calendar = Calendar.getInstance();
-                    DBConnection dbConnection = new DBConnection();
-                    try { // try parsing the string to a Calendar object
-                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                        calendar.setTime(dateFormat.parse(txtDOB.getText()));
-                    } catch (ParseException exception) {
-                        exception.printStackTrace();
+                try {
+                    if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
+                        JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                        JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
+                        JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (txtContactNum.getText().length() < 7) {
+                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (Double.valueOf(txtNumHoldiays.getText()) > 40) {
+                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (Integer.valueOf(txtWard_ID.getText()) > 10) {
+                        JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (selectedPrivilege == null) {
+                        selectedPrivilege = "employee";
+                    } else {
+                        Calendar calendar = Calendar.getInstance();
+                        DBConnection dbConnection = new DBConnection();
+                        try { // try parsing the string to a Calendar object
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            calendar.setTime(dateFormat.parse(txtDOB.getText()));
+                        } catch (ParseException exception) {
+                            exception.printStackTrace();
+                        }
+                        dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
+                                txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
+                                Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
+                                txtPassword.getText(), selectedPrivilege);
+                        this.dispose();
+                        AdminPage adminPage = new AdminPage();
+                        adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        adminPage.setSize(600, 500);
+                        adminPage.setLocationRelativeTo(null);
+                        adminPage.setVisible(true);
                     }
-                    dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
-                            txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
-                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            txtPassword.getText(), txtPrivilege.getText());
-                    this.dispose();
-                    AdminPage adminPage = new AdminPage();
-                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    adminPage.setSize(600, 500);
-                    adminPage.setLocationRelativeTo(null);
-                    adminPage.setVisible(true);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Cannot have a letter where a number is expected.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case "Cancel":

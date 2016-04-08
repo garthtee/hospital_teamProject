@@ -63,6 +63,9 @@ public class LogInForm extends JFrame implements ActionListener {
         btnCancel.addActionListener(this);
         btnLogin.addActionListener(this);
 
+        // Presses login button on enter key press
+        this.getRootPane().setDefaultButton(btnLogin);
+
 
         add(panel0);
         add(panel1);
