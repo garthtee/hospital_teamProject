@@ -19,7 +19,7 @@ public class E_ManagerPage extends JFrame implements ActionListener {
 
 
 
-    public E_ManagerPage(){
+    public E_ManagerPage(int emp_ID_In){
 
         setLayout(new BorderLayout());
         setTitle("Manager Home Page");
@@ -75,13 +75,13 @@ public class E_ManagerPage extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        E_ManagerPage gui = new E_ManagerPage();
-        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        gui.setSize(650, 500);
-        gui.setLocationRelativeTo(null);
-        gui.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        E_ManagerPage gui = new E_ManagerPage();
+//        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        gui.setSize(650, 500);
+//        gui.setLocationRelativeTo(null);
+//        gui.setVisible(true);
+//    }
 
 
     @Override

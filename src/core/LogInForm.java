@@ -84,7 +84,7 @@ public class LogInForm extends JFrame implements ActionListener {
                         if (existence.equals("true")) {
                             switch (privilege) {
                                 case "employee":
-                                    EmployeePage employeePage = new EmployeePage();
+                                    EmployeePage employeePage = new EmployeePage(Integer.valueOf(txtUsername.getText()));
                                     employeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     employeePage.setSize(600, 500);
                                     employeePage.setLocationRelativeTo(null);
@@ -92,7 +92,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     this.dispose();
                                     break;
                                 case "admin":
-                                    AdminPage adminPage = new AdminPage();
+                                    AdminPage adminPage = new AdminPage(Integer.valueOf(txtUsername.getText()));
                                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     adminPage.setSize(600, 500);
                                     adminPage.setLocationRelativeTo(null);
@@ -100,7 +100,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     this.dispose();
                                     break;
                                 case "manager":
-                                    E_ManagerPage e_managerPage = new E_ManagerPage();
+                                    E_ManagerPage e_managerPage = new E_ManagerPage(Integer.valueOf(txtUsername.getText()));
                                     e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     e_managerPage.setSize(650, 500);
                                     e_managerPage.setLocationRelativeTo(null);

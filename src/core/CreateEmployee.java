@@ -127,7 +127,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
                             Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
                             txtPassword.getText(), txtPrivilege.getText());
                     this.dispose();
-                    AdminPage adminPage = new AdminPage();
+                    AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     adminPage.setSize(600, 500);
                     adminPage.setLocationRelativeTo(null);
@@ -136,7 +136,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
                 break;
             case "Cancel":
                 this.dispose(); // disposes the create employee frame
-                AdminPage adminPage = new AdminPage();
+                AdminPage adminPage = new AdminPage(-1);
                 adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 adminPage.setSize(600, 500);
                 adminPage.setLocationRelativeTo(null);
