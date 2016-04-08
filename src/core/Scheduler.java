@@ -58,12 +58,10 @@ public class Scheduler {
         //declare date
         // Creating a calendar object and parsing the date from DB
         Calendar calendar = Calendar.getInstance();
-        try { // try parsing the string to a Calendar object
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            calendar.setTime(dateFormat.parse("2015-01-01"));
-        } catch (ParseException exception) {
-            exception.printStackTrace();
-        }
+        calendar.set(Calendar.YEAR, 2015);
+        calendar.set(Calendar.MONTH, 1);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+
 
         //for each ward
 
@@ -76,8 +74,9 @@ public class Scheduler {
             Shift_Employee se3=new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(2).getEmp_ID(), calendar);
             shift_employees.add(se3);
 
-            if(j%2!=0) // if not an even shift, increment day
-                calendar.add(Calendar.DAY_OF_WEEK, 1);
+            if(j%2!=0) { // if not an even shift, increment day
+                calendar.add(Calendar.DAY_OF_MONTH, 1);
+            }
         }
 
         DBConnection dbc=new DBConnection();

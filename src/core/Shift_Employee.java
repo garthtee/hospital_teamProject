@@ -1,5 +1,6 @@
 package core;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Shift_Employee {
@@ -7,9 +8,9 @@ public class Shift_Employee {
     private int shift_ID;
     private Calendar date;
 
-    public Shift_Employee(int shift, int employee, Calendar date){
-        this.employee_ID = shift;
-        this.shift_ID = employee;
+    public Shift_Employee(int shift_ID, int employee_ID, Calendar date){
+        this.employee_ID = employee_ID;
+        this.shift_ID = shift_ID;
         this.date=date;
     }
 
@@ -26,9 +27,15 @@ public class Shift_Employee {
 
     @Override
     public String toString() {
+
+        /*
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateAsString = format.format(date.getTime());
+        */
         return "Shift_Employee{" +
                 "employee_ID=" + employee_ID +
                 ", shift_ID=" + shift_ID +
+                ", date=" + date +
                 '}';
     }
 }
