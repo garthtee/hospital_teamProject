@@ -787,7 +787,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460143862389</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="CreateEmployee ErrorHandling for email, name, DOB, contact number&#10;Clock in/ Clock out working">
+      <created>1460143948816</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1460143948816</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
