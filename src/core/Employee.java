@@ -12,8 +12,8 @@ public class Employee {
 	private int numHolidays;
 	private int contractHours;
 	private double salary;
-	private Double onHoliday = 0.0;
-	private Double offSick = 0.0;
+	private int onHoliday = 0;
+	private int offSick = 0;
 	private String lastShift;
 	private int ward_ID;
 	private String password;
@@ -35,13 +35,13 @@ public class Employee {
 		this.numHolidays = numHolidays;
 		this.contractHours = contractHours;
 		this.salary = salary;
-		this.onHoliday = 0.0;
-		this.offSick = 0.0;
+		this.onHoliday = 0;
+		this.offSick = 0;
 		this.ward_ID = ward_ID;
 	}
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, Double onHoliday, Double offSick, int ward_ID, String password, String privilege) {
+                    int contractHours, double salary, int onHoliday, int offSick, int ward_ID, String password, String privilege) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -53,8 +53,8 @@ public class Employee {
 		this.salary = salary;
 		this.onHoliday = onHoliday;
 		this.offSick = offSick;
-		this.onHoliday = 0.0;
-		this.offSick = 0.0;
+		this.onHoliday = 0;
+		this.offSick = 0;
 		this.ward_ID = ward_ID;
 		this.password = password;
 		this.privilege = privilege;
@@ -132,19 +132,19 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public Double isOnHoliday() {
+	public int isOnHoliday() {
 		return onHoliday;
 	}
 
-	public void setOnHoliday(Double onHoliday) {
+	public void setOnHoliday(int onHoliday) {
 		this.onHoliday = onHoliday;
 	}
 
-	public Double isOffSick() {
+	public int isOffSick() {
 		return offSick;
 	}
 
-	public void setOffSick(Double offSick) {
+	public void setOffSick(int offSick) {
 		this.offSick = offSick;
 	}
 

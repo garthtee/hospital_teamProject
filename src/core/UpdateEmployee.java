@@ -3,6 +3,7 @@ package core;
 import database.DBConnection;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -89,6 +90,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         p1.add(txtPassword);
         p1.add(lblPrivilege);
         p1.add(txtPrivilege);
+        p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
 
         // Panel 2 //
@@ -137,40 +139,63 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 adminPage.setVisible(true);
                 break;
             case "Update":
-                // Creating a calendar object and parsing the date text entered by user
-                Calendar calendar = Calendar.getInstance();
-                try { // try parsing the string to a Calendar object
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    calendar.setTime(dateFormat.parse(txtDOB.getText()));
-                } catch (ParseException exception) {
-                    exception.printStackTrace();
+                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                    JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
+                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtContactNum.getText().length() < 7) {
+                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Double.valueOf(txtNumHoldiays.getText()) > 40) {
+                    JOptionPane.showMessageDialog(null, "Holidays cannot be greater than 40.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Double.valueOf(txtContractHours.getText()) > 80) {
+                    JOptionPane.showMessageDialog(null, "Contract hours cannot be greater than 80.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Integer.valueOf(txtWard_ID.getText()) > 10) {
+                    JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Integer.valueOf(txtOnHoliday.getText()) > 1 || Integer.valueOf(txtOnHoliday.getText()) < 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid 'on holiday' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Integer.valueOf(txtOffSick.getText()) > 1 || Integer.valueOf(txtOffSick.getText()) < 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid 'off sick' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(!txtPrivilege.getText().equals("employee") || !txtPrivilege.getText().equals("admin") ||
+                        !txtPrivilege.getText().equals("manager")) {
+                    JOptionPane.showMessageDialog(null, "Invalid privilege!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    // Creating a calendar object and parsing the date text entered by user
+                    Calendar calendar = Calendar.getInstance();
+                    try { // try parsing the string to a Calendar object
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        calendar.setTime(dateFormat.parse(txtDOB.getText()));
+                    } catch (ParseException exception) {
+                        exception.printStackTrace();
+                    }
+                    // Constructs new employee with updated information
+                    Employee employee = new Employee();
+                    employee.setEmp_ID(Integer.valueOf(txtID.getText()));
+                    employee.setfName(txtFName.getText());
+                    employee.setsName(txtSName.getText());
+                    employee.setDOB(calendar);
+                    employee.setContactNum(txtContactNum.getText());
+                    employee.setEmail(txtEmail.getText());
+                    employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
+                    employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
+                    employee.setSalary(Double.valueOf(txtSalary.getText()));
+                    employee.setOnHoliday(Integer.valueOf(txtOnHoliday.getText()));
+                    employee.setOffSick(Integer.valueOf(txtOffSick.getText()));
+                    employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
+                    employee.setPassword(txtPassword.getText());
+                    employee.setPrivilege(txtPrivilege.getText());
+                    // Update employee details in DB
+                    DBConnection dbConnection = new DBConnection();
+                    dbConnection.updateEmployee(employee);
+                    this.dispose();
+                    AdminPage adminPage1 = new AdminPage();
+                    adminPage1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    adminPage1.setSize(600, 500);
+                    adminPage1.setLocationRelativeTo(null);
+                    adminPage1.setVisible(true);
+                    break;
                 }
-                // Constructs new employee with updated information
-                Employee employee = new Employee();
-                employee.setEmp_ID(Integer.valueOf(txtID.getText()));
-                employee.setfName(txtFName.getText());
-                employee.setsName(txtSName.getText());
-                employee.setDOB(calendar);
-                employee.setContactNum(txtContactNum.getText());
-                employee.setEmail(txtEmail.getText());
-                employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
-                employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
-                employee.setSalary(Double.valueOf(txtSalary.getText()));
-                employee.setOnHoliday(Double.valueOf(txtOnHoliday.getText()));
-                employee.setOffSick(Double.valueOf(txtOffSick.getText()));
-                employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
-                employee.setPassword(txtPassword.getText());
-                employee.setPrivilege(txtPrivilege.getText());
-                // Update employee details in DB
-                DBConnection dbConnection = new DBConnection();
-                dbConnection.updateEmployee(employee);
-                this.dispose();
-                AdminPage adminPage1 = new AdminPage();
-                adminPage1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                adminPage1.setSize(600, 500);
-                adminPage1.setLocationRelativeTo(null);
-                adminPage1.setVisible(true);
-                break;
         }
     }
 }

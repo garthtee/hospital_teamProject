@@ -78,7 +78,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
         p1.add(lblPrivilege);
         p1.add(txtPrivilege);
 
-        p1.setBorder(new EmptyBorder(10, 10, 10, 10));
+        p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
 
         // Panel 2 //
@@ -100,20 +100,20 @@ public class CreateEmployee extends JFrame implements ActionListener {
             case "Create":
                 if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
                     JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
                 } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                     JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(txtDOB.getText().length() < 10) {
-                    JOptionPane.showMessageDialog(null, "Please enter valid date.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(!txtDOB.getText().contains("-")) {
+                } else if(!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
                     JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
                 } else if(txtContactNum.getText().length() < 7) {
                     JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }  else {
+                } else if(Double.valueOf(txtNumHoldiays.getText()) > 40) {
+                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(Integer.valueOf(txtWard_ID.getText()) > 10) {
+                    JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(!txtPrivilege.getText().equals("employee") || !txtPrivilege.getText().equals("admin") ||
+                        !txtPrivilege.getText().equals("manager")) {
+                    JOptionPane.showMessageDialog(null, "Invalid privilege!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
                     Calendar calendar = Calendar.getInstance();
                     DBConnection dbConnection = new DBConnection();
                     try { // try parsing the string to a Calendar object

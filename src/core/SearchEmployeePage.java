@@ -80,11 +80,12 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         try {
                             if (employee.getEmp_ID() == Integer.valueOf(txtSearch.getText())) {
                                 employeeFound=true;
-                                ViewEmployee sp = new ViewEmployee(employee);
-                                sp.setVisible(true);
-                                sp.pack();
-                                sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                sp.setLocationRelativeTo(null);
+                                ViewEmployee viewEmployee = new ViewEmployee(employee);
+                                viewEmployee.setVisible(true);
+                                viewEmployee.pack();
+                                viewEmployee.setResizable(false);
+                                viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                viewEmployee.setLocationRelativeTo(null);
                                 jcbSearch.setSelectedIndex(0);
                                 this.dispose();
                                 return;
@@ -112,11 +113,12 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         }
                     }
                     if (tempList.size() > 0) {
-                        ViewEmployees gui = new ViewEmployees(tempList, txtSearch.getText());
-                        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        gui.pack();
-                        gui.setLocationRelativeTo(null);
-                        gui.setVisible(true);
+                        ViewEmployees viewEmployees = new ViewEmployees(tempList, txtSearch.getText());
+                        viewEmployees.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        viewEmployees.pack();
+                        viewEmployees.setLocationRelativeTo(null);
+                        viewEmployees.setVisible(true);
+                        viewEmployees.setResizable(false);
                         jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..
@@ -136,11 +138,12 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         }
                     }
                     if (tempList.size() > 0) {
-                        ViewEmployees gui = new ViewEmployees(tempList, txtSearch.getText());
-                        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        gui.pack();
-                        gui.setLocationRelativeTo(null);
-                        gui.setVisible(true);
+                        ViewEmployees viewEmployees = new ViewEmployees(tempList, txtSearch.getText());
+                        viewEmployees.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        viewEmployees.pack();
+                        viewEmployees.setResizable(false);
+                        viewEmployees.setLocationRelativeTo(null);
+                        viewEmployees.setVisible(true);
                         jcbSearch.setSelectedIndex(0);
                     }
                     if(!employeeFound) { // if employee not found..

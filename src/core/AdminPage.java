@@ -96,6 +96,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 CreateEmployee createEmployeeFrame = new CreateEmployee();
                 createEmployeeFrame.setVisible(true);
                 createEmployeeFrame.pack();
+                createEmployeeFrame.setResizable(false);
                 createEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 createEmployeeFrame.setLocationRelativeTo(null);
                 this.dispose();
@@ -119,6 +120,7 @@ public class AdminPage extends JFrame implements ActionListener {
                     updateEmployeeFrame.setVisible(true);
                     this.dispose();
                     updateEmployeeFrame.pack();
+                    updateEmployeeFrame.setResizable(false);
                     updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     updateEmployeeFrame.setLocationRelativeTo(null);
                 } else
@@ -130,6 +132,7 @@ public class AdminPage extends JFrame implements ActionListener {
                     viewEmployee.setVisible(true);
                     viewEmployee.pack();
                     viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    viewEmployee.setResizable(false);
                     viewEmployee.setLocationRelativeTo(null);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -139,6 +142,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 searchEmployeePage.setVisible(true);
                 searchEmployeePage.setSize(300, 165);
                 searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                searchEmployeePage.setResizable(false);
                 searchEmployeePage.setLocationRelativeTo(null);
 
                 break;
@@ -152,13 +156,4 @@ public class AdminPage extends JFrame implements ActionListener {
                 break;
         }
     }
-
-//    // Main Method //
-//    public static void main(String[] args) {
-//        AdminPage gui = new AdminPage();
-//        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        gui.setSize(600, 500);
-//        gui.setLocationRelativeTo(null);
-//        gui.setVisible(true);
-//    }
 }

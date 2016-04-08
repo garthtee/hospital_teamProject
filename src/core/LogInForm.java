@@ -87,6 +87,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     EmployeePage employeePage = new EmployeePage();
                                     employeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     employeePage.setSize(600, 500);
+                                    employeePage.setResizable(false);
                                     employeePage.setLocationRelativeTo(null);
                                     employeePage.setVisible(true);
                                     this.dispose();
@@ -95,6 +96,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     AdminPage adminPage = new AdminPage();
                                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     adminPage.setSize(600, 500);
+                                    adminPage.setResizable(false);
                                     adminPage.setLocationRelativeTo(null);
                                     adminPage.setVisible(true);
                                     this.dispose();
@@ -103,6 +105,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     E_ManagerPage e_managerPage = new E_ManagerPage();
                                     e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                                     e_managerPage.setSize(650, 500);
+                                    e_managerPage.setResizable(false);
                                     e_managerPage.setLocationRelativeTo(null);
                                     e_managerPage.setVisible(true);
                                     this.dispose();
@@ -132,6 +135,7 @@ public class LogInForm extends JFrame implements ActionListener {
         LogInForm gui = new LogInForm();
         gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         gui.setSize(300, 250);
+        gui.setResizable(false);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
     }
