@@ -2,17 +2,20 @@ package database;
 
 import core.Employee;
 import core.Shift;
-import core.Shift_Employee;
 import core.Ward;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
-import java.lang.reflect.*;
+import java.security.spec.KeySpec;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * Created by Group 5 on 10/03/2016.
@@ -23,9 +26,22 @@ public class DBConnection {
     private Statement statement;
     private ResultSet resultSet;
 
-    public DBConnection() {
-    }
+    public DBConnection() {}
 
+    /* Remote AWS database connection */
+//    private void getDBConnection() {
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
+//
+//            statement = connection.createStatement();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    /* Local host connection */
     private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -58,8 +74,8 @@ public class DBConnection {
                 int numHolidays = resultSet.getInt("numHolidays");
                 int contractHours = resultSet.getInt("contractHours");
                 int salary = resultSet.getInt("salary");
-                Double onHoliday = resultSet.getDouble("onHoliday");
-                Double offSick = resultSet.getDouble("offSick");
+                int onHoliday = resultSet.getInt("onHoliday");
+                int offSick = resultSet.getInt("offSick");
                 int ward_ID = resultSet.getInt("ward_ID");
 
                 String password = resultSet.getString("password");
@@ -161,7 +177,8 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        } finally {
+        }
+        finally {
             closeResultSet();
             closeStatement();
             closeConnection();
@@ -233,7 +250,7 @@ public class DBConnection {
             if (resultSet.next())
                 exists = "true";
             else
-                exists = "false";
+                JOptionPane.showMessageDialog(null, "Login incorrect or no user exists.", "Incorrect Login", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -246,6 +263,62 @@ public class DBConnection {
         resultList.add(exists);
         resultList.add(privilege);
         return resultList;
+    }
+
+
+
+    public void createClockInTime(int emp_ID, Calendar startTime){
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
+            preparedStatement.setInt(1,emp_ID);
+
+            java.sql.Date sqlDate = new java.sql.Date(startTime.getTimeInMillis());
+            preparedStatement.setDate(2,sqlDate);
+
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+    }
+
+    public void createClockOutTime(int emp_ID, Calendar endTime){
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
+
+            preparedStatement.setInt(1,emp_ID);
+
+            java.sql.Date sqlDate = new java.sql.Date(endTime.getTimeInMillis());
+            preparedStatement.setDate(2,sqlDate);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("Catch");
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
     }
 
     private void closeConnection() {
@@ -274,33 +347,50 @@ public class DBConnection {
         }
     }
 
-    public ArrayList<Ward> getWards() {
+    private void encryptPassword(String password) {
+
+        try {
+            Random random = new Random();
+            byte[] salt = new byte[16];
+            random.nextBytes(salt);
+            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+            SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] hash = f.generateSecret(spec).getEncoded();
+            Base64.Encoder enc = Base64.getEncoder();
+            System.out.printf("salt: %s%n", enc.encodeToString(salt));
+            System.out.printf("hash: %s%n", enc.encodeToString(hash));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Ward> getWards(){
         getDBConnection();
-        String query = "select * from ward;";
-        ArrayList<Ward> wards = new ArrayList<>();
+        String query="select * from ward;";
+        ArrayList<Ward> wards=new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                Ward ward = new Ward();
+            while(resultSet.next()){
+                Ward ward=new Ward();
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
                 wards.add(ward);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
         return wards;
     }
-
-    public ArrayList<Shift> getShifts() {
+    public ArrayList<Shift> getShifts(){
         getDBConnection();
-        String query = "select * from shift;";
-        ArrayList<Shift> shifts = new ArrayList<>();
+        String query="select * from shift;";
+        ArrayList<Shift> shifts=new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                Shift shift = new Shift();
+            while(resultSet.next()){
+                Shift shift=new Shift();
                 shift.setShift_ID(resultSet.getInt("shift_ID"));
                 shift.setStartTime(resultSet.getString("startTime"));
                 shift.setEndTime(resultSet.getString("endTime"));
@@ -309,7 +399,8 @@ public class DBConnection {
 //                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
         return shifts;
