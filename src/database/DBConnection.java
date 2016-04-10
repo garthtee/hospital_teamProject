@@ -4,13 +4,18 @@ import core.Employee;
 import core.Shift;
 import core.Ward;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
+import java.security.spec.KeySpec;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * Created by Group 5 on 10/03/2016.
@@ -246,6 +251,8 @@ public class DBConnection {
         return resultList;
     }
 
+
+
     public void createClockInTime(int emp_ID, Calendar startTime){
 
         getDBConnection();
@@ -321,6 +328,23 @@ public class DBConnection {
         try {
             if (resultSet != null)
                 resultSet.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void encryptPassword(String password) {
+
+        try {
+            Random random = new Random();
+            byte[] salt = new byte[16];
+            random.nextBytes(salt);
+            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+            SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] hash = f.generateSecret(spec).getEncoded();
+            Base64.Encoder enc = Base64.getEncoder();
+            System.out.printf("salt: %s%n", enc.encodeToString(salt));
+            System.out.printf("hash: %s%n", enc.encodeToString(hash));
         } catch (Exception e) {
             e.printStackTrace();
         }

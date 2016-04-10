@@ -25,6 +25,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
             txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege;
     private JComboBox<String> jcbType;
     private String selectedPrivilege;
+    private EmailValidator emailValidator = new EmailValidator();
 
     public UpdateEmployee(Employee employee) {
 
@@ -157,12 +158,24 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                 break;
             case "Update":
                 try {
-                    if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+
+                    try {
+                        DateValidator dateValidator = new DateValidator();
+                        dateValidator.setYear(txtDOB.getText());
+                        dateValidator.setMonth(txtDOB.getText());
+                        dateValidator.setDay(txtDOB.getText());
+                    } catch (IllegalArgumentException ex) {
+                        JOptionPane.showMessageDialog(null, "Date error.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                    if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@") || !txtEmail.getText().contains(".") || txtEmail.getText().length() > 100
+                            || !emailValidator.validateEmail(txtEmail.getText())) {
                     JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                     JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
-                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10 || txtDOB.getText().length() >= 11) {
+                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(txtContactNum.getText().length() < 7) {
                     JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(Double.valueOf(txtNumHoldiays.getText()) > 40) {
@@ -175,6 +188,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Invalid 'on holiday' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(Integer.valueOf(txtOffSick.getText()) > 1 || Integer.valueOf(txtOffSick.getText()) < 0) {
                     JOptionPane.showMessageDialog(null, "Invalid 'off sick' value! \n\nValue should be 1 or 0", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtPassword.getText().length() < 8 || txtPassword.getText().length() > 30) {
+                        JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     // Creating a calendar object and parsing the date text entered by user
                     Calendar calendar = Calendar.getInstance();

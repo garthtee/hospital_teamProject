@@ -24,6 +24,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
     private JButton btnCreate, btnCancel;
     private JComboBox<String> jcbType;
     private String selectedPrivilege;
+    private EmailValidator emailValidator = new EmailValidator();
 
     public CreateEmployee() {
 
@@ -112,13 +113,25 @@ public class CreateEmployee extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
+
                 try {
+                    try {
+                        DateValidator dateValidator = new DateValidator();
+                        dateValidator.setYear(txtDOB.getText());
+                        dateValidator.setMonth(txtDOB.getText());
+                        dateValidator.setDay(txtDOB.getText());
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(null, "Date error.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
                     if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                         JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                    } else if (txtEmail.getText().length() <= 3 || txtEmail.getText().length() > 100 || !txtEmail.getText().contains("@")
+                            || !txtEmail.getText().contains(".") || !emailValidator.validateEmail(txtEmail.getText())) {
                         JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10) {
-                        JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10 || txtDOB.getText().length() >= 11) {
+                        JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (txtContactNum.getText().length() < 7) {
                         JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Double.valueOf(txtNumHoldiays.getText()) > 40) {
@@ -127,6 +140,8 @@ public class CreateEmployee extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (selectedPrivilege == null) {
                         selectedPrivilege = "employee";
+                    } else if(txtPassword.getText().length() < 8 || txtPassword.getText().length() > 30) {
+                        JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else {
                         Calendar calendar = Calendar.getInstance();
                         DBConnection dbConnection = new DBConnection();
@@ -161,4 +176,16 @@ public class CreateEmployee extends JFrame implements ActionListener {
                 break;
         }
     }
+
+//    private Calendar stringToCalendarConverter(String dobIn) {
+//        try {
+//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//            Date date = simpleDateFormat.parse(dobIn);
+//            Calendar calendar = new GregorianCalendar();
+//            calendar.setTime(date);
+//            return calendar;
+//        } catch (ParseException e) {
+//            return null;
+//        }
+//    }
 }

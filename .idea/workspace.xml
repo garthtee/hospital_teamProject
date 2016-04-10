@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="CreateEmployee ErrorHandling for email, name, DOB &amp; contact number.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/DateValidator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/EmailValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/CreateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/CreateEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/LogInForm.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/LogInForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/CreateEmployee.java" afterPath="$PROJECT_DIR$/src/core/CreateEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/LogInForm.java" afterPath="$PROJECT_DIR$/src/core/LogInForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" afterPath="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateEmployee.java" afterPath="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ViewEmployee.java" afterPath="$PROJECT_DIR$/src/core/ViewEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +41,18 @@
       <file leaf-file-name="CreateEmployee.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/CreateEmployee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81606215">
-              <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.3516295">
+              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailValidator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/EmailValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -54,27 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="212" column="17" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewEmployee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="131" column="21" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogInForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="66" selection-end-column="54" />
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -84,7 +82,27 @@
         <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
+              <caret line="335" column="4" selection-start-line="335" selection-start-column="4" selection-end-line="350" selection-end-column="5" />
+              <folding>
+                <marker date="1460290236035" expanded="true" signature="1168:1190" placeholder="select * fro... employee" />
+                <marker date="1460290236035" expanded="true" signature="4046:4104" placeholder="INSERT INTO employee... " />
+                <marker date="1460290236035" expanded="true" signature="5838:5875" placeholder="DELETE from " />
+                <marker date="1460290236035" expanded="true" signature="6692:6967" placeholder="UPDATE emplo... " />
+                <marker date="1460290236035" expanded="true" signature="8878:8934" placeholder="SELECT * FRO... employee" />
+                <marker date="1460290236035" expanded="true" signature="10045:10087" placeholder="INSERT INTO employee_clockin... " />
+                <marker date="1460290236035" expanded="true" signature="10778:10820" placeholder="INSERT INTO employee_clockin... " />
+                <marker date="1460290236035" expanded="true" signature="12619:12637" placeholder="select * fro... ward" />
+                <marker date="1460290236035" expanded="true" signature="13250:13269" placeholder="select * fro... shift" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogInForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="138" column="29" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -127,12 +145,15 @@
         <option value="$PROJECT_DIR$/src/core/ViewEmployees.java" />
         <option value="$PROJECT_DIR$/src/core/AdminPage.java" />
         <option value="$PROJECT_DIR$/src/core/Employee.java" />
-        <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/core/LogInForm.java" />
         <option value="$PROJECT_DIR$/src/core/ViewEmployee.java" />
         <option value="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
-        <option value="$PROJECT_DIR$/src/core/CreateEmployee.java" />
+        <option value="$PROJECT_DIR$/src/core/DateValidator.java" />
+        <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/core/passwordTest.java" />
+        <option value="$PROJECT_DIR$/src/core/EmailValidator.java" />
         <option value="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
+        <option value="$PROJECT_DIR$/src/core/CreateEmployee.java" />
       </list>
     </option>
   </component>
@@ -195,7 +216,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,6 +272,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -335,6 +356,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="core.ViewEmployees" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="TeamProject_Hospital" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="passwordTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="core.passwordTest" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -784,18 +825,20 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.AdminPage" />
       <item index="1" class="java.lang.String" itemvalue="Application.EmployeePage" />
       <item index="2" class="java.lang.String" itemvalue="Application.LogInForm" />
       <item index="3" class="java.lang.String" itemvalue="Application.ViewEmployees" />
+      <item index="4" class="java.lang.String" itemvalue="Application.passwordTest" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.LogInForm" />
-        <item index="1" class="java.lang.String" itemvalue="Application.AdminPage" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ViewEmployees" />
-        <item index="3" class="java.lang.String" itemvalue="Application.EmployeePage" />
+        <item index="1" class="java.lang.String" itemvalue="Application.passwordTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.AdminPage" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ViewEmployees" />
+        <item index="4" class="java.lang.String" itemvalue="Application.EmployeePage" />
       </list>
     </recent_temporary>
   </component>
@@ -833,6 +876,9 @@
       <workItem from="1460133206056" duration="35000" />
       <workItem from="1460133277910" duration="3493000" />
       <workItem from="1460144478451" duration="2707000" />
+      <workItem from="1460150397340" duration="1267000" />
+      <workItem from="1460234266860" duration="293000" />
+      <workItem from="1460284690481" duration="6608000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -964,7 +1010,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63172000" />
+    <option name="totallyTimeSpent" value="71340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -977,11 +1023,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32242227" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3207856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -994,8 +1041,34 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3207856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1040,22 +1113,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="306" column="32" selection-start-line="306" selection-start-column="32" selection-end-line="306" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1341,13 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/bookHolidays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.54373926">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/EmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30569947">
@@ -1367,30 +1417,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1457976">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/core/bookHolidays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="66" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="131" column="21" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1403,18 +1436,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/DateValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6140652">
+          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <folding>
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1747#1748#0" expanded="true" />
+            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="e#2507#2508#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44596913">
+          <caret line="131" column="21" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="335" column="4" selection-start-line="335" selection-start-column="4" selection-end-line="350" selection-end-column="5" />
+          <folding>
+            <marker date="1460290236035" expanded="true" signature="1168:1190" placeholder="select * fro... employee" />
+            <marker date="1460290236035" expanded="true" signature="4046:4104" placeholder="INSERT INTO employee... " />
+            <marker date="1460290236035" expanded="true" signature="5838:5875" placeholder="DELETE from " />
+            <marker date="1460290236035" expanded="true" signature="6692:6967" placeholder="UPDATE emplo... " />
+            <marker date="1460290236035" expanded="true" signature="8878:8934" placeholder="SELECT * FRO... employee" />
+            <marker date="1460290236035" expanded="true" signature="10045:10087" placeholder="INSERT INTO employee_clockin... " />
+            <marker date="1460290236035" expanded="true" signature="10778:10820" placeholder="INSERT INTO employee_clockin... " />
+            <marker date="1460290236035" expanded="true" signature="12619:12637" placeholder="select * fro... ward" />
+            <marker date="1460290236035" expanded="true" signature="13250:13269" placeholder="select * fro... shift" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="29" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/EmailValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="212" column="17" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/CreateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81606215">
-          <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.3516295">
+          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
           <folding />
         </state>
       </provider>
