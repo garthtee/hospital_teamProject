@@ -28,6 +28,20 @@ public class DBConnection {
 
     public DBConnection() {}
 
+    /* Remote AWS database connection */
+//    private void getDBConnection() {
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
+//
+//            statement = connection.createStatement();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    /* Local host connection */
     private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
