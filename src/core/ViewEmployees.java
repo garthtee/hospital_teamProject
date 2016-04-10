@@ -20,7 +20,7 @@ public class ViewEmployees extends JFrame implements ActionListener {
 //    ArrayList<Employee> employeeList = new ArrayList<>();
     private Employee selectedEmployee;
     private DefaultListModel<Employee> defaultListModel;
-    private JButton btnViewDetails;
+    private JButton btnViewDetails, btnClose;
 
     public void createEmployeeModel(ArrayList<Employee> employeeArrayList) {
         defaultListModel = new DefaultListModel<>();
@@ -55,11 +55,13 @@ public class ViewEmployees extends JFrame implements ActionListener {
         //panel 2
         p2 = new JPanel();
         p2.add(btnViewDetails = new JButton("View Details"));
+        p2.add(btnClose = new JButton("Close"));
 
         add(p1, BorderLayout.CENTER);
         add(p2, BorderLayout.SOUTH);
 
         btnViewDetails.addActionListener(this);
+        btnClose.addActionListener(this);
     }
 
     @Override
@@ -74,6 +76,9 @@ public class ViewEmployees extends JFrame implements ActionListener {
                     viewEmployee.setLocationRelativeTo(null);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
+                break;
+            case "Close":
+                this.dispose();
                 break;
         }
     }

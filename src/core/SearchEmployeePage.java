@@ -123,6 +123,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         viewEmployees.setVisible(true);
                         viewEmployees.setResizable(false);
                         jcbSearch.setSelectedIndex(0);
+                        this.dispose();
                     }
                     if(!employeeFound) { // if employee not found..
                         JOptionPane.showMessageDialog(null, "No employee found! \n\n"
@@ -148,6 +149,7 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         viewEmployees.setLocationRelativeTo(null);
                         viewEmployees.setVisible(true);
                         jcbSearch.setSelectedIndex(0);
+                        this.dispose();
                     }
                     if(!employeeFound) { // if employee not found..
                         JOptionPane.showMessageDialog(null, "No employee found! \n\n"

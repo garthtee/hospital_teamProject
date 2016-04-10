@@ -120,6 +120,9 @@ public class CreateEmployee extends JFrame implements ActionListener {
                         dateValidator.setYear(txtDOB.getText());
                         dateValidator.setMonth(txtDOB.getText());
                         dateValidator.setDay(txtDOB.getText());
+                    } catch (StringIndexOutOfBoundsException e) {
+                        JOptionPane.showMessageDialog(null, "Invalid date.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
                     } catch (IllegalArgumentException e) {
                         JOptionPane.showMessageDialog(null, "Date error.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
@@ -127,13 +130,13 @@ public class CreateEmployee extends JFrame implements ActionListener {
 
                     if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                         JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (txtContactNum.getText().length() < 7) {
+                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (txtEmail.getText().length() <= 3 || txtEmail.getText().length() > 100 || !txtEmail.getText().contains("@")
                             || !txtEmail.getText().contains(".") || !emailValidator.validateEmail(txtEmail.getText())) {
                         JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (!txtDOB.getText().contains("-") || txtDOB.getText().length() < 10 || txtDOB.getText().length() >= 11) {
                         JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (txtContactNum.getText().length() < 7) {
-                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Double.valueOf(txtNumHoldiays.getText()) > 40) {
                         JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Integer.valueOf(txtWard_ID.getText()) > 10) {
@@ -163,7 +166,9 @@ public class CreateEmployee extends JFrame implements ActionListener {
                         adminPage.setVisible(true);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Cannot have a letter where a number is expected.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid details.", "Error", JOptionPane.ERROR_MESSAGE);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 break;
             case "Cancel":
