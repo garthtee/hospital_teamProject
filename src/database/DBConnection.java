@@ -306,40 +306,12 @@ public class DBConnection {
                 shift.setEndTime(resultSet.getString("endTime"));
                 shift.setShiftType(resultSet.getString("shiftType"));
                 shift.setWard_ID(resultSet.getInt("ward_ID"));
-                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
+//                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return shifts;
-    }
-
-    public void createShiftEmployee(Shift_Employee shiftEmployee) {
-        getDBConnection();
-        System.out.println(shiftEmployee.toString());
-        /*try {
-            PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO shift_employee VALUES(?,?,?);");
-            preparedStatement.setInt(1, shiftEmployee.getShift_ID()); // employee id 0 as it's auto incremented in DB
-            preparedStatement.setInt(2, shiftEmployee.getEmployee_ID());
-
-            java.sql.Date sqlDate = new java.sql.Date( shiftEmployee.getDate().getTimeInMillis()); // create a date
-
-            preparedStatement.setDate(3, sqlDate);
-
-//            System.out.print("Details; \n" + fNameIn + " " + sNameIn + " " + sqlDate.toString() + " " + contactNumIn + " " + emailIn + " " + numHolidaysIn + " " + contractHoursIn + " " + salary + " " + ward_IDIn);
-            preparedStatement.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print("Catch");
-        } finally {
-            closeResultSet();
-            closeStatement();
-            closeConnection();
-        }
-
-        */
     }
 }

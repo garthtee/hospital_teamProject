@@ -1,6 +1,7 @@
 package core;
 
 import database.DBConnection;
+import database.DBConnection_Scheduler;
 
 import java.lang.reflect.Array;
 import java.text.DateFormat;
@@ -8,12 +9,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Scheduler {
     private ArrayList<Ward> wards;
     private ArrayList<Shift> shifts;
     private ArrayList<Employee> employees;
     private ArrayList<Shift_Employee> shift_employees;
+    ArrayList<Shift_Employee> tempList;
 
     public Scheduler() {
         this.wards = getWards();
@@ -54,35 +57,36 @@ public class Scheduler {
         return null;
     }
 
-    public void shedule(){
+    public void schedule() {
         //declare date
         // Creating a calendar object and parsing the date from DB
+
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2015);
-        calendar.set(Calendar.MONTH, 1);
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-
-
+        tempList = new ArrayList<>();
         //for each ward
-
+        Shift_Employee s;
         //for each shift
         for (int j=0; j<shifts.size(); j++){
-            Shift_Employee se1=new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(0).getEmp_ID(), calendar);
-            shift_employees.add(se1);
-            Shift_Employee se2=new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(1).getEmp_ID(), calendar);
-            shift_employees.add(se2);
-            Shift_Employee se3=new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(2).getEmp_ID(), calendar);
-            shift_employees.add(se3);
 
+
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//            String dateAsString = format.format(calendar.getTime());
+//            System.out.println(dateAsString);
             if(j%2!=0) { // if not an even shift, increment day
-                calendar.add(Calendar.DAY_OF_MONTH, 1);
+                calendar.add(Calendar.DATE, 1);
             }
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dateAsString = format.format(calendar.getTime());
+
+            s = new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(0).getEmp_ID(), dateAsString);
+            tempList.add(s);
+
         }
 
-        DBConnection dbc=new DBConnection();
-        for(int k=0; k<shift_employees.size(); k++){
-            dbc.createShiftEmployee(shift_employees.get(k));
+        DBConnection_Scheduler dbcs=new DBConnection_Scheduler();
+        for(Shift_Employee s_e : tempList){
+            dbcs.createShiftEmployee(s_e);
         }
     }
-
 }
