@@ -365,6 +365,7 @@ public class DBConnection {
     }
 
     public ArrayList<Ward> getWards(){
+        getDBConnection();
         String query="select * from ward;";
         ArrayList<Ward> wards=new ArrayList<>();
         try {
@@ -383,6 +384,7 @@ public class DBConnection {
         return wards;
     }
     public ArrayList<Shift> getShifts(){
+        getDBConnection();
         String query="select * from shift;";
         ArrayList<Shift> shifts=new ArrayList<>();
         try {
@@ -394,7 +396,7 @@ public class DBConnection {
                 shift.setEndTime(resultSet.getString("endTime"));
                 shift.setShiftType(resultSet.getString("shiftType"));
                 shift.setWard_ID(resultSet.getInt("ward_ID"));
-                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
+//                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
         }
