@@ -74,8 +74,8 @@ public class DBConnection {
                 int numHolidays = resultSet.getInt("numHolidays");
                 int contractHours = resultSet.getInt("contractHours");
                 int salary = resultSet.getInt("salary");
-                int onHoliday = resultSet.getInt("onHoliday");
-                int offSick = resultSet.getInt("offSick");
+                Double onHoliday = resultSet.getDouble("onHoliday");
+                Double offSick = resultSet.getDouble("offSick");
                 int ward_ID = resultSet.getInt("ward_ID");
 
                 String password = resultSet.getString("password");
