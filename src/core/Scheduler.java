@@ -62,7 +62,10 @@ public class Scheduler {
         // Creating a calendar object and parsing the date from DB
 
         Calendar calendar = Calendar.getInstance();
+        calendar.set(2015, 1, 1);
         tempList = new ArrayList<>();
+
+        int tracker =0;
         //for each ward
         Shift_Employee s;
         //for each shift
@@ -72,15 +75,18 @@ public class Scheduler {
 //            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 //            String dateAsString = format.format(calendar.getTime());
 //            System.out.println(dateAsString);
-            if(j%2!=0) { // if not an even shift, increment day
-                calendar.add(Calendar.DATE, 1);
-            }
+
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String dateAsString = format.format(calendar.getTime());
 
             s = new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(0).getEmp_ID(), dateAsString);
             tempList.add(s);
+            tracker++;
+            if(tracker==2) { // if not an even shift, increment day
+                calendar.add(Calendar.DATE, 1);
+                tracker=0;
+            }
 
         }
 
