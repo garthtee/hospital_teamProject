@@ -15,8 +15,8 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
     private JPanel panelTop, panelBottom;
     private String selectedItem;
     private ArrayList<Employee> employeeList = new ArrayList<>();
-    private ArrayList<Employee> tempList = new ArrayList<>();
     private JComboBox<String> jcbSearch;
+    ArrayList<Employee> tempList = new ArrayList<>();;
 
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
@@ -61,6 +61,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
         // Add actionListeners
         btnCancel.addActionListener(this);
         btnSearch.addActionListener(this);
+
+        // Presses search button on enter key press
+        this.getRootPane().setDefaultButton(btnSearch);
     }
 
     @Override
@@ -80,12 +83,14 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                         try {
                             if (employee.getEmp_ID() == Integer.valueOf(txtSearch.getText())) {
                                 employeeFound=true;
-                                ViewEmployee sp = new ViewEmployee(employee);
-                                sp.setVisible(true);
-                                sp.pack();
-                                sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                sp.setLocationRelativeTo(null);
+                                ViewEmployee viewEmployee = new ViewEmployee(employee);
+                                viewEmployee.setVisible(true);
+                                viewEmployee.pack();
+                                viewEmployee.setResizable(false);
+                                viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                viewEmployee.setLocationRelativeTo(null);
                                 jcbSearch.setSelectedIndex(0);
+                                this.dispose();
                                 return;
                             }
                         } catch (NumberFormatException exception) {
@@ -95,43 +100,61 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
                     }
                     if(!employeeFound) { // if employee not found..
                         employeeFound=false;
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }
                 if (selectedItem.equals("First Name")) {
+                    tempList.clear();
                     boolean employeeFound = false;
-                    for (Employee employee : employeeList) {
-                        if (employee.getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                    for (int i =0; i <= employeeList.size()-1; i++) {
+                        if (employeeList.get(i).getfName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
                             employeeFound=true;
-                            ViewEmployee sp = new ViewEmployee(employee);
-                            sp.setVisible(true);
-                            sp.pack();
-                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            sp.setLocationRelativeTo(null);
-                            jcbSearch.setSelectedIndex(0);
+                            tempList.add(employeeList.get(i));
                         }
                     }
+                    if (tempList.size() > 0) {
+                        ViewEmployees viewEmployees = new ViewEmployees(tempList, txtSearch.getText());
+                        viewEmployees.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        viewEmployees.pack();
+                        viewEmployees.setLocationRelativeTo(null);
+                        viewEmployees.setVisible(true);
+                        viewEmployees.setResizable(false);
+                        jcbSearch.setSelectedIndex(0);
+                        this.dispose();
+                    }
                     if(!employeeFound) { // if employee not found..
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }
                 if (selectedItem.equals("Surname")) {
+                    tempList.clear();
                     boolean employeeFound = false;
-                    for (Employee employee : employeeList) {
-                        if (employee.getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
+                    for (int i =0; i <= employeeList.size()-1; i++) {
+                        if (employeeList.get(i).getsName().toLowerCase().contains(txtSearch.getText().toLowerCase())) {
                             employeeFound=true;
-                            ViewEmployee sp = new ViewEmployee(employee);
-                            sp.setVisible(true);
-                            sp.pack();
-                            sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            sp.setLocationRelativeTo(null);
-                            jcbSearch.setSelectedIndex(0);
+                            tempList.add(employeeList.get(i));
                         }
                     }
+                    if (tempList.size() > 0) {
+                        ViewEmployees viewEmployees = new ViewEmployees(tempList, txtSearch.getText());
+                        viewEmployees.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        viewEmployees.pack();
+                        viewEmployees.setResizable(false);
+                        viewEmployees.setLocationRelativeTo(null);
+                        viewEmployees.setVisible(true);
+                        jcbSearch.setSelectedIndex(0);
+                        this.dispose();
+                    }
                     if(!employeeFound) { // if employee not found..
-                        JOptionPane.showMessageDialog(null, "No employee found!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No employee found! \n\n"
+                                + "Search criteria being:\n"
+                                + txtSearch.getText(), "Error", JOptionPane.ERROR_MESSAGE);
                         jcbSearch.setSelectedIndex(0);
                     }
                 }

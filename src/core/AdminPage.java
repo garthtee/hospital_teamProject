@@ -74,7 +74,7 @@ public class AdminPage extends JFrame implements ActionListener {
         p2.add(btnAddEmp = new JButton("Add Employee"));
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
-        p2.add(btnSearchEmp = new JButton("Search Employee"));
+        p2.add(btnSearchEmp = new JButton("Search Employees"));
         p2.add(btnViewEmp = new JButton("View Employee"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -96,6 +96,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 CreateEmployee createEmployeeFrame = new CreateEmployee();
                 createEmployeeFrame.setVisible(true);
                 createEmployeeFrame.pack();
+                createEmployeeFrame.setResizable(false);
                 createEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 createEmployeeFrame.setLocationRelativeTo(null);
                 this.dispose();
@@ -104,7 +105,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 if (selectedEmployee != null) { // if an employee is selected
                     int chosenOption = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove "
                                     + selectedEmployee.getfName() + "?",
-                            "Delete employee", JOptionPane.YES_NO_OPTION);
+                            "Remove employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
                         dbConnection.removeEmployee(selectedEmployee);
                         defaultListModel.removeElement(selectedEmployee);
@@ -119,6 +120,7 @@ public class AdminPage extends JFrame implements ActionListener {
                     updateEmployeeFrame.setVisible(true);
                     this.dispose();
                     updateEmployeeFrame.pack();
+                    updateEmployeeFrame.setResizable(false);
                     updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     updateEmployeeFrame.setLocationRelativeTo(null);
                 } else
@@ -130,15 +132,17 @@ public class AdminPage extends JFrame implements ActionListener {
                     viewEmployee.setVisible(true);
                     viewEmployee.pack();
                     viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    viewEmployee.setResizable(false);
                     viewEmployee.setLocationRelativeTo(null);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
-            case "Search Employee":
+            case "Search Employees":
                 SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeList);
                 searchEmployeePage.setVisible(true);
-                searchEmployeePage.pack();
+                searchEmployeePage.setSize(300, 165);
                 searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                searchEmployeePage.setResizable(false);
                 searchEmployeePage.setLocationRelativeTo(null);
 
                 break;
@@ -151,14 +155,5 @@ public class AdminPage extends JFrame implements ActionListener {
                 this.dispose();
                 break;
         }
-    }
-
-    // Main Method //
-    public static void main(String[] args) {
-        AdminPage gui = new AdminPage();
-        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        gui.setSize(600, 500);
-        gui.setLocationRelativeTo(null);
-        gui.setVisible(true);
     }
 }

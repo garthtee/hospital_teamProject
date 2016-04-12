@@ -63,6 +63,9 @@ public class LogInForm extends JFrame implements ActionListener {
         btnCancel.addActionListener(this);
         btnLogin.addActionListener(this);
 
+        // Presses login button on enter key press
+        this.getRootPane().setDefaultButton(btnLogin);
+
 
         add(panel0);
         add(panel1);
@@ -74,34 +77,49 @@ public class LogInForm extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Login":
-                try {
-                    ArrayList<String> resultList = new ArrayList<>();
-                    resultList = dbConnection.getLoginExistence(Integer.valueOf(txtUsername.getText()), new String(txtPassword.getPassword()));
-                    String existence = resultList.get(0);
-                    String privilege = resultList.get(1);
+                if(!txtUsername.getText().equals("") && !new String(txtPassword.getPassword()).equals("")) {
+                    try {
+                        ArrayList<String> resultList = new ArrayList<>();
+                        resultList = dbConnection.getLoginExistence(Integer.valueOf(txtUsername.getText()), new String(txtPassword.getPassword()));
+                        String existence = resultList.get(0);
+                        String privilege = resultList.get(1);
 
-                    if (existence.equals("true")) {
-                        switch (privilege) {
-                            case "employee":
-                                EmployeePage employeePage = new EmployeePage();
-                                employeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                employeePage.setSize(600, 500);
-                                employeePage.setLocationRelativeTo(null);
-                                employeePage.setVisible(true);
-                                this.dispose();
-                                break;
-                            case "admin":
-                                AdminPage adminPage = new AdminPage();
-                                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                adminPage.setSize(600, 500);
-                                adminPage.setLocationRelativeTo(null);
-                                adminPage.setVisible(true);
-                                this.dispose();
-                                break;
+                        if (existence.equals("true")) {
+                            switch (privilege) {
+                                case "employee":
+                                    EmployeePage employeePage = new EmployeePage();
+                                    employeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    employeePage.setSize(600, 500);
+                                    employeePage.setResizable(false);
+                                    employeePage.setLocationRelativeTo(null);
+                                    employeePage.setVisible(true);
+                                    this.dispose();
+                                    break;
+                                case "admin":
+                                    AdminPage adminPage = new AdminPage();
+                                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    adminPage.setSize(600, 500);
+                                    adminPage.setResizable(false);
+                                    adminPage.setLocationRelativeTo(null);
+                                    adminPage.setVisible(true);
+                                    this.dispose();
+                                    break;
+                                case "manager":
+                                    E_ManagerPage e_managerPage = new E_ManagerPage();
+                                    e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    e_managerPage.setSize(650, 500);
+                                    e_managerPage.setResizable(false);
+                                    e_managerPage.setLocationRelativeTo(null);
+                                    e_managerPage.setVisible(true);
+                                    this.dispose();
+                                    break;
+                            }
                         }
+                    } catch (NumberFormatException exception) {
+                        JOptionPane.showMessageDialog(null, "Username should be in integer format.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                } catch (NumberFormatException exception) {
-                    JOptionPane.showMessageDialog(null, "Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case "Cancel":
@@ -120,6 +138,7 @@ public class LogInForm extends JFrame implements ActionListener {
         LogInForm gui = new LogInForm();
         gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         gui.setSize(300, 250);
+        gui.setResizable(false);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);
     }
