@@ -20,11 +20,12 @@ public class DBConnection_Clock {
 
     public DBConnection_Clock() {}
 
+    /* Remote AWS database connection */
     private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "");
             statement = connection.createStatement();
 
         } catch (Exception e) {

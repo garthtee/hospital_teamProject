@@ -27,14 +27,18 @@ public class EmployeePage extends JFrame implements ActionListener {
     private DBConnection dbConnection = new DBConnection();
     private DBConnection_Clock dbConnection_clock = new DBConnection_Clock();
     private ArrayList<Shift> listOfShifts = new ArrayList<>();
-    private int employee_id_in;
+    public int employee_id_in;
 
 
     private DefaultListModel<Shift> defaultListModel;
 
 	public void createShiftModel(){
 		listOfShifts = dbConnection.getShifts();
+
+
 		defaultListModel = new DefaultListModel<>();
+
+
 		for (Shift shift:listOfShifts)
 			defaultListModel.addElement(shift);
 
@@ -91,15 +95,6 @@ public class EmployeePage extends JFrame implements ActionListener {
     }
 
 
-//    public static void main(String[] args) {
-//        EmployeePage gui = new EmployeePage();
-//        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        gui.setSize(600, 500);
-//        gui.setLocationRelativeTo(null);
-//        gui.setVisible(true);
-//    }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         long startTime = 0, endTime = 0;
@@ -130,7 +125,7 @@ public class EmployeePage extends JFrame implements ActionListener {
 
                 break;
             case "Request Holiday":
-                bookHolidays sp = new bookHolidays();
+                bookHolidays sp = new bookHolidays(employee_id_in);
                 sp.setVisible(true);
                 sp.pack();
                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
