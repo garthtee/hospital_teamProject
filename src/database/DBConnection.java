@@ -70,6 +70,7 @@ public class DBConnection {
                 String password = resultSet.getString("password");
                 String privilege = resultSet.getString("privilege");
 
+
                 Employee employee = new Employee();
                 employee.setEmp_ID(emp_id);
                 employee.setfName(fName);
@@ -354,45 +355,5 @@ public class DBConnection {
         }
     }
 
-    public ArrayList<Ward> getWards(){
-        getDBConnection();
-        String query="select * from ward;";
-        ArrayList<Ward> wards=new ArrayList<>();
-        try {
-            resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Ward ward=new Ward();
-                ward.setWard_ID(resultSet.getInt("ward_ID"));
-                ward.setReqNurses(resultSet.getInt("reqNurses"));
-                ward.setReqDoctors(resultSet.getInt("reqDoctors"));
-                wards.add(ward);
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return wards;
-    }
-    public ArrayList<Shift> getShifts(){
-        getDBConnection();
-        String query="select * from shift;";
-        ArrayList<Shift> shifts=new ArrayList<>();
-        try {
-            resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Shift shift=new Shift();
-                shift.setShift_ID(resultSet.getInt("shift_ID"));
-                shift.setStartTime(resultSet.getString("startTime"));
-                shift.setEndTime(resultSet.getString("endTime"));
-                shift.setShiftType(resultSet.getString("shiftType"));
-                shift.setWard_ID(resultSet.getInt("ward_ID"));
-//                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
-                shifts.add(shift);
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return shifts;
-    }
+
 }

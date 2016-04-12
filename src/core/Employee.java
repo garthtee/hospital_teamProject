@@ -20,6 +20,7 @@ public class Employee {
 	private String password;
 	private String privilege;
 	private int hoursWorked=0;
+	private String employee_type;
 
     public Employee(){}
 
@@ -43,7 +44,8 @@ public class Employee {
 	}
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID, String password, String privilege) {
+                    int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID,
+					String password, String privilege, String employee_type) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -61,6 +63,8 @@ public class Employee {
 		this.ward_ID = ward_ID;
 		this.password = password;
 		this.privilege = privilege;
+		this.employee_type=employee_type;
+
 	}
 
 	public int getEmp_ID() {
@@ -189,6 +193,14 @@ public class Employee {
 
 	public void setHoursWorked(int hoursWorked) {
 		this.hoursWorked = hoursWorked;
+	}
+
+	public String getEmployee_type() {
+		return employee_type;
+	}
+
+	public void setEmployee_type(String employee_type) {
+		this.employee_type = employee_type;
 	}
 
 	@Override

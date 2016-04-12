@@ -16,7 +16,8 @@ public class Scheduler {
     private ArrayList<Shift> shifts;
     private ArrayList<Employee> employees;
     private ArrayList<Shift_Employee> shift_employees;
-    ArrayList<Shift_Employee> tempList;
+    ArrayList<Employee> tempList= new ArrayList<>();
+    private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
 
     public Scheduler() {
         this.wards = getWards();
@@ -26,20 +27,17 @@ public class Scheduler {
     }
 
     public ArrayList<Employee> getEmployees() {
-        DBConnection dbc=new DBConnection();
-        employees=dbc.getEmployees();
+        employees=dbConnection_scheduler.getEmployees();
         return this.employees;
     }
 
     public ArrayList<Shift> getShifts() {
-        DBConnection dbc = new DBConnection();
-        ArrayList<Shift> shifts = dbc.getShifts();
+        dbConnection_scheduler.getShifts();
         return shifts;
     }
 
     public ArrayList<Ward> getWards() {
-        DBConnection dbc=new DBConnection();
-        ArrayList<Ward> wards=dbc.getWards();
+        ArrayList<Ward> wards=dbConnection_scheduler.getWards();
         return wards;
     }
 
@@ -57,17 +55,26 @@ public class Scheduler {
         return null;
     }
 
+//    public ArrayList<Employee> filterEmployees(String employeeType){
+//        if(employeeType.equals("Doctor")){
+//            for(Employee e : employees){
+//                //if(e.get)
+//            }
+//        }
+//    }
+
     public void schedule() {
         //declare date
         // Creating a calendar object and parsing the date from DB
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(2015, 1, 1);
-        tempList = new ArrayList<>();
 
         int offShiftTracker =0;
         int employeeTracker=0;
         int lastEmployee=0;
+
+        //filterEmployees("Doctor");
         //for each ward
         Shift_Employee s;
         //for each shift
