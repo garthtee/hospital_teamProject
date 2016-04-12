@@ -33,7 +33,7 @@ public class AdminPage extends JFrame implements ActionListener {
             defaultListModel.addElement(employee); // Add employees to Default List Model
     }
 
-    public AdminPage() {
+    public AdminPage(int emp_ID_In) {
 
         setLayout(new BorderLayout());
         setTitle("Manage Employees");

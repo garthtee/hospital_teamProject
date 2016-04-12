@@ -15,11 +15,14 @@ public class E_ManagerPage extends JFrame implements ActionListener {
     private JScrollPane scrollPane = new JScrollPane();
     private JButton btnAssignWard, btnApproveHols, btnViewHours, btnClockIn, btnLogout, btnSHours;
     private JLabel lblSpace;
+    private int loggedin_empID;
     //private ArrayList<E_Manager> listOfEmployees = new ArrayList<>();
 
 
 
-    public E_ManagerPage(){
+    public E_ManagerPage(int emp_ID_In){
+
+        loggedin_empID=emp_ID_In;
 
         setLayout(new BorderLayout());
         setTitle("Manager Home Page");
@@ -75,13 +78,13 @@ public class E_ManagerPage extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        E_ManagerPage gui = new E_ManagerPage();
-        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        gui.setSize(650, 500);
-        gui.setLocationRelativeTo(null);
-        gui.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        E_ManagerPage gui = new E_ManagerPage();
+//        gui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        gui.setSize(650, 500);
+//        gui.setLocationRelativeTo(null);
+//        gui.setVisible(true);
+//    }
 
 
     @Override
@@ -104,7 +107,7 @@ public class E_ManagerPage extends JFrame implements ActionListener {
 
         	break;*/
             case "Request Holiday":
-                bookHolidays sp = new bookHolidays();
+                bookHolidays sp = new bookHolidays(loggedin_empID);
                 sp.setVisible(true);
                 sp.pack();
                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
