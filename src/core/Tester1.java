@@ -5,7 +5,7 @@ package core;
  */
 public class Tester1 {
     public static void main(String []args){
-        Scheduler sched=new Scheduler();
+        Scheduler sched=new Scheduler(1);
         sched.schedule();
     }
 }

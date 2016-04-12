@@ -12,15 +12,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Scheduler {
-    private ArrayList<Ward> wards;
+    private Ward ward;
     private ArrayList<Shift> shifts;
     private ArrayList<Employee> employees;
     private ArrayList<Shift_Employee> shift_employees;
     ArrayList<Employee> tempList= new ArrayList<>();
     private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
 
-    public Scheduler() {
-        this.wards = getWards();
+    public Scheduler(int wardIn) {
+        this.ward = getWard(wardIn);
         this.employees = getEmployees();
         this.shifts = getShifts();
         this.shift_employees = new ArrayList<Shift_Employee>();
@@ -36,9 +36,9 @@ public class Scheduler {
         return shifts;
     }
 
-    public ArrayList<Ward> getWards() {
-        ArrayList<Ward> wards=dbConnection_scheduler.getWards();
-        return wards;
+    public Ward getWard(int wardIn) {
+        ward=dbConnection_scheduler.getWard(wardIn);
+        return ward;
     }
 
     public ArrayList<Shift_Employee> getShiftEmployees(){
@@ -55,13 +55,24 @@ public class Scheduler {
         return null;
     }
 
-//    public ArrayList<Employee> filterEmployees(String employeeType){
-//        if(employeeType.equals("Doctor")){
-//            for(Employee e : employees){
-//                //if(e.get)
-//            }
-//        }
-//    }
+    public ArrayList<Employee> filterEmployees(String employeeType){
+        tempList.clear();
+
+        if(employeeType.equals("Doctor")){
+            for(Employee e : employees){
+                if(e.getEmployee_type().equals("Doctor"))
+                    tempList.add(e);
+            }
+        }
+        else if(employeeType.equals("Nurse")){
+            for(Employee e : employees){
+                if(e.getEmployee_type().equals("Nurse"))
+                    tempList.add(e);
+            }
+        }
+
+        return  tempList;
+    }
 
     public void schedule() {
         //declare date
@@ -74,27 +85,28 @@ public class Scheduler {
         int employeeTracker=0;
         int lastEmployee=0;
 
-        //filterEmployees("Doctor");
+        filterEmployees("Doctor");
+
         //for each ward
         Shift_Employee s;
         //for each shift
         for (int j=0; j<shifts.size(); j++) {
             //checks if employee has reached max hours for week
-            if (employees.get(employeeTracker).getHoursWorked() == employees.get(employeeTracker).getContractHours()){
+            if (tempList.get(employeeTracker).getHoursWorked() == tempList.get(employeeTracker).getContractHours()){
                 employeeTracker++;
             }
             //checks if employee worked last shift
-            if(employees.get(employeeTracker).getLastShift().equals("true")){
+            if(tempList.get(employeeTracker).getLastShift().equals("true")){
                 employeeTracker++;
             }
 
             //resets lastshift for previous employee
-            employees.get(lastEmployee).setLastShift("false");
+            tempList.get(lastEmployee).setLastShift("false");
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String dateAsString = format.format(calendar.getTime());
 
-            s = new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(employeeTracker).getEmp_ID(), dateAsString);
+            s = new Shift_Employee(shifts.get(j).getShift_ID(), tempList.get(employeeTracker).getEmp_ID(), dateAsString);
             shift_employees.add(s);
             offShiftTracker++;
             if (offShiftTracker == 2) { // if not an even shift, increment day
@@ -103,14 +115,14 @@ public class Scheduler {
             }
 
             //increments hours worked for employee
-            employees.get(employeeTracker).setHoursWorked(employees.get(employeeTracker).getHoursWorked() + 12);
+            tempList.get(employeeTracker).setHoursWorked(tempList.get(employeeTracker).getHoursWorked() + 12);
             //sets last shift
-            employees.get(employeeTracker).setLastShift("true");
+            tempList.get(employeeTracker).setLastShift("true");
 
             lastEmployee=employeeTracker;
 
             //resets employee tracker
-            if(employeeTracker==employees.size()-1){
+            if(employeeTracker==tempList.size()-1){
                 employeeTracker=0;
             }
         }
