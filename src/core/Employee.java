@@ -19,6 +19,7 @@ public class Employee {
 	private int ward_ID;
 	private String password;
 	private String privilege;
+	private int hoursWorked=0;
 
     public Employee(){}
 
@@ -179,6 +180,14 @@ public class Employee {
 
 	public void setPrivilege(String privilege) {
 		this.privilege = privilege;
+	}
+
+	public int getHoursWorked() {
+		return hoursWorked;
+	}
+
+	public void setHoursWorked(int hoursWorked) {
+		this.hoursWorked = hoursWorked;
 	}
 
 	@Override

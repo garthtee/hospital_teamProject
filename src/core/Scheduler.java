@@ -69,25 +69,26 @@ public class Scheduler {
         //for each ward
         Shift_Employee s;
         //for each shift
-        for (int j=0; j<shifts.size(); j++){
-
-
-//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//            String dateAsString = format.format(calendar.getTime());
-//            System.out.println(dateAsString);
-
+        for (int j=0; j<shifts.size(); j++) {
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String dateAsString = format.format(calendar.getTime());
 
-            s = new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(0).getEmp_ID(), dateAsString);
-            tempList.add(s);
-            tracker++;
-            if(tracker==2) { // if not an even shift, increment day
-                calendar.add(Calendar.DATE, 1);
-                tracker=0;
+            if (employees.get(j).getHoursWorked() == employees.get(j).getContractHours()){
+                continue;
             }
+            else {
+                s = new Shift_Employee(shifts.get(j).getShift_ID(), employees.get(j).getEmp_ID(), dateAsString);
+                tempList.add(s);
+                tracker++;
+                if (tracker == 2) { // if not an even shift, increment day
+                    calendar.add(Calendar.DATE, 1);
+                    tracker = 0;
+                }
 
+                //increments hours worked for employee
+                employees.get(j).setHoursWorked(employees.get(j).getHoursWorked() + 12);
+            }
         }
 
         DBConnection_Scheduler dbcs=new DBConnection_Scheduler();

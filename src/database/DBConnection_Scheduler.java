@@ -17,11 +17,12 @@ public class DBConnection_Scheduler {
     public DBConnection_Scheduler() {
     }
 
+    /* Remote AWS database connection */
     private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "");
             statement = connection.createStatement();
 
         } catch (Exception e) {
@@ -60,11 +61,12 @@ public class DBConnection_Scheduler {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO shift_employee VALUES(?,?,?);");
+
             preparedStatement.setInt(1, shiftEmployee.getShift_ID()); // employee id 0 as it's auto incremented in DB
             preparedStatement.setInt(2, shiftEmployee.getEmployee_ID());
-
-
             preparedStatement.setString(3, shiftEmployee.getDate());
+
+
 
             preparedStatement.executeUpdate();
 
