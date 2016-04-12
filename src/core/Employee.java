@@ -1,5 +1,6 @@
 package core;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Employee {
@@ -12,12 +13,14 @@ public class Employee {
 	private int numHolidays;
 	private int contractHours;
 	private double salary;
-	private int onHoliday = 0;
-	private int offSick = 0;
+	private Double onHoliday = 0.0;
+	private Double offSick = 0.0;
 	private String lastShift;
 	private int ward_ID;
 	private String password;
 	private String privilege;
+	private int hoursWorked=0;
+	private String employee_type;
 
     public Employee(){}
 
@@ -35,13 +38,14 @@ public class Employee {
 		this.numHolidays = numHolidays;
 		this.contractHours = contractHours;
 		this.salary = salary;
-		this.onHoliday = 0;
-		this.offSick = 0;
+		this.onHoliday = 0.0;
+		this.offSick = 0.0;
 		this.ward_ID = ward_ID;
 	}
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, int onHoliday, int offSick, int ward_ID, String password, String privilege) {
+                    int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID,
+					String password, String privilege, String employee_type) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -53,11 +57,14 @@ public class Employee {
 		this.salary = salary;
 		this.onHoliday = onHoliday;
 		this.offSick = offSick;
-		this.onHoliday = 0;
-		this.offSick = 0;
+		this.lastShift=lastShift;
+		this.onHoliday = 0.0;
+		this.offSick = 0.0;
 		this.ward_ID = ward_ID;
 		this.password = password;
 		this.privilege = privilege;
+		this.employee_type=employee_type;
+
 	}
 
 	public int getEmp_ID() {
@@ -132,19 +139,19 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public int isOnHoliday() {
+	public Double isOnHoliday() {
 		return onHoliday;
 	}
 
-	public void setOnHoliday(int onHoliday) {
+	public void setOnHoliday(Double onHoliday) {
 		this.onHoliday = onHoliday;
 	}
 
-	public int isOffSick() {
+	public Double isOffSick() {
 		return offSick;
 	}
 
-	public void setOffSick(int offSick) {
+	public void setOffSick(Double offSick) {
 		this.offSick = offSick;
 	}
 
@@ -180,9 +187,25 @@ public class Employee {
 		this.privilege = privilege;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee " + emp_ID +
-				": " + fName + " " + sName;
+	public int getHoursWorked() {
+		return hoursWorked;
 	}
+
+	public void setHoursWorked(int hoursWorked) {
+		this.hoursWorked = hoursWorked;
+	}
+
+	public String getEmployee_type() {
+		return employee_type;
+	}
+
+	public void setEmployee_type(String employee_type) {
+		this.employee_type = employee_type;
+	}
+
+	@Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return emp_ID + "   " + fName + "   "+ sName;
+    }
 }
