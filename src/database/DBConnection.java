@@ -4,18 +4,13 @@ import core.Employee;
 import core.Shift;
 import core.Ward;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
-import java.security.spec.KeySpec;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Calendar;
-import java.util.Random;
 
 /**
  * Created by Group 5 on 10/03/2016.
@@ -29,24 +24,11 @@ public class DBConnection {
     public DBConnection() {}
 
     /* Remote AWS database connection */
-//    private void getDBConnection() {
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
-//
-//            statement = connection.createStatement();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    /* Local host connection */
     private void getDBConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://hospital-team-project.cxcy14kqrkxb.eu-west-1.rds.amazonaws.com/hospital", "team", "teamHospital16");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "");
             statement = connection.createStatement();
 
         } catch (Exception e) {
@@ -265,62 +247,6 @@ public class DBConnection {
         return resultList;
     }
 
-
-
-    public void createClockInTime(int emp_ID, Calendar startTime){
-
-        getDBConnection();
-
-        try {
-            PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
-            preparedStatement.setInt(1,emp_ID);
-
-            java.sql.Date sqlDate = new java.sql.Date(startTime.getTimeInMillis());
-            preparedStatement.setDate(2,sqlDate);
-
-
-            preparedStatement.executeUpdate();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print("Catch");
-        } finally {
-            closeResultSet();
-            closeStatement();
-            closeConnection();
-        }
-
-    }
-
-    public void createClockOutTime(int emp_ID, Calendar endTime){
-
-        getDBConnection();
-
-        try {
-            PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?);");
-
-            preparedStatement.setInt(1,emp_ID);
-
-            java.sql.Date sqlDate = new java.sql.Date(endTime.getTimeInMillis());
-            preparedStatement.setDate(2,sqlDate);
-
-            preparedStatement.executeUpdate();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print("Catch");
-        } finally {
-            closeResultSet();
-            closeStatement();
-            closeConnection();
-        }
-
-    }
-
     private void closeConnection() {
         try {
             connection.close();
@@ -347,25 +273,7 @@ public class DBConnection {
         }
     }
 
-    private void encryptPassword(String password) {
-
-        try {
-            Random random = new Random();
-            byte[] salt = new byte[16];
-            random.nextBytes(salt);
-            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-            SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            byte[] hash = f.generateSecret(spec).getEncoded();
-            Base64.Encoder enc = Base64.getEncoder();
-            System.out.printf("salt: %s%n", enc.encodeToString(salt));
-            System.out.printf("hash: %s%n", enc.encodeToString(hash));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public ArrayList<Ward> getWards(){
-        getDBConnection();
         String query="select * from ward;";
         ArrayList<Ward> wards=new ArrayList<>();
         try {
@@ -384,7 +292,6 @@ public class DBConnection {
         return wards;
     }
     public ArrayList<Shift> getShifts(){
-        getDBConnection();
         String query="select * from shift;";
         ArrayList<Shift> shifts=new ArrayList<>();
         try {
@@ -396,7 +303,7 @@ public class DBConnection {
                 shift.setEndTime(resultSet.getString("endTime"));
                 shift.setShiftType(resultSet.getString("shiftType"));
                 shift.setWard_ID(resultSet.getInt("ward_ID"));
-//                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
+                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
         }
