@@ -12,15 +12,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Scheduler {
-    private ArrayList<Ward> wards;
+    private Ward ward;
     private ArrayList<Shift> shifts;
     private ArrayList<Employee> employees;
     private ArrayList<Shift_Employee> shift_employees;
     ArrayList<Employee> tempList= new ArrayList<>();
     private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
 
-    public Scheduler() {
-        this.wards = getWards();
+    public Scheduler(int wardIn) {
+        this.ward = getWard(wardIn);
         this.employees = getEmployees();
         this.shifts = getShifts();
         this.shift_employees = new ArrayList<Shift_Employee>();
@@ -36,9 +36,9 @@ public class Scheduler {
         return shifts;
     }
 
-    public ArrayList<Ward> getWards() {
-        ArrayList<Ward> wards=dbConnection_scheduler.getWards();
-        return wards;
+    public Ward getWard(int wardIn) {
+        ward=dbConnection_scheduler.getWard(wardIn);
+        return ward;
     }
 
     public ArrayList<Shift_Employee> getShiftEmployees(){
@@ -55,13 +55,24 @@ public class Scheduler {
         return null;
     }
 
-//    public ArrayList<Employee> filterEmployees(String employeeType){
-//        if(employeeType.equals("Doctor")){
-//            for(Employee e : employees){
-//                //if(e.get)
-//            }
-//        }
-//    }
+    public ArrayList<Employee> filterEmployees(String employeeType){
+        tempList.clear();
+
+        if(employeeType.equals("Doctor")){
+            for(Employee e : employees){
+                if(e.getEmployee_type().equals("Doctor"))
+                    tempList.add(e);
+            }
+        }
+        else if(employeeType.equals("Nurse")){
+            for(Employee e : employees){
+                if(e.getEmployee_type().equals("Nurse"))
+                    tempList.add(e);
+            }
+        }
+
+        return  tempList;
+    }
 
     public void schedule() {
         //declare date

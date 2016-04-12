@@ -157,24 +157,23 @@ public class DBConnection_Scheduler {
         return employeeList;
     }
 
-    public ArrayList<Ward> getWards(){
+    public Ward getWard(int wardIn){
         getDBConnection();
-        String query="select * from ward;";
-        ArrayList<Ward> wards=new ArrayList<>();
+        String query="select * from ward where ward_id="+wardIn+";";
+        Ward ward=new Ward();
         try {
             resultSet = statement.executeQuery(query);
             while(resultSet.next()){
-                Ward ward=new Ward();
+
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
-                wards.add(ward);
             }
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        return wards;
+        return ward;
     }
     public ArrayList<Shift> getShifts(){
         getDBConnection();
