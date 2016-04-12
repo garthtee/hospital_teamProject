@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/Request.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/database/DBConnection_Holidays.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/E_ManagerPage.java" afterPath="$PROJECT_DIR$/src/core/E_ManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/EmployeePage.java" afterPath="$PROJECT_DIR$/src/core/EmployeePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/bookHolidays.java" afterPath="$PROJECT_DIR$/src/core/bookHolidays.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection_Clock.java" afterPath="$PROJECT_DIR$/src/database/DBConnection_Clock.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +84,8 @@
       <file leaf-file-name="EmployeePage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/EmployeePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32409972">
-              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.21350364">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -807,7 +799,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460143961098</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Working clock in and making holiday request">
+      <created>1460458486513</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1460458486513</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -824,7 +822,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07724426" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3246528" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3246528" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.029227557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -876,7 +874,8 @@
     <MESSAGE value="Added Employee class toString() and minor changes to AdminPage." />
     <MESSAGE value="Search page closes after search is successful." />
     <MESSAGE value="CreateEmployee ErrorHandling for email, name, DOB, contact number&#10;Clock in/ Clock out working" />
-    <option name="LAST_COMMIT_MESSAGE" value="CreateEmployee ErrorHandling for email, name, DOB, contact number&#10;Clock in/ Clock out working" />
+    <MESSAGE value="Working clock in and making holiday request" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working clock in and making holiday request" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1299,8 +1298,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/EmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32409972">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.21350364">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
