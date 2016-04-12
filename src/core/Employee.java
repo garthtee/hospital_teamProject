@@ -43,7 +43,7 @@ public class Employee {
 	}
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, Double onHoliday, Double offSick, int ward_ID, String password, String privilege) {
+                    int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID, String password, String privilege) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -55,6 +55,7 @@ public class Employee {
 		this.salary = salary;
 		this.onHoliday = onHoliday;
 		this.offSick = offSick;
+		this.lastShift=lastShift;
 		this.onHoliday = 0.0;
 		this.offSick = 0.0;
 		this.ward_ID = ward_ID;

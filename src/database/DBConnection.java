@@ -64,6 +64,7 @@ public class DBConnection {
                 int salary = resultSet.getInt("salary");
                 Double onHoliday = resultSet.getDouble("onHoliday");
                 Double offSick = resultSet.getDouble("offSick");
+                String lastShift=resultSet.getString("lastShift");
                 int ward_ID = resultSet.getInt("ward_ID");
 
                 String password = resultSet.getString("password");
@@ -91,6 +92,7 @@ public class DBConnection {
                 employee.setSalary(salary);
                 employee.setOnHoliday(onHoliday);
                 employee.setOffSick(offSick);
+                employee.setLastShift(lastShift);
                 employee.setWard_ID(ward_ID);
                 employee.setPassword(password);
                 employee.setPrivilege(privilege);
