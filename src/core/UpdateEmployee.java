@@ -209,8 +209,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
                         employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
                         employee.setSalary(Double.valueOf(txtSalary.getText()));
-                        employee.setOnHoliday(Integer.valueOf(txtOnHoliday.getText()));
-                        employee.setOffSick(Integer.valueOf(txtOffSick.getText()));
+                        employee.setOnHoliday(Double.valueOf(txtOnHoliday.getText()));
+                        employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                         employee.setPassword(txtPassword.getText());
                         employee.setPrivilege(selectedPrivilege);
