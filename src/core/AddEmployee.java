@@ -15,7 +15,7 @@ import java.util.Calendar;
 /**
  * Created by Group 5 on 3/2/2016.
  */
-public class CreateEmployee extends JFrame implements ActionListener {
+public class AddEmployee extends JFrame implements ActionListener {
 
     private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID,
             lblPassword, lblPrivilege;
@@ -23,7 +23,7 @@ public class CreateEmployee extends JFrame implements ActionListener {
             txtPassword, txtPrivilege;
     private JButton btnCreate, btnCancel;
 
-    public CreateEmployee() {
+    public AddEmployee() {
 
         setTitle("Create");
         setLayout(new BorderLayout());

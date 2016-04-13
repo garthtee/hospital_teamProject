@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class AdminPage extends JFrame implements ActionListener {
 
-    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnLogout;
+    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnLogout;
     private JPanel p1, p2, panelLeft, panelLeftTop;
     private JList<Employee> list;
     private JScrollPane scrollPane = new JScrollPane();
@@ -70,12 +70,13 @@ public class AdminPage extends JFrame implements ActionListener {
 
         // Panel 2 //
         p2 = new JPanel();
-        p2.setLayout(new GridLayout(6, 1, 10, 10));
+        p2.setLayout(new GridLayout(7, 1, 10, 10));
         p2.add(btnAddEmp = new JButton("Add Employee"));
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
         p2.add(btnSearchEmp = new JButton("Search Employees"));
         p2.add(btnViewEmp = new JButton("View Employee"));
+        p2.add(btnWards = new JButton("Wards page"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p2, BorderLayout.EAST);
@@ -86,6 +87,7 @@ public class AdminPage extends JFrame implements ActionListener {
         btnUpdateEmp.addActionListener(this);
         btnSearchEmp.addActionListener(this);
         btnViewEmp.addActionListener(this);
+        btnWards.addActionListener(this);
         btnLogout.addActionListener(this);
     }
 
@@ -93,12 +95,12 @@ public class AdminPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add Employee":
-                CreateEmployee createEmployeeFrame = new CreateEmployee();
-                createEmployeeFrame.setVisible(true);
-                createEmployeeFrame.pack();
-                createEmployeeFrame.setResizable(false);
-                createEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                createEmployeeFrame.setLocationRelativeTo(null);
+                AddEmployee addEmployee = new AddEmployee();
+                addEmployee.setVisible(true);
+                addEmployee.pack();
+                addEmployee.setResizable(false);
+                addEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                addEmployee.setLocationRelativeTo(null);
                 this.dispose();
                 break;
             case "Remove Employee":
@@ -145,6 +147,15 @@ public class AdminPage extends JFrame implements ActionListener {
                 searchEmployeePage.setResizable(false);
                 searchEmployeePage.setLocationRelativeTo(null);
 
+                break;
+            case "Wards page":
+                this.dispose();
+                WardMainPage wardMainPage = new WardMainPage();
+                wardMainPage.setVisible(true);
+                wardMainPage.pack();
+                wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                wardMainPage.setResizable(false);
+                wardMainPage.setLocationRelativeTo(null);
                 break;
             case "Log Out":
                 LogInForm logInForm = new LogInForm();

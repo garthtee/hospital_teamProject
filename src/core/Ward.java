@@ -50,4 +50,10 @@ public class Ward {
     public void setReqDoctors(int reqDoctors) {
         this.reqDoctors = reqDoctors;
     }
+
+    @Override
+    public String toString() {
+        return "Ward " + ward_ID +
+                ": " + wardType;
+    }
 }

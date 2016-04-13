@@ -274,6 +274,7 @@ public class DBConnection {
     }
 
     public ArrayList<Ward> getWards(){
+        getDBConnection();
         String query="select * from ward;";
         ArrayList<Ward> wards=new ArrayList<>();
         try {
@@ -281,6 +282,7 @@ public class DBConnection {
             while(resultSet.next()){
                 Ward ward=new Ward();
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
+                ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
                 wards.add(ward);
@@ -288,6 +290,10 @@ public class DBConnection {
         }
         catch (Exception e){
             e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
         return wards;
     }
@@ -309,7 +315,59 @@ public class DBConnection {
         }
         catch (Exception e){
             e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
         }
         return shifts;
+    }
+
+    public void addWard(Ward ward) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?);");
+            preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
+            preparedStatement.setString(2, ward.getWardType());
+            preparedStatement.setInt(3, ward.getReqNurses());
+            preparedStatement.setInt(4, ward.getReqDoctors());
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public void removeWard(Ward ward) {
+
+        getDBConnection();
+
+        try {
+            String wardType = ward.getWardType();
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("DELETE from ward WHERE ward_ID = ?;");
+            preparedStatement.setInt(1, ward.getWard_ID());
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, wardType + " has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Ward not removed.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
     }
 }
