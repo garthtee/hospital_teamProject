@@ -16,7 +16,7 @@ public class Scheduler {
     private ArrayList<Shift> shifts;
     private ArrayList<Employee> employees;
     private ArrayList<Shift_Employee> shift_employees;
-    ArrayList<Employee> tempList= new ArrayList<>();
+    private ArrayList<Employee> tempList= new ArrayList<Employee>();
     private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
 
     public Scheduler(int wardIn) {
@@ -32,7 +32,7 @@ public class Scheduler {
     }
 
     public ArrayList<Shift> getShifts() {
-        dbConnection_scheduler.getShifts();
+        shifts=dbConnection_scheduler.getShifts();
         return shifts;
     }
 
@@ -55,26 +55,23 @@ public class Scheduler {
         return null;
     }
 
-    public ArrayList<Employee> filterEmployees(String employeeType){
+    public void filterEmployees(String employeeType){
         tempList.clear();
 
-        if(employeeType.equals("Doctor")){
-            for(Employee e : employees){
-                if(e.getEmployee_type().equals("Doctor"))
-                    tempList.add(e);
+        if (employeeType.equals("doctor")) {
+            for (Employee emp : employees) {
+                if (emp.getEmployee_type().equals(employeeType))
+                    tempList.add(emp);
+            }
+        } else if (employeeType.equals("nurse")) {
+            for (Employee emp : employees) {
+                if (emp.getEmployee_type().equals(employeeType))
+                    tempList.add(emp);
             }
         }
-        else if(employeeType.equals("Nurse")){
-            for(Employee e : employees){
-                if(e.getEmployee_type().equals("Nurse"))
-                    tempList.add(e);
-            }
-        }
-
-        return  tempList;
     }
 
-    public void schedule() {
+    public void scheduleDoctors() {
         //declare date
         // Creating a calendar object and parsing the date from DB
 
@@ -85,8 +82,7 @@ public class Scheduler {
         int employeeTracker=0;
         int lastEmployee=0;
 
-        filterEmployees("Doctor");
-
+        filterEmployees("doctor");
         //for each ward
         Shift_Employee s;
         //for each shift
