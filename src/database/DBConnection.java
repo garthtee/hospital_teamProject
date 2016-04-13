@@ -21,7 +21,8 @@ public class DBConnection {
     private Statement statement;
     private ResultSet resultSet;
 
-    public DBConnection() {}
+    public DBConnection() {
+    }
 
     /* Remote AWS database connection */
     private void getDBConnection() {
@@ -31,6 +32,32 @@ public class DBConnection {
 
             statement = connection.createStatement();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeStatement() {
+        try {
+            if (statement != null)
+                statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeResultSet() {
+        try {
+            if (resultSet != null)
+                resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,8 +188,7 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        }
-        finally {
+        } finally {
             closeResultSet();
             closeStatement();
             closeConnection();
@@ -180,8 +206,7 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        }
-        finally {
+        } finally {
             closeResultSet();
             closeStatement();
             closeConnection();
@@ -268,48 +293,21 @@ public class DBConnection {
         return resultList;
     }
 
-    private void closeConnection() {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void closeStatement() {
-        try {
-            if (statement != null)
-                statement.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void closeResultSet() {
-        try {
-            if (resultSet != null)
-                resultSet.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public ArrayList<Ward> getWards(){
+    public ArrayList<Ward> getWards() {
         getDBConnection();
-        String query="select * from ward;";
-        ArrayList<Ward> wards=new ArrayList<>();
+        String query = "select * from ward;";
+        ArrayList<Ward> wards = new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Ward ward=new Ward();
+            while (resultSet.next()) {
+                Ward ward = new Ward();
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
                 ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
                 wards.add(ward);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeResultSet();
@@ -318,13 +316,14 @@ public class DBConnection {
         }
         return wards;
     }
-    public ArrayList<Shift> getShifts(){
-        String query="select * from shift;";
-        ArrayList<Shift> shifts=new ArrayList<>();
+
+    public ArrayList<Shift> getShifts() {
+        String query = "select * from shift;";
+        ArrayList<Shift> shifts = new ArrayList<>();
         try {
             resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                Shift shift=new Shift();
+            while (resultSet.next()) {
+                Shift shift = new Shift();
                 shift.setShift_ID(resultSet.getInt("shift_ID"));
                 shift.setStartTime(resultSet.getString("startTime"));
                 shift.setEndTime(resultSet.getString("endTime"));
@@ -333,8 +332,7 @@ public class DBConnection {
                 shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
                 shifts.add(shift);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeResultSet();
@@ -384,8 +382,7 @@ public class DBConnection {
 
         } catch (Exception e) {
             e.getStackTrace();
-        }
-        finally {
+        } finally {
             closeResultSet();
             closeStatement();
             closeConnection();
