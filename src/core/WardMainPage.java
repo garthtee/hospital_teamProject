@@ -44,6 +44,7 @@ public class WardMainPage extends JFrame implements ActionListener {
         // Panel 1 //
         p1 = new JPanel();
         list = new JList(defaultListModel); //data has type Object[]
+        list.setCellRenderer(new wardCellRenderer());
         scrollPane.getViewport().setView(list);
         scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -83,6 +84,29 @@ public class WardMainPage extends JFrame implements ActionListener {
         btnGoBack.addActionListener(this);
     }
 
+    class wardCellRenderer extends JLabel implements ListCellRenderer {
+        private final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
+
+        public wardCellRenderer() {
+            setOpaque(true);
+            setIconTextGap(12);
+        }
+
+        public Component getListCellRendererComponent(JList list, Object value,
+                                                      int index, boolean isSelected, boolean cellHasFocus) {
+            Ward ward = (Ward) value;
+            setText("Ward " +ward.getWard_ID() + ": " + ward.getWardType());
+            if (isSelected) {
+                setBackground(HIGHLIGHT_COLOR);
+                setForeground(Color.white);
+            } else {
+                setBackground(Color.white);
+                setForeground(Color.black);
+            }
+            return this;
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
@@ -106,10 +130,19 @@ public class WardMainPage extends JFrame implements ActionListener {
                         break;
                     }
                 } else // if no employee selected
-                    JOptionPane.showMessageDialog(null, "You must select an ward!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You must select a ward!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Update Ward":
-
+                if (selectedWard != null) {
+                    this.dispose();
+                    UpdateWard updateWard = new UpdateWard(selectedWard);
+                    updateWard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    updateWard.pack();
+                    updateWard.setResizable(false);
+                    updateWard.setLocationRelativeTo(null);
+                    updateWard.setVisible(true);
+                } else
+                    JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Ward":
 

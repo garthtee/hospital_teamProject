@@ -143,6 +143,8 @@ public class DBConnection {
 
     public void removeEmployee(Employee employee) {
 
+        removeEmployeeFromShift_Employee(employee);
+
         getDBConnection();
 
         try {
@@ -156,6 +158,25 @@ public class DBConnection {
                 JOptionPane.showMessageDialog(null, name + " has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
             else
                 JOptionPane.showMessageDialog(null, "Employee not removed.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    private void removeEmployeeFromShift_Employee(Employee employee) {
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("DELETE from shift_employee WHERE emp_ID = ?;");
+            preparedStatement.setInt(1, employee.getEmp_ID());
+            preparedStatement.executeUpdate();
 
         } catch (Exception e) {
             e.getStackTrace();
@@ -365,6 +386,33 @@ public class DBConnection {
             e.getStackTrace();
         }
         finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public void updateWard(Ward ward) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE ward SET wardType = ?, reqNurses = ?, " +
+                    "reqDoctors = ? WHERE ward_ID = " + ward.getWard_ID() + ";");
+            preparedStatement.setString(1, ward.getWardType());
+            preparedStatement.setInt(2, ward.getReqNurses());
+            preparedStatement.setInt(3, ward.getReqDoctors());
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, "Ward updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Ward not updated.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             closeResultSet();
             closeStatement();
             closeConnection();
