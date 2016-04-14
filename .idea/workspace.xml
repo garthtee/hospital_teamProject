@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/SearchEmployeePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/ViewEmployee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AddEmployee.java" afterPath="$PROJECT_DIR$/src/core/AddEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AddWard.java" afterPath="$PROJECT_DIR$/src/core/AddWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AdminPage.java" afterPath="$PROJECT_DIR$/src/core/AdminPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateEmployee.java" afterPath="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateWard.java" afterPath="$PROJECT_DIR$/src/core/UpdateWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ViewEmployee.java" afterPath="$PROJECT_DIR$/src/core/ViewEmployee.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -858,7 +854,7 @@
       <workItem from="1460632309145" duration="1138000" />
       <workItem from="1460645724783" duration="2013000" />
       <workItem from="1460648298921" duration="125000" />
-      <workItem from="1460672850489" duration="2903000" />
+      <workItem from="1460672850489" duration="3117000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -1046,11 +1042,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460674010646</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Password now hidden from administrator. Error handling - Employee/Ward - Create/Update.">
+      <created>1460676060490</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1460676060490</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73044000" />
+    <option name="totallyTimeSpent" value="73258000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1063,7 +1065,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34042552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34042552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1122,7 +1124,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Search employee working. User cam search by first name." />
     <MESSAGE value="Created new button view employee in AdminPage - user can view all details of selected employee." />
     <MESSAGE value="Search Employee improved. User can now search by id, first name or surname." />
     <MESSAGE value="Search Employee error checking added." />
@@ -1147,7 +1148,8 @@
     <MESSAGE value="Removed duplicate code by adding methods to create a instance of each page. I then implement that method where I need to create that page thus removing duplicate code." />
     <MESSAGE value="Small commit to create branch in gthub." />
     <MESSAGE value="Small code/forms clean-up." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small code/forms clean-up." />
+    <MESSAGE value="Password now hidden from administrator. Error handling - Employee/Ward - Create/Update." />
+    <option name="LAST_COMMIT_MESSAGE" value="Password now hidden from administrator. Error handling - Employee/Ward - Create/Update." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
