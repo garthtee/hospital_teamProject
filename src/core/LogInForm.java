@@ -18,6 +18,14 @@ public class LogInForm extends JFrame implements ActionListener {
     private JButton btnLogin, btnCancel;
     private DBConnection dbConnection = new DBConnection();
 
+    public static void getLoginPage() {
+        LogInForm logInForm = new LogInForm();
+        logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        logInForm.setSize(300, 250);
+        logInForm.setLocationRelativeTo(null);
+        logInForm.setVisible(true);
+    }
+
     /**
      * Initialize the contents of the frame.
      */
@@ -96,12 +104,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     this.dispose();
                                     break;
                                 case "admin":
-                                    AdminPage adminPage = new AdminPage(Integer.valueOf(txtUsername.getText()));
-                                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                    adminPage.setSize(600, 500);
-                                    adminPage.setResizable(false);
-                                    adminPage.setLocationRelativeTo(null);
-                                    adminPage.setVisible(true);
+                                    AdminPage.getAdminPage(Integer.valueOf(txtUsername.getText()));
                                     this.dispose();
                                     break;
                                 case "manager":
@@ -127,6 +130,7 @@ public class LogInForm extends JFrame implements ActionListener {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Incorrect login details.", "Error", JOptionPane.ERROR_MESSAGE);
+                txtPassword.setText("");
                 break;
         }
     }

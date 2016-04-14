@@ -20,12 +20,22 @@ public class UpdateEmployee extends JFrame implements ActionListener {
 
     private JButton btnUpdate, btnCancel;
     private JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
-            lblContractHours, lblSalary, lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege;
+            lblContractHours, lblSalary, lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege;
-    private JComboBox<String> jcbType;
+            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege, txtEmployeeType;
+    private JComboBox<String> jcbType, jcbEmpType;
     private String selectedPrivilege;
     private EmailValidator emailValidator = new EmailValidator();
+    private String selectedEmpType = "doctor";
+
+    public static void getUpdateEmployeePage(Employee employeeIn) {
+        UpdateEmployee updateEmployeeFrame = new UpdateEmployee(employeeIn);
+        updateEmployeeFrame.setVisible(true);
+        updateEmployeeFrame.pack();
+        updateEmployeeFrame.setResizable(false);
+        updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        updateEmployeeFrame.setLocationRelativeTo(null);
+    }
 
     public UpdateEmployee(Employee employee) {
 
@@ -34,7 +44,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(14, 2));
+        p1.setLayout(new GridLayout(15, 2));
         lblID = new JLabel("ID: ");
         txtID = new JTextField();
         lblFname = new JLabel("First Name: ");
@@ -61,6 +71,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
         txtPassword = new JTextField();
+        lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
 
@@ -91,15 +102,27 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         p1.add(txtWard_ID);
         p1.add(lblPassword);
         p1.add(txtPassword);
+        p1.add(lblEmployeeType);
+
+        // Adding privilege as JComboBox
+        String[] empTypes = {"Doctor", "Nurse"};
+        jcbEmpType = new JComboBox<>(empTypes);
+        jcbEmpType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedEmpType = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbEmpType);
 
         p1.add(lblPrivilege);
-//        p1.add(txtPrivilege);
-        String[] types = {"employee", "admin", "manager"};
+        // Adding privilege as JComboBox
+        String[] types = {"Employee", "Admin", "Manager"};
         jcbType = new JComboBox<>(types);
         jcbType.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedPrivilege = String.valueOf(jcbType.getSelectedItem());
+                selectedPrivilege = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
             }
         });
         p1.add(jcbType);
@@ -135,7 +158,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
         jcbType.setSelectedItem(employee.getPrivilege());
-//        txtPrivilege.setText(employee.getPrivilege());
+
 
         // Setting ID to be uneditable
         txtID.setEditable(false);
@@ -213,6 +236,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                         employee.setPassword(txtPassword.getText());
+                        employee.setEmployee_type(txtEmployeeType.getText());
                         employee.setPrivilege(selectedPrivilege);
                         // Update employee details in DB
                         DBConnection dbConnection = new DBConnection();
