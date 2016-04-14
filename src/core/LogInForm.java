@@ -130,6 +130,7 @@ public class LogInForm extends JFrame implements ActionListener {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Incorrect login details.", "Error", JOptionPane.ERROR_MESSAGE);
+                txtPassword.setText("");
                 break;
         }
     }

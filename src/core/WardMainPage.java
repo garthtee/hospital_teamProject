@@ -96,7 +96,7 @@ public class WardMainPage extends JFrame implements ActionListener {
 
     // editing list items
     class wardCellRenderer extends JLabel implements ListCellRenderer {
-        private final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
+        private final Color SELECTED_BACKGROUND_COLOR = new Color(0, 128, 128);
 
         public wardCellRenderer() {
             setOpaque(true);
@@ -107,8 +107,10 @@ public class WardMainPage extends JFrame implements ActionListener {
                                                       int index, boolean isSelected, boolean cellHasFocus) {
             Ward ward = (Ward) value;
             setText("Ward " +ward.getWard_ID() + ": " + ward.getWardType());
+            this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+
             if (isSelected) {
-                setBackground(HIGHLIGHT_COLOR);
+                setBackground(SELECTED_BACKGROUND_COLOR);
                 setForeground(Color.white);
             } else {
                 setBackground(Color.white);

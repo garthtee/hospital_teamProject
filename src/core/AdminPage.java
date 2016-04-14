@@ -58,6 +58,7 @@ public class AdminPage extends JFrame implements ActionListener {
         // Panel 1 //
         p1 = new JPanel();
         list = new JList(defaultListModel); //data has type Object[]
+        list.setCellRenderer(new employeeCellRenderer());
         scrollPane.getViewport().setView(list);
         scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -98,6 +99,33 @@ public class AdminPage extends JFrame implements ActionListener {
         btnViewEmp.addActionListener(this);
         btnWards.addActionListener(this);
         btnLogout.addActionListener(this);
+    }
+
+    // editing list items
+    class employeeCellRenderer extends JLabel implements ListCellRenderer {
+        private final Color SELECTED_BACKGROUND_COLOR = new Color(0, 128, 128);
+
+        public employeeCellRenderer() {
+            setOpaque(true);
+            setIconTextGap(12);
+        }
+
+        public Component getListCellRendererComponent(JList list, Object value,
+                                                      int index, boolean isSelected, boolean cellHasFocus) {
+            Employee employee = (Employee) value;
+            setText("Ward " +employee.getEmp_ID() + ": " + employee.getfName()
+                + " " + employee.getsName());
+            this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+
+            if (isSelected) {
+                setBackground(SELECTED_BACKGROUND_COLOR);
+                setForeground(Color.white);
+            } else {
+                setBackground(Color.white);
+                setForeground(Color.black);
+            }
+            return this;
+        }
     }
 
     @Override
