@@ -89,7 +89,7 @@ public class SchedulePage extends JFrame implements ActionListener {
     public static void main(String[] args){
         SchedulePage frame=new SchedulePage();
         frame.setVisible(true);
-        frame.setSize(200, 100);
+        frame.setSize(200, 200);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
