@@ -3,6 +3,7 @@ package core;
 import database.DBConnection;
 import database.DBConnection_Scheduler;
 
+import javax.swing.*;
 import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -59,13 +60,13 @@ public class Scheduler {
         tempList.clear();
 
         if (employeeType.equals("doctor")) {
-            for (Employee emp : employees) {
-                if (emp.getEmployee_type().equals(employeeType))
+            for (Employee emp : employees){
+                if (emp.getEmployee_type().equals(employeeType) && emp.getWard_ID()==ward.getWard_ID())
                     tempList.add(emp);
             }
         } else if (employeeType.equals("nurse")) {
             for (Employee emp : employees) {
-                if (emp.getEmployee_type().equals(employeeType))
+                if (emp.getEmployee_type().equals(employeeType) && emp.getWard_ID()==ward.getWard_ID())
                     tempList.add(emp);
             }
         }
@@ -76,7 +77,7 @@ public class Scheduler {
         // Creating a calendar object and parsing the date from DB
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2015, 1, 1);
+        calendar.set(2015, 0, 1);
 
         int offShiftTracker =0;
         int employeeTracker=0;
@@ -123,9 +124,89 @@ public class Scheduler {
             }
         }
 
+
+    }
+    private void addToDB() {
         DBConnection_Scheduler dbcs=new DBConnection_Scheduler();
         for(Shift_Employee s_e : shift_employees){
             dbcs.createShiftEmployee(s_e);
         }
     }
+
+    public void scheduleNurses() {
+        //declare date
+        // Creating a calendar object and parsing the date from DB
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2015, 0, 1);
+
+        int offShiftTracker =0;
+        int employeeTracker=0;
+        int lastEmployee=0;
+
+        filterEmployees("nurse");
+        //for each ward
+        Shift_Employee s;
+        //for each shift
+        for (int j=0; j<shifts.size(); j++) {
+            //checks if employee has reached max hours for week
+            if (tempList.get(employeeTracker).getHoursWorked() == tempList.get(employeeTracker).getContractHours()){
+                employeeTracker++;
+            }
+            //checks if employee worked last shift
+            if(tempList.get(employeeTracker).getLastShift().equals("true")){
+                employeeTracker++;
+            }
+
+            //resets lastshift for previous employee
+            tempList.get(lastEmployee).setLastShift("false");
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dateAsString = format.format(calendar.getTime());
+
+            s = new Shift_Employee(shifts.get(j).getShift_ID(), tempList.get(employeeTracker).getEmp_ID(), dateAsString);
+            shift_employees.add(s);
+            offShiftTracker++;
+            if (offShiftTracker == 2) { // if not an even shift, increment day
+                calendar.add(Calendar.DATE, 1);
+                offShiftTracker = 0;
+            }
+
+            //increments hours worked for employee
+            tempList.get(employeeTracker).setHoursWorked(tempList.get(employeeTracker).getHoursWorked() + 12);
+            //sets last shift
+            tempList.get(employeeTracker).setLastShift("true");
+
+            lastEmployee=employeeTracker;
+
+            //resets employee tracker
+            if(employeeTracker==tempList.size()-1){
+                employeeTracker=0;
+            }
+        }
+
+    }
+
+    public void addScheduleToDB() {
+        DBConnection_Scheduler dbcs = new DBConnection_Scheduler();
+        for (Shift_Employee s_e : shift_employees) {
+            dbcs.createShiftEmployee(s_e);
+        }
+    }
+
+    public void schedule(){
+        filterEmployees("doctor");
+        if(tempList.size()==4){
+            filterEmployees("nurse");
+            if(tempList.size()==4){
+                scheduleDoctors();
+                scheduleNurses();
+                addScheduleToDB();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Insufficient Staff to schedule ward.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }
