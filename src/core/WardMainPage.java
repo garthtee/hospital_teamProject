@@ -18,12 +18,12 @@ import java.util.ArrayList;
  */
 public class WardMainPage extends JFrame implements ActionListener {
 
-    private JButton btnAddWard, btnRemoveWard,btnUpdateEmp, btnSearchWard, btnViewWard, btnGoBack;
-    private JPanel p1, p2, panelLeft, panelLeftTop;
-    private JList<Ward> list;
-    private JScrollPane scrollPane = new JScrollPane();
-    private DBConnection dbConnection = new DBConnection();
+    JButton btnAddWard, btnRemoveWard,btnUpdateEmp, btnSearchWard, btnViewWard, btnGoBack;
+    JPanel p1, p2, panelLeft, panelLeftTop;
     ArrayList<Ward> wardList = new ArrayList<>();
+    private JList<Ward> list;
+    private DBConnection dbConnection = new DBConnection();
+
     private Ward selectedWard;
     private DefaultListModel<Ward> defaultListModel;
 
@@ -46,12 +46,13 @@ public class WardMainPage extends JFrame implements ActionListener {
     public WardMainPage() {
 
         setLayout(new BorderLayout());
-        setTitle("Manage Employees");
+        setTitle("Manage Wards");
 
         createWardModel();
 
         // Panel 1 //
         p1 = new JPanel();
+        JScrollPane scrollPane = new JScrollPane();
         list = new JList(defaultListModel); //data has type Object[]
         list.setCellRenderer(new wardCellRenderer());
         scrollPane.getViewport().setView(list);
@@ -142,7 +143,7 @@ public class WardMainPage extends JFrame implements ActionListener {
                     this.dispose();
                     UpdateWard.getUpdateWard(selectedWard);
                 } else
-                    JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You must select an ward!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Ward":
                 SearchWard.getSearchWardPage(wardList);

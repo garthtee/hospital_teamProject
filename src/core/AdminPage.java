@@ -104,12 +104,7 @@ public class AdminPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add Employee":
-                AddEmployee addEmployee = new AddEmployee();
-                addEmployee.setVisible(true);
-                addEmployee.pack();
-                addEmployee.setResizable(false);
-                addEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                addEmployee.setLocationRelativeTo(null);
+                AddWard.getAddWard();
                 this.dispose();
                 break;
             case "Remove Employee":
@@ -131,46 +126,26 @@ public class AdminPage extends JFrame implements ActionListener {
                 break;
             case "Update Employee":
                 if (selectedEmployee != null) {
-                    UpdateEmployee updateEmployeeFrame = new UpdateEmployee(selectedEmployee);
-                    updateEmployeeFrame.setVisible(true);
+                    UpdateEmployee.getUpdateEmployeePage(selectedEmployee);
                     this.dispose();
-                    updateEmployeeFrame.pack();
-                    updateEmployeeFrame.setResizable(false);
-                    updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    updateEmployeeFrame.setLocationRelativeTo(null);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "View Employee":
                 if (selectedEmployee != null) {
-                    ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
-                    viewEmployee.setVisible(true);
-                    viewEmployee.pack();
-                    viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    viewEmployee.setResizable(false);
-                    viewEmployee.setLocationRelativeTo(null);
+                    ViewEmployee.getViewEmployeePage(selectedEmployee);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Employees":
-                SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeList);
-                searchEmployeePage.setVisible(true);
-                searchEmployeePage.setSize(300, 165);
-                searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchEmployeePage.setResizable(false);
-                searchEmployeePage.setLocationRelativeTo(null);
-
+                SearchEmployeePage.getSearchEmployeePage(employeeList);
                 break;
             case "Wards page":
                 this.dispose();
                 WardMainPage.getWardMainPage();
                 break;
             case "Log Out":
-                LogInForm logInForm = new LogInForm();
-                logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                logInForm.setSize(300, 250);
-                logInForm.setLocationRelativeTo(null);
-                logInForm.setVisible(true);
+                LogInForm.getLoginPage();
                 this.dispose();
                 break;
         }

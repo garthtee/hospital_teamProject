@@ -28,6 +28,15 @@ public class UpdateEmployee extends JFrame implements ActionListener {
     private EmailValidator emailValidator = new EmailValidator();
     private String selectedEmpType = "doctor";
 
+    public static void getUpdateEmployeePage(Employee employeeIn) {
+        UpdateEmployee updateEmployeeFrame = new UpdateEmployee(employeeIn);
+        updateEmployeeFrame.setVisible(true);
+        updateEmployeeFrame.pack();
+        updateEmployeeFrame.setResizable(false);
+        updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        updateEmployeeFrame.setLocationRelativeTo(null);
+    }
+
     public UpdateEmployee(Employee employee) {
 
         setTitle("Update");

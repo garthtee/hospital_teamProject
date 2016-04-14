@@ -26,6 +26,15 @@ public class AddEmployee extends JFrame implements ActionListener {
     private String selectedPrivilege = "employee";
     private String selectedEmpType = "doctor";
 
+    public static void getAddEmployeePage() {
+        AddEmployee addEmployee = new AddEmployee();
+        addEmployee.setVisible(true);
+        addEmployee.pack();
+        addEmployee.setResizable(false);
+        addEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        addEmployee.setLocationRelativeTo(null);
+    }
+
     public AddEmployee() {
 
         setTitle("Create");

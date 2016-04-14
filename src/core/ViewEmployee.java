@@ -18,6 +18,15 @@ public class ViewEmployee extends JFrame implements ActionListener {
             txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege, txtEmployeeType;
     private JButton btnOk;
 
+    public static void getViewEmployeePage(Employee selectedEmployee) {
+        ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
+        viewEmployee.setVisible(true);
+        viewEmployee.pack();
+        viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        viewEmployee.setResizable(false);
+        viewEmployee.setLocationRelativeTo(null);
+    }
+
     public ViewEmployee(Employee employee) {
 
         setTitle("View");

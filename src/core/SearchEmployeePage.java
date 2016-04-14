@@ -16,7 +16,16 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
     private String selectedItem;
     private ArrayList<Employee> employeeList = new ArrayList<>();
     private JComboBox<String> jcbSearch;
-    ArrayList<Employee> tempList = new ArrayList<>();;
+    ArrayList<Employee> tempList = new ArrayList<>();
+
+    public static void getSearchEmployeePage(ArrayList<Employee> employeeListIn) {
+        SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeListIn);
+        searchEmployeePage.setVisible(true);
+        searchEmployeePage.setSize(300, 165);
+        searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        searchEmployeePage.setResizable(false);
+        searchEmployeePage.setLocationRelativeTo(null);
+    }
 
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
