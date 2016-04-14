@@ -1,11 +1,9 @@
 package core;
 
-import database.DBConnection_Scheduler;
+import database.DBConnection;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,21 +29,30 @@ public class SchedulePage extends JFrame implements ActionListener {
         btnCancel = new JButton("Cancel");
         btnSchedule = new JButton("Schedule");
 
+        lblWard=new JLabel("Wards to schedule");
+
         // panelTop
         panelTop = new JPanel();
         panelTop.setLayout(new BorderLayout());
 
         ArrayList<Ward> wards=new ArrayList<>();
-        jcbSchedule = new JComboBox<>(searches);
+        DBConnection dbConnection=new DBConnection();
+        wards=dbConnection.getWards();
+        //int[] wardIds = new int[10];
+        jcbSchedule = new JComboBox<>();
+
+        for(int i=0; i<wards.size(); i++) {
+            jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
+        }
+
         jcbSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedItem = Integer.valueOf(jcbSchedule.getSelectedItem());
+                selectedItem = (int) jcbSchedule.getSelectedItem();
             }
         });
-        panelTop.add(jcbSchedule, BorderLayout.NORTH);
-        panelTop.add(lblEmpName, BorderLayout.CENTER);
-        panelTop.add(txtSearch, BorderLayout.EAST);
+        panelTop.add(lblWard, BorderLayout.NORTH);
+        panelTop.add(jcbSchedule, BorderLayout.CENTER);
         add(panelTop, BorderLayout.CENTER);
 
         // panelBottom
@@ -77,5 +84,14 @@ public class SchedulePage extends JFrame implements ActionListener {
                 break;
         }
 
+    }
+
+    public static void main(String[] args){
+        SchedulePage frame=new SchedulePage();
+        frame.setVisible(true);
+        frame.setSize(200, 200);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
     }
 }
