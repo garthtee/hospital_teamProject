@@ -33,6 +33,15 @@ public class AdminPage extends JFrame implements ActionListener {
             defaultListModel.addElement(employee); // Add employees to Default List Model
     }
 
+    public static void getAdminPage(int id) {
+        AdminPage adminPage = new AdminPage(id);
+        adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        adminPage.setSize(600, 500);
+        adminPage.setResizable(false);
+        adminPage.setLocationRelativeTo(null);
+        adminPage.setVisible(true);
+    }
+
     public AdminPage(int emp_ID_In) {
 
         setLayout(new BorderLayout());
@@ -109,8 +118,12 @@ public class AdminPage extends JFrame implements ActionListener {
                                     + selectedEmployee.getfName() + "?",
                             "Remove employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
-                        dbConnection.removeEmployee(selectedEmployee);
-                        defaultListModel.removeElement(selectedEmployee);
+                        boolean employeeRemoved = false;
+                        employeeRemoved = dbConnection.removeEmployee(selectedEmployee);
+                        if(employeeRemoved)
+                            defaultListModel.removeElement(selectedEmployee);
+                        else
+                            JOptionPane.showMessageDialog(null, "Employee has shifts assigned.", "Error", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
                 } else // if no employee selected
@@ -150,12 +163,7 @@ public class AdminPage extends JFrame implements ActionListener {
                 break;
             case "Wards page":
                 this.dispose();
-                WardMainPage wardMainPage = new WardMainPage();
-                wardMainPage.setVisible(true);
-                wardMainPage.pack();
-                wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                wardMainPage.setResizable(false);
-                wardMainPage.setLocationRelativeTo(null);
+                WardMainPage.getWardMainPage();
                 break;
             case "Log Out":
                 LogInForm logInForm = new LogInForm();

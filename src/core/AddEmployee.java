@@ -18,10 +18,12 @@ import java.util.Calendar;
 public class AddEmployee extends JFrame implements ActionListener {
 
     private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID,
-            lblPassword, lblPrivilege;
+            lblPassword, lblPrivilege, lblEmployeeType;
     private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
-            txtPassword, txtPrivilege;
+            txtPassword, txtPrivilege, txtEmployeeType;
     private JButton btnCreate, btnCancel;
+    private JComboBox<String> jcbType;
+    private String selectedPrivilege;
 
     public AddEmployee() {
 
@@ -30,7 +32,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(11, 2));
+        p1.setLayout(new GridLayout(12, 2));
         lblFname = new JLabel("First Name: ");
         txtFName = new JTextField();
         lblSname = new JLabel("Surname: ");
@@ -51,8 +53,11 @@ public class AddEmployee extends JFrame implements ActionListener {
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
         txtPassword = new JTextField();
+        lblEmployeeType = new JLabel("Employee Type: ");
+        txtEmployeeType = new JTextField();
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
+
 
         // Add components to panel 1 //
         p1.add(lblFname);
@@ -75,8 +80,20 @@ public class AddEmployee extends JFrame implements ActionListener {
         p1.add(txtWard_ID);
         p1.add(lblPassword);
         p1.add(txtPassword);
+        p1.add(lblEmployeeType);
+        p1.add(txtEmployeeType);
         p1.add(lblPrivilege);
-        p1.add(txtPrivilege);
+
+        // Adding privilege as JComboBox
+        String[] types = {"Employee", "Admin", "Manager"};
+        jcbType = new JComboBox<>(types);
+        jcbType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedPrivilege = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbType);
 
         p1.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p1, BorderLayout.NORTH);
@@ -125,7 +142,7 @@ public class AddEmployee extends JFrame implements ActionListener {
                     dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
                             txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
                             Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            txtPassword.getText(), txtPrivilege.getText());
+                            txtPassword.getText(), selectedPrivilege, txtEmployeeType.getText());
                     this.dispose();
                     AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

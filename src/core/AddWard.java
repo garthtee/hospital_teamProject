@@ -18,6 +18,15 @@ public class AddWard extends JFrame implements ActionListener {
     private JTextField txtWardType, txtReqNurses, txtReqDoctors;
     private JButton btnAdd, btnCancel;
 
+    public static void getAddWard() {
+        AddWard addWard = new AddWard();
+        addWard.setVisible(true);
+        addWard.pack();
+        addWard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        addWard.setResizable(false);
+        addWard.setLocationRelativeTo(null);
+    }
+
     public AddWard() {
 
         setTitle("Create");
@@ -88,11 +97,7 @@ public class AddWard extends JFrame implements ActionListener {
                     dbConnection.addWard(ward);
 
                     this.dispose();
-                    WardMainPage wardMainPage = new WardMainPage();
-                    wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    wardMainPage.setSize(600, 500);
-                    wardMainPage.setLocationRelativeTo(null);
-                    wardMainPage.setVisible(true);
+                    WardMainPage.getWardMainPage();
                 }
                 break;
             case "Cancel":

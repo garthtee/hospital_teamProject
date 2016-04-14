@@ -21,6 +21,15 @@ public class UpdateWard extends JFrame implements ActionListener {
     private String selectedPrivilege;
     private EmailValidator emailValidator = new EmailValidator();
 
+    public static void getUpdateWard(Ward ward) {
+        UpdateWard updateWard = new UpdateWard(ward);
+        updateWard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        updateWard.pack();
+        updateWard.setResizable(false);
+        updateWard.setLocationRelativeTo(null);
+        updateWard.setVisible(true);
+    }
+
     public UpdateWard(Ward ward) {
 
         setTitle("Update Ward");
@@ -81,6 +90,11 @@ public class UpdateWard extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "Cancel":
                 this.dispose();
+                WardMainPage wardMainPage = new WardMainPage();
+                wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                wardMainPage.setSize(600, 500);
+                wardMainPage.setLocationRelativeTo(null);
+                wardMainPage.setVisible(true);
                 break;
             case "Update":
                 if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
@@ -110,11 +124,7 @@ public class UpdateWard extends JFrame implements ActionListener {
                     dbConnection.updateWard(ward);
                     // Close update ward page and open ward main page..
                     this.dispose();
-                    WardMainPage wardMainPage = new WardMainPage();
-                    wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    wardMainPage.setSize(600, 500);
-                    wardMainPage.setLocationRelativeTo(null);
-                    wardMainPage.setVisible(true);
+                    WardMainPage.getWardMainPage();
                 }
                 break;
         }

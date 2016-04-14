@@ -34,6 +34,15 @@ public class WardMainPage extends JFrame implements ActionListener {
             defaultListModel.addElement(ward); // Add employees to Default List Model
     }
 
+    public static void getWardMainPage() {
+        WardMainPage wardMainPage = new WardMainPage();
+        wardMainPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        wardMainPage.pack();
+        wardMainPage.setResizable(false);
+        wardMainPage.setLocationRelativeTo(null);
+        wardMainPage.setVisible(true);
+    }
+
     public WardMainPage() {
 
         setLayout(new BorderLayout());
@@ -84,6 +93,7 @@ public class WardMainPage extends JFrame implements ActionListener {
         btnGoBack.addActionListener(this);
     }
 
+    // editing list items
     class wardCellRenderer extends JLabel implements ListCellRenderer {
         private final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
 
@@ -112,12 +122,7 @@ public class WardMainPage extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "Add Ward":
                 this.dispose();
-                AddWard addWard = new AddWard();
-                addWard.setVisible(true);
-                addWard.pack();
-                addWard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                addWard.setResizable(false);
-                addWard.setLocationRelativeTo(null);
+                AddWard.getAddWard();
                 break;
             case "Remove Ward":
                 if (selectedWard != null) { // if an ward is selected
@@ -135,12 +140,7 @@ public class WardMainPage extends JFrame implements ActionListener {
             case "Update Ward":
                 if (selectedWard != null) {
                     this.dispose();
-                    UpdateWard updateWard = new UpdateWard(selectedWard);
-                    updateWard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    updateWard.pack();
-                    updateWard.setResizable(false);
-                    updateWard.setLocationRelativeTo(null);
-                    updateWard.setVisible(true);
+                    UpdateWard.getUpdateWard(selectedWard);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
@@ -152,12 +152,7 @@ public class WardMainPage extends JFrame implements ActionListener {
                 break;
             case "Go back":
                 this.dispose();
-                AdminPage adminPage = new AdminPage(-1);
-                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                adminPage.setSize(600, 500);
-                adminPage.setResizable(false);
-                adminPage.setLocationRelativeTo(null);
-                adminPage.setVisible(true);
+                AdminPage.getAdminPage(-1);
                 break;
         }
     }
