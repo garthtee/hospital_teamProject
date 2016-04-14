@@ -22,8 +22,9 @@ public class AddEmployee extends JFrame implements ActionListener {
     private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
             txtPassword, txtPrivilege, txtEmployeeType;
     private JButton btnCreate, btnCancel;
-    private JComboBox<String> jcbType;
-    private String selectedPrivilege;
+    private JComboBox<String> jcbType, jcbEmpType;
+    private String selectedPrivilege = "employee";
+    private String selectedEmpType = "doctor";
 
     public AddEmployee() {
 
@@ -54,7 +55,6 @@ public class AddEmployee extends JFrame implements ActionListener {
         lblPassword = new JLabel("Password: ");
         txtPassword = new JTextField();
         lblEmployeeType = new JLabel("Employee Type: ");
-        txtEmployeeType = new JTextField();
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
 
@@ -81,7 +81,18 @@ public class AddEmployee extends JFrame implements ActionListener {
         p1.add(lblPassword);
         p1.add(txtPassword);
         p1.add(lblEmployeeType);
-        p1.add(txtEmployeeType);
+
+        // Adding privilege as JComboBox
+        String[] empTypes = {"Doctor", "Nurse"};
+        jcbEmpType = new JComboBox<>(empTypes);
+        jcbEmpType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedEmpType = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbEmpType);
+
         p1.add(lblPrivilege);
 
         // Adding privilege as JComboBox
@@ -109,6 +120,9 @@ public class AddEmployee extends JFrame implements ActionListener {
         // Add button action listeners
         btnCancel.addActionListener(this);
         btnCreate.addActionListener(this);
+
+        // Presses ok button on enter key press
+        this.getRootPane().setDefaultButton(btnCreate);
     }
 
     @Override
@@ -142,7 +156,7 @@ public class AddEmployee extends JFrame implements ActionListener {
                     dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
                             txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
                             Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            txtPassword.getText(), selectedPrivilege, txtEmployeeType.getText());
+                            txtPassword.getText(), selectedPrivilege, selectedEmpType);
                     this.dispose();
                     AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

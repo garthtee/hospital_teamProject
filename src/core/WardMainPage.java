@@ -145,10 +145,10 @@ public class WardMainPage extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Ward":
-
+                SearchWard.getSearchWardPage(wardList);
                 break;
             case "View Ward":
-
+                ViewWard.getViewWard(selectedWard);
                 break;
             case "Go back":
                 this.dispose();

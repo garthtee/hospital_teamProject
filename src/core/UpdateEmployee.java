@@ -23,9 +23,10 @@ public class UpdateEmployee extends JFrame implements ActionListener {
             lblContractHours, lblSalary, lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
             txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege, txtEmployeeType;
-    private JComboBox<String> jcbType;
+    private JComboBox<String> jcbType, jcbEmpType;
     private String selectedPrivilege;
     private EmailValidator emailValidator = new EmailValidator();
+    private String selectedEmpType = "doctor";
 
     public UpdateEmployee(Employee employee) {
 
@@ -62,7 +63,6 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         lblPassword = new JLabel("Password: ");
         txtPassword = new JTextField();
         lblEmployeeType = new JLabel("Employee Type: ");
-        txtEmployeeType = new JTextField();
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
 
@@ -94,7 +94,18 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         p1.add(lblPassword);
         p1.add(txtPassword);
         p1.add(lblEmployeeType);
-        p1.add(txtEmployeeType);
+
+        // Adding privilege as JComboBox
+        String[] empTypes = {"Doctor", "Nurse"};
+        jcbEmpType = new JComboBox<>(empTypes);
+        jcbEmpType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedEmpType = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbEmpType);
+
         p1.add(lblPrivilege);
         // Adding privilege as JComboBox
         String[] types = {"Employee", "Admin", "Manager"};
@@ -137,7 +148,6 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
-        txtEmployeeType.setText(employee.getEmployee_type());
         jcbType.setSelectedItem(employee.getPrivilege());
 
 

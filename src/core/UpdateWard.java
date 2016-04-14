@@ -37,7 +37,7 @@ public class UpdateWard extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(14, 2));
+        p1.setLayout(new GridLayout(4, 2));
         lblID = new JLabel("ID: ");
         txtID = new JTextField();
         lblWardType = new JLabel("Ward Type: ");
