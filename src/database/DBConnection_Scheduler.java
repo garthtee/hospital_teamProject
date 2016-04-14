@@ -68,11 +68,12 @@ public class DBConnection_Scheduler {
         getDBConnection();
         try {
             PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO shift_employee VALUES(?,?,?);");
+            preparedStatement = connection.prepareStatement("INSERT INTO shift_employee VALUES(?, ?,?,?);");
 
-            preparedStatement.setInt(1, shiftEmployee.getShift_ID()); // employee id 0 as it's auto incremented in DB
-            preparedStatement.setInt(2, shiftEmployee.getEmployee_ID());
-            preparedStatement.setString(3, shiftEmployee.getDate());
+            preparedStatement.setInt(1, 0);
+            preparedStatement.setInt(2, shiftEmployee.getShift_ID()); // employee id 0 as it's auto incremented in DB
+            preparedStatement.setInt(3, shiftEmployee.getEmployee_ID());
+            preparedStatement.setString(4, shiftEmployee.getDate());
 
 
 

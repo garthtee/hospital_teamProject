@@ -150,7 +150,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "Cancel":
                 this.dispose();
-                AdminPage adminPage = new AdminPage();
+                AdminPage adminPage = new AdminPage(0);
                 adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 adminPage.setSize(600, 500);
                 adminPage.setLocationRelativeTo(null);
@@ -218,7 +218,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         DBConnection dbConnection = new DBConnection();
                         dbConnection.updateEmployee(employee);
                         this.dispose();
-                        AdminPage adminPage1 = new AdminPage();
+                        AdminPage adminPage1 = new AdminPage(0);
                         adminPage1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                         adminPage1.setSize(600, 500);
                         adminPage1.setLocationRelativeTo(null);
