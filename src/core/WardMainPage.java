@@ -18,14 +18,11 @@ import java.util.ArrayList;
  */
 public class WardMainPage extends JFrame implements ActionListener {
 
-    JButton btnAddWard, btnRemoveWard,btnUpdateEmp, btnSearchWard, btnViewWard, btnGoBack;
-    JPanel p1, p2, panelLeft, panelLeftTop;
-    ArrayList<Ward> wardList = new ArrayList<>();
     private JList<Ward> list;
     private DBConnection dbConnection = new DBConnection();
-
-    private Ward selectedWard;
     private DefaultListModel<Ward> defaultListModel;
+    private Ward selectedWard;
+    private ArrayList<Ward> wardList;
 
     public void createWardModel() {
         wardList = dbConnection.getWards();
@@ -44,6 +41,10 @@ public class WardMainPage extends JFrame implements ActionListener {
     }
 
     public WardMainPage() {
+
+        // Creating variables
+        JButton btnAddWard, btnRemoveWard,btnUpdateEmp, btnSearchWard, btnViewWard, btnGoBack;
+        JPanel p1, p2, panelLeft, panelLeftTop;
 
         setLayout(new BorderLayout());
         setTitle("Manage Wards");
@@ -145,13 +146,16 @@ public class WardMainPage extends JFrame implements ActionListener {
                     this.dispose();
                     UpdateWard.getUpdateWard(selectedWard);
                 } else
-                    JOptionPane.showMessageDialog(null, "You must select an ward!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You must select a ward!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Ward":
                 SearchWard.getSearchWardPage(wardList);
                 break;
             case "View Ward":
-                ViewWard.getViewWard(selectedWard);
+                if (selectedWard != null) {
+                    ViewWard.getViewWard(selectedWard);
+                } else
+                    JOptionPane.showMessageDialog(null, "You must select a ward!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Go back":
                 this.dispose();

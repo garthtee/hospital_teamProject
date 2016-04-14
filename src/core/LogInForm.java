@@ -13,9 +13,6 @@ public class LogInForm extends JFrame implements ActionListener {
 
     private JTextField txtUsername;
     private JPasswordField txtPassword;
-    private JPanel panel0, panel1, panel2, panel3;
-    private JLabel lblTitle, lblUsername, lblPassword;
-    private JButton btnLogin, btnCancel;
     private DBConnection dbConnection = new DBConnection();
 
     public static void getLoginPage() {
@@ -30,6 +27,12 @@ public class LogInForm extends JFrame implements ActionListener {
      * Initialize the contents of the frame.
      */
     public LogInForm() {
+
+        // Creating variables
+        JPanel panel0, panel1, panel2, panel3;
+        JLabel lblTitle, lblUsername, lblPassword;
+        JButton btnLogin, btnCancel;
+
         setTitle("STAFF  - Welcome");
         setLayout(new GridLayout(4, 1));
 

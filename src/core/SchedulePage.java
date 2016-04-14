@@ -14,13 +14,15 @@ import java.util.ArrayList;
  */
 public class SchedulePage extends JFrame implements ActionListener {
 
-    private JLabel lblWard;
-    private JButton btnSchedule, btnCancel;
-    private JPanel panelTop, panelBottom;
     private JComboBox<String> jcbSchedule;
     private int selectedItem;
 
     public SchedulePage() {
+
+        // Creating variables
+        JLabel lblWard;
+        JButton btnSchedule, btnCancel;
+        JPanel panelTop, panelBottom;
 
         setTitle("Schedule Employees");
         setLayout(new BorderLayout());

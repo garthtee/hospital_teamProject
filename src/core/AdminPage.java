@@ -13,14 +13,11 @@ import java.util.ArrayList;
 
 /**
  * Created by Group 5 on 3/1/16.
- * Description:
+ * Description: Administration page for Employees.
  */
 public class AdminPage extends JFrame implements ActionListener {
 
-    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnLogout;
-    private JPanel p1, p2, panelLeft, panelLeftTop;
     private JList<Employee> list;
-    private JScrollPane scrollPane = new JScrollPane();
     private DBConnection dbConnection = new DBConnection();
     ArrayList<Employee> employeeList = new ArrayList<>();
     private Employee selectedEmployee;
@@ -43,6 +40,11 @@ public class AdminPage extends JFrame implements ActionListener {
     }
 
     public AdminPage(int emp_ID_In) {
+
+        // Creating variables
+        JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnLogout;
+        JPanel p1, p2, panelLeft, panelLeftTop;
+        JScrollPane scrollPane = new JScrollPane();
 
         setLayout(new BorderLayout());
         setTitle("Manage Employees");
@@ -113,7 +115,7 @@ public class AdminPage extends JFrame implements ActionListener {
         public Component getListCellRendererComponent(JList list, Object value,
                                                       int index, boolean isSelected, boolean cellHasFocus) {
             Employee employee = (Employee) value;
-            setText("Ward " +employee.getEmp_ID() + ": " + employee.getfName()
+            setText("Employee " +employee.getEmp_ID() + ": " + employee.getfName()
                 + " " + employee.getsName());
             this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 
@@ -173,8 +175,8 @@ public class AdminPage extends JFrame implements ActionListener {
                 WardMainPage.getWardMainPage();
                 break;
             case "Log Out":
-                LogInForm.getLoginPage();
                 this.dispose();
+                LogInForm.getLoginPage();
                 break;
         }
     }
