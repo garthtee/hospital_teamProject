@@ -71,7 +71,10 @@ public class AddWard extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Add":
+                // Checking if text has been entered to all TextFields
                 if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 } else if(Integer.valueOf(txtReqNurses.getText()) > 25 || Integer.valueOf(txtReqDoctors.getText()) > 25) {

@@ -17,11 +17,9 @@ import java.util.Calendar;
  */
 public class AddEmployee extends JFrame implements ActionListener {
 
-    private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID,
-            lblPassword, lblPrivilege, lblEmployeeType;
     private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
-            txtPassword, txtPrivilege, txtEmployeeType;
-    private JButton btnCreate, btnCancel;
+            txtPrivilege, txtEmployeeType;
+    private JPasswordField txtPassword;
     private JComboBox<String> jcbType, jcbEmpType;
     private String selectedPrivilege = "employee";
     private String selectedEmpType = "doctor";
@@ -36,6 +34,12 @@ public class AddEmployee extends JFrame implements ActionListener {
     }
 
     public AddEmployee() {
+
+        // Creating variables
+        JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
+                lblContractHours, lblSalary, lblWard_ID,
+                lblPassword, lblPrivilege, lblEmployeeType;
+        JButton btnCreate, btnCancel;
 
         setTitle("Create");
         setLayout(new BorderLayout());
@@ -62,7 +66,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JTextField();
+        txtPassword = new JPasswordField();
         lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
@@ -138,7 +142,14 @@ public class AddEmployee extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
-                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                // Checking if text has been entered to all TextFields
+                if(txtFName.getText().equals("") || txtSName.getText().equals("") || txtDOB.getText().equals("") ||
+                        txtContactNum.getText().equals("") || txtEmail.getText().equals("") ||
+                        String.valueOf(txtPassword.getPassword()).equals("") || txtNumHoldiays.getText().equals("") ||
+                        txtContractHours.getText().equals("") || txtSalary.getText().equals("") ||
+                        txtWard_ID.getText().equals("")  || txtContractHours.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
                     JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
@@ -165,7 +176,7 @@ public class AddEmployee extends JFrame implements ActionListener {
                     dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
                             txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
                             Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            txtPassword.getText(), selectedPrivilege, selectedEmpType);
+                            String.valueOf(txtPassword.getPassword()), selectedPrivilege, selectedEmpType);
                     this.dispose();
                     AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

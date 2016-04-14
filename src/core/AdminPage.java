@@ -134,7 +134,7 @@ public class AdminPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add Employee":
-                AddWard.getAddWard();
+                AddEmployee.getAddEmployeePage();
                 this.dispose();
                 break;
             case "Remove Employee":

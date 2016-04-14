@@ -17,13 +17,10 @@ import java.util.Calendar;
  */
 public class UpdateEmployee extends JFrame implements ActionListener {
 
-
-    private JButton btnUpdate, btnCancel;
-    private JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
-            lblContractHours, lblSalary, lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege, txtEmployeeType;
+            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPrivilege, txtEmployeeType;
     private JComboBox<String> jcbType, jcbEmpType;
+    private JPasswordField txtPassword;
     private String selectedPrivilege;
     private EmailValidator emailValidator = new EmailValidator();
     private String selectedEmpType = "doctor";
@@ -38,6 +35,12 @@ public class UpdateEmployee extends JFrame implements ActionListener {
     }
 
     public UpdateEmployee(Employee employee) {
+
+        // Creating variables
+        JButton btnUpdate, btnCancel;
+        JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
+                lblContractHours, lblSalary, lblOnHoliday, lblOffSick, lblWard_ID, lblPassword,
+                lblPrivilege, lblEmployeeType;
 
         setTitle("Update");
         setLayout(new BorderLayout());
@@ -70,7 +73,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JTextField();
+        txtPassword = new JPasswordField();
         lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
@@ -195,7 +198,14 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         return;
                     }
 
-                    if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
+                    // Checking if text has been entered to all TextFields
+                    if(txtFName.getText().equals("") || txtSName.getText().equals("") || txtDOB.getText().equals("") ||
+                            txtContactNum.getText().equals("") || txtEmail.getText().equals("") ||
+                            String.valueOf(txtPassword.getPassword()).equals("") || txtNumHoldiays.getText().equals("") ||
+                            txtContractHours.getText().equals("") || txtSalary.getText().equals("") ||
+                            txtWard_ID.getText().equals("")  || txtContractHours.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                         JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (txtContactNum.getText().length() < 7) {
                         JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -235,7 +245,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setOnHoliday(Double.valueOf(txtOnHoliday.getText()));
                         employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
-                        employee.setPassword(txtPassword.getText());
+                        employee.setPassword(String.valueOf(txtPassword.getPassword()));
                         employee.setEmployee_type(txtEmployeeType.getText());
                         employee.setPrivilege(selectedPrivilege);
                         // Update employee details in DB

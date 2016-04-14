@@ -12,11 +12,7 @@ import java.text.SimpleDateFormat;
  */
 public class ViewEmployee extends JFrame implements ActionListener {
 
-    private JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
-            lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
-    private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHolidays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege, txtEmployeeType;
-    private JButton btnOk;
+    private JPasswordField txtPassword;
 
     public static void getViewEmployeePage(Employee selectedEmployee) {
         ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
@@ -28,6 +24,13 @@ public class ViewEmployee extends JFrame implements ActionListener {
     }
 
     public ViewEmployee(Employee employee) {
+
+        // Creating variables
+        JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
+                lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
+        JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHolidays,
+                txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPrivilege, txtEmployeeType;
+        JButton btnOk;
 
         setTitle("View");
         setLayout(new BorderLayout());
@@ -60,7 +63,7 @@ public class ViewEmployee extends JFrame implements ActionListener {
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JTextField();
+        txtPassword = new JPasswordField();
         lblEmployeeType = new JLabel("Employee Type: ");
         txtEmployeeType = new JTextField();
         lblPrivilege = new JLabel("Privilege: ");
