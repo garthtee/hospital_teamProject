@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="Fixing small error with numHolidays and contractHours being integers.">
+    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Employee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -861,7 +861,7 @@
       <workItem from="1460645724783" duration="2013000" />
       <workItem from="1460648298921" duration="125000" />
       <workItem from="1460672850489" duration="3117000" />
-      <workItem from="1460676418504" duration="4226000" />
+      <workItem from="1460676418504" duration="4250000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -1067,11 +1067,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460680369671</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fixing small error with numHolidays and contractHours being integers.">
+      <created>1460680673203</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1460680673203</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77484000" />
+    <option name="totallyTimeSpent" value="77508000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
