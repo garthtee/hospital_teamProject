@@ -196,13 +196,18 @@ public class Scheduler {
 
     public void schedule(){
         filterEmployees("doctor");
-        if(tempList.size()==4){
+        ArrayList<Employee> test1=tempList;
+
+        filterEmployees("nurse");
+        ArrayList<Employee> test2=tempList;
+
+        if(test1.size()>=4 && test2.size()>=4){
+            filterEmployees("doctor");
+            scheduleDoctors();
             filterEmployees("nurse");
-            if(tempList.size()==4){
-                scheduleDoctors();
-                scheduleNurses();
-                addScheduleToDB();
-            }
+            scheduleNurses();
+            addScheduleToDB();
+            JOptionPane.showMessageDialog(null, "Ward successfully scheduled", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
             JOptionPane.showMessageDialog(null, "Insufficient Staff to schedule ward.", "ERROR", JOptionPane.ERROR_MESSAGE);

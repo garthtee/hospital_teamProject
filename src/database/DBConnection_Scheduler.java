@@ -166,8 +166,10 @@ public class DBConnection_Scheduler {
             while(resultSet.next()){
 
                 ward.setWard_ID(resultSet.getInt("ward_ID"));
+                ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
+                ward.setScheduled(resultSet.getString("scheduled"));
             }
         }
         catch (Exception e){

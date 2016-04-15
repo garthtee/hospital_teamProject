@@ -1,6 +1,7 @@
 package core;
 
 import database.DBConnection;
+import database.DBConnection_Scheduler;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,15 +15,13 @@ import java.util.ArrayList;
  */
 public class SchedulePage extends JFrame implements ActionListener {
 
+    private JLabel lblWard;
+    private JButton btnSchedule, btnCancel;
+    private JPanel panelTop, panelBottom;
     private JComboBox<String> jcbSchedule;
     private int selectedItem;
 
     public SchedulePage() {
-
-        // Creating variables
-        JLabel lblWard;
-        JButton btnSchedule, btnCancel;
-        JPanel panelTop, panelBottom;
 
         setTitle("Schedule Employees");
         setLayout(new BorderLayout());
@@ -44,13 +43,16 @@ public class SchedulePage extends JFrame implements ActionListener {
         jcbSchedule = new JComboBox<>();
 
         for(int i=0; i<wards.size(); i++) {
-            jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
+            if(wards.get(i).getScheduled().equals("false")) {
+                jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
+            }
+
         }
 
         jcbSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedItem = (int) jcbSchedule.getSelectedItem();
+                selectedItem = Integer.valueOf(jcbSchedule.getSelectedItem().toString());
             }
         });
         panelTop.add(lblWard, BorderLayout.NORTH);
@@ -81,17 +83,33 @@ public class SchedulePage extends JFrame implements ActionListener {
             case "Cancel":
                 this.dispose();
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+            case "Schedule":
+                Scheduler s=new Scheduler(selectedItem);
+                s.schedule();
+                DBConnection_Scheduler dbc_s=new DBConnection_Scheduler();
+                Ward ward=dbc_s.getWard(selectedItem);
+                ward.setScheduled("true");
+                DBConnection dbConnection = new DBConnection();
+                dbConnection.updateWard(ward);
+                this.dispose();
+                getSchedulePage();
                 break;
         }
 
     }
 
+    public void getSchedulePage() {
+        SchedulePage frame=new SchedulePage();
+        frame.setVisible(true);
+        frame.setSize(300, 150);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+    }
     public static void main(String[] args){
         SchedulePage frame=new SchedulePage();
         frame.setVisible(true);
-        frame.setSize(200, 200);
+        frame.setSize(300, 150);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
