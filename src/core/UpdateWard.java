@@ -81,6 +81,7 @@ public class UpdateWard extends JFrame implements ActionListener {
         txtWardType.setText(ward.getWardType());
         txtReqNurses.setText(String.valueOf(ward.getReqNurses()));
         txtReqDoctors.setText(String.valueOf(ward.getReqDoctors()));
+        txtScheduled.setText(ward.getScheduled());
 
         // Setting ID to be uneditable
         txtID.setEditable(false);

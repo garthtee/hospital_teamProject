@@ -1,6 +1,7 @@
 package database;
 
 import core.Employee;
+import core.Request;
 import core.Shift;
 import core.Ward;
 
@@ -367,11 +368,12 @@ public class DBConnection {
 
         try {
             PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?);");
+            preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?,?);");
             preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
             preparedStatement.setString(2, ward.getWardType());
             preparedStatement.setInt(3, ward.getReqNurses());
             preparedStatement.setInt(4, ward.getReqDoctors());
+            preparedStatement.setString(5, ward.getScheduled());
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
@@ -415,10 +417,11 @@ public class DBConnection {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("UPDATE ward SET wardType = ?, reqNurses = ?, " +
-                    "reqDoctors = ? WHERE ward_ID = " + ward.getWard_ID() + ";");
+                    "reqDoctors = ?, scheduled = ? WHERE ward_ID = " + ward.getWard_ID() + ";");
             preparedStatement.setString(1, ward.getWardType());
             preparedStatement.setInt(2, ward.getReqNurses());
             preparedStatement.setInt(3, ward.getReqDoctors());
+            preparedStatement.setString(4, ward.getScheduled());
             int count = preparedStatement.executeUpdate();
 
             if (count > 0)
@@ -433,5 +436,38 @@ public class DBConnection {
             closeStatement();
             closeConnection();
         }
+    }
+
+    public ArrayList<Request> getReq() {
+
+        getDBConnection();
+
+        ArrayList<Request> requestList = new ArrayList<>();
+
+        try {
+            String query = "select * from request;";
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int emp_id = resultSet.getInt("request_ID");
+                String startDate = resultSet.getString("dateFrom");
+                String endDate = resultSet.getString("dateTo");
+                String status = resultSet.getString("status");
+                String empID = resultSet.getString("emp_ID");
+                int employeeId = Integer.parseInt(empID);
+
+                Request request = new Request( startDate,  endDate,  employeeId);
+                requestList.add(request);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+        return requestList;
     }
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="Fixing small error with numHolidays and contractHours being integers.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/UpdateEmployee.class" />
+    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AddWard.java" afterPath="$PROJECT_DIR$/src/core/AddWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateEmployee.java" afterPath="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" afterPath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AssignToWard.java" afterPath="$PROJECT_DIR$/src/core/AssignToWard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/E_ManagerPage.java" afterPath="$PROJECT_DIR$/src/core/E_ManagerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/LogInForm.java" afterPath="$PROJECT_DIR$/src/core/LogInForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateWard.java" afterPath="$PROJECT_DIR$/src/core/UpdateWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ViewWard.java" afterPath="$PROJECT_DIR$/src/core/ViewWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Ward.java" afterPath="$PROJECT_DIR$/src/core/Ward.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
@@ -32,21 +33,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddEmployee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/AddEmployee.java">
+      <file leaf-file-name="UpdateWard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="41" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+            <state vertical-scroll-proportion="-0.46483704">
+              <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateWard.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
+      <file leaf-file-name="SchedulePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/SchedulePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.380789">
-              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogInForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -82,45 +95,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tester1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/Tester1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SchedulePage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/SchedulePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="325" column="68" selection-start-line="325" selection-start-column="68" selection-end-line="325" selection-end-column="68" />
+              <caret line="450" column="38" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
               <folding>
-                <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-                <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-                <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-                <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-                <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-                <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-                <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-                <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-                <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-                <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-                <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+                <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+                <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+                <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+                <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+                <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+                <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+                <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+                <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+                <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+                <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+                <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+                <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
               </folding>
             </state>
           </provider>
@@ -175,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/core/SearchWard.java" />
         <option value="$PROJECT_DIR$/src/core/SchedulePage.java" />
         <option value="$PROJECT_DIR$/src/core/WardMainPage.java" />
-        <option value="$PROJECT_DIR$/src/core/LogInForm.java" />
         <option value="$PROJECT_DIR$/src/core/SearchEmployeePage.java" />
         <option value="$PROJECT_DIR$/src/core/AdminPage.java" />
         <option value="$PROJECT_DIR$/src/core/ViewEmployee.java" />
@@ -186,10 +177,12 @@
         <option value="$PROJECT_DIR$/src/core/UpdateEmployee.java" />
         <option value="$PROJECT_DIR$/src/core/Employee.java" />
         <option value="$PROJECT_DIR$/src/core/Ward.java" />
-        <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/core/ViewWard.java" />
-        <option value="$PROJECT_DIR$/src/core/UpdateWard.java" />
         <option value="$PROJECT_DIR$/src/core/AddWard.java" />
+        <option value="$PROJECT_DIR$/src/core/UpdateWard.java" />
+        <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/core/LogInForm.java" />
+        <option value="$PROJECT_DIR$/src/core/E_ManagerPage.java" />
       </list>
     </option>
   </component>
@@ -381,7 +374,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
-  <component name="RunManager" selected="Application.Tester1">
+  <component name="RunManager" selected="Application.LogInForm">
     <configuration default="false" name="AdminPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -928,9 +921,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Tester1" />
-        <item index="1" class="java.lang.String" itemvalue="Application.SchedulePage" />
-        <item index="2" class="java.lang.String" itemvalue="Application.LogInForm" />
+        <item index="0" class="java.lang.String" itemvalue="Application.LogInForm" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Tester1" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SchedulePage" />
         <item index="3" class="java.lang.String" itemvalue="Application.AdminPage" />
         <item index="4" class="java.lang.String" itemvalue="Application.EmployeePage" />
       </list>
@@ -974,7 +967,7 @@
       <workItem from="1460648298921" duration="125000" />
       <workItem from="1460672850489" duration="3117000" />
       <workItem from="1460676418504" duration="4444000" />
-      <workItem from="1460709348289" duration="2996000" />
+      <workItem from="1460709348289" duration="5298000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
@@ -1192,11 +1185,17 @@
       <option name="project" value="LOCAL" />
       <updated>1460680705079</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Schedule added to wards.">
+      <created>1460712376096</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1460712376096</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80698000" />
+    <option name="totallyTimeSpent" value="83000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1268,7 +1267,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Search Employee error checking added." />
     <MESSAGE value="Removed a comment." />
     <MESSAGE value="Closing all resources of database  in DBConnection class." />
     <MESSAGE value="Fixed connection error in DBConnection. A connection method was created and each method that worked with the DB used the method." />
@@ -1293,7 +1291,8 @@
     <MESSAGE value="Password now hidden from administrator. Error handling - Employee/Ward - Create/Update." />
     <MESSAGE value="Fixed bug that was mixing up employee privilege and employee_type." />
     <MESSAGE value="Fixing small error with numHolidays and contractHours being integers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing small error with numHolidays and contractHours being integers." />
+    <MESSAGE value="Schedule added to wards." />
+    <option name="LAST_COMMIT_MESSAGE" value="Schedule added to wards." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1306,14 +1305,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/core/AddEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="106" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1344,17 +1335,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
           </folding>
         </state>
       </provider>
@@ -1405,17 +1397,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
           </folding>
         </state>
       </provider>
@@ -1451,17 +1444,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="110" column="81" selection-start-line="110" selection-start-column="81" selection-end-line="110" selection-end-column="81" />
           <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
           </folding>
         </state>
       </provider>
@@ -1489,17 +1483,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
           </folding>
         </state>
       </provider>
@@ -1527,17 +1522,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
           </folding>
         </state>
       </provider>
@@ -1555,13 +1551,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1639,14 +1628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="61" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.101200685">
@@ -1720,26 +1701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="325" column="68" selection-start-line="325" selection-start-column="68" selection-end-line="325" selection-end-column="68" />
-          <folding>
-            <marker date="1460711637368" expanded="true" signature="1688:1710" placeholder="select * fro... employee" />
-            <marker date="1460711637368" expanded="true" signature="4504:4564" placeholder="INSERT INTO employee... " />
-            <marker date="1460711637368" expanded="true" signature="6498:6535" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="7428:7473" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460711637368" expanded="true" signature="8157:8451" placeholder="UPDATE emplo... " />
-            <marker date="1460711637368" expanded="true" signature="10436:10492" placeholder="SELECT * FRO... employee" />
-            <marker date="1460711637368" expanded="true" signature="11472:11490" placeholder="select * fro... ward" />
-            <marker date="1460711637368" expanded="true" signature="12353:12372" placeholder="select * fro... shift" />
-            <marker date="1460711637368" expanded="true" signature="13439:13471" placeholder="INSERT INTO ward... " />
-            <marker date="1460711637368" expanded="true" signature="14241:14275" placeholder="DELETE from " />
-            <marker date="1460711637368" expanded="true" signature="15069:15170" placeholder="UPDATE ward " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1766,19 +1727,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/SchedulePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Tester1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.23327616">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
@@ -1792,10 +1743,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="450" column="38" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
+          <folding>
+            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
+            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
+            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
+            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
+            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
+            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
+            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
+            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
+            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
+            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
+            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/E_ManagerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.81646657">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/SchedulePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.380789">
-          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+        <state vertical-scroll-proportion="-0.46483704">
+          <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
           <folding />
         </state>
       </provider>
