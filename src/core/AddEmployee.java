@@ -185,8 +185,8 @@ public class AddEmployee extends JFrame implements ActionListener {
                     employee.setDOB(calendar);
                     employee.setContactNum(txtContactNum.getText());
                     employee.setEmail(txtEmail.getText());
-                    employee.setNumHolidays(Double.valueOf(txtNumHoldiays.getText()));
-                    employee.setContractHours(Double.valueOf(txtContractHours.getText()));
+                    employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
+                    employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
                     employee.setSalary(Double.valueOf(txtSalary.getText()));
                     employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                     employee.setPassword(String.valueOf(txtPassword.getPassword()));

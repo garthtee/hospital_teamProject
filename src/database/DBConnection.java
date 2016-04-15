@@ -80,8 +80,8 @@ public class DBConnection {
                 String DOB = resultSet.getString("DOB");
                 String contactNum = resultSet.getString("contactNum");
                 String email = resultSet.getString("email");
-                Double numHolidays = resultSet.getDouble("numHolidays");
-                Double contractHours = resultSet.getDouble("contractHours");
+                int numHolidays = resultSet.getInt("numHolidays");
+                int contractHours = resultSet.getInt("contractHours");
                 int salary = resultSet.getInt("salary");
                 Double onHoliday = resultSet.getDouble("onHoliday");
                 Double offSick = resultSet.getDouble("offSick");
