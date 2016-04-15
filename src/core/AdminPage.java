@@ -116,7 +116,7 @@ public class AdminPage extends JFrame implements ActionListener {
                                                       int index, boolean isSelected, boolean cellHasFocus) {
             Employee employee = (Employee) value;
             setText("Employee " +employee.getEmp_ID() + ": " + employee.getfName()
-                + " " + employee.getsName());
+                + " " + employee.getsName() + " " + employee.getEmployee_type());
             this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 
             if (isSelected) {

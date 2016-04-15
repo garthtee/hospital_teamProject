@@ -21,8 +21,8 @@ public class AddEmployee extends JFrame implements ActionListener {
             txtPrivilege, txtEmployeeType;
     private JPasswordField txtPassword;
     private JComboBox<String> jcbType, jcbEmpType;
-    private String selectedPrivilege = "employee";
-    private String selectedEmpType = "doctor";
+    private String selectedPrivilege;
+    private String selectedEmpType;
 
     public static void getAddEmployeePage() {
         AddEmployee addEmployee = new AddEmployee();
@@ -69,7 +69,6 @@ public class AddEmployee extends JFrame implements ActionListener {
         txtPassword = new JPasswordField();
         lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
-        txtPrivilege = new JTextField();
 
 
         // Add components to panel 1 //
@@ -101,7 +100,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         jcbEmpType.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedEmpType = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+                selectedEmpType = String.valueOf(jcbEmpType.getSelectedItem()).toLowerCase();
             }
         });
         p1.add(jcbEmpType);
@@ -164,7 +163,14 @@ public class AddEmployee extends JFrame implements ActionListener {
                 } else if(txtContactNum.getText().length() < 7) {
                     JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
-                }  else {
+                } else if (String.valueOf(txtPassword.getPassword()).length() < 8 ||
+                        String.valueOf(txtPassword.getPassword()).length() > 30) {
+                    JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (selectedEmpType == null) {
+                    selectedEmpType = "doctor";
+                } else if (selectedPrivilege == null) {
+                    selectedPrivilege = "employee";
+                } else {
                     Calendar calendar = Calendar.getInstance();
                     DBConnection dbConnection = new DBConnection();
                     try { // try parsing the string to a Calendar object
@@ -173,10 +179,20 @@ public class AddEmployee extends JFrame implements ActionListener {
                     } catch (ParseException exception) {
                         exception.printStackTrace();
                     }
-                    dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
-                            txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
-                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            String.valueOf(txtPassword.getPassword()), selectedPrivilege, selectedEmpType);
+                    Employee employee = new Employee();
+                    employee.setfName(txtFName.getText());
+                    employee.setsName(txtSName.getText());
+                    employee.setDOB(calendar);
+                    employee.setContactNum(txtContactNum.getText());
+                    employee.setEmail(txtEmail.getText());
+                    employee.setNumHolidays(Double.valueOf(txtNumHoldiays.getText()));
+                    employee.setContractHours(Double.valueOf(txtContractHours.getText()));
+                    employee.setSalary(Double.valueOf(txtSalary.getText()));
+                    employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
+                    employee.setPassword(String.valueOf(txtPassword.getPassword()));
+                    employee.setEmployee_type(selectedEmpType);
+                    employee.setPrivilege(selectedPrivilege);
+                    dbConnection.createEmployee(employee);
                     this.dispose();
                     AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -80,8 +80,8 @@ public class DBConnection {
                 String DOB = resultSet.getString("DOB");
                 String contactNum = resultSet.getString("contactNum");
                 String email = resultSet.getString("email");
-                int numHolidays = resultSet.getInt("numHolidays");
-                int contractHours = resultSet.getInt("contractHours");
+                Double numHolidays = resultSet.getDouble("numHolidays");
+                Double contractHours = resultSet.getDouble("contractHours");
                 int salary = resultSet.getInt("salary");
                 Double onHoliday = resultSet.getDouble("onHoliday");
                 Double offSick = resultSet.getDouble("offSick");
@@ -130,8 +130,7 @@ public class DBConnection {
         return employeeList;
     }
 
-    public void createEmployee(String fNameIn, String sNameIn, Calendar DOBIn, String contactNumIn, String emailIn,
-                               double numHolidaysIn, double contractHoursIn, double salary, int ward_IDIn, String password, String privilege, String employee_type) {
+    public void createEmployee(Employee employee) {
 
         getDBConnection();
 
@@ -139,24 +138,25 @@ public class DBConnection {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
-            preparedStatement.setString(2, fNameIn);
-            preparedStatement.setString(3, sNameIn);
+            preparedStatement.setString(2, employee.getfName());
+            preparedStatement.setString(3, employee.getsName());
             // create a date
-            java.sql.Date sqlDate = new java.sql.Date(DOBIn.getTimeInMillis());
+            java.sql.Date sqlDate = new java.sql.Date(employee.getDOB().getTimeInMillis());
             // end creating date
             preparedStatement.setDate(4, sqlDate);
-            preparedStatement.setString(5, contactNumIn);
-            preparedStatement.setString(6, emailIn);
-            preparedStatement.setDouble(7, numHolidaysIn);
-            preparedStatement.setDouble(8, contractHoursIn);
-            preparedStatement.setDouble(9, salary);
+            preparedStatement.setString(5, employee.getContactNum());
+            preparedStatement.setString(6, employee.getEmail());
+            preparedStatement.setDouble(7, employee.getNumHolidays());
+            preparedStatement.setDouble(8, employee.getContractHours());
+            preparedStatement.setDouble(9, employee.getSalary());
             preparedStatement.setInt(10, 0);
             preparedStatement.setInt(11, 0);
             preparedStatement.setString(12, "none");
-            preparedStatement.setInt(13, ward_IDIn);
-            preparedStatement.setString(14, password);
-            preparedStatement.setString(15, privilege);
-            preparedStatement.setString(16, employee_type);
+            preparedStatement.setInt(13, employee.getWard_ID());
+            preparedStatement.setString(14, employee.getPassword());
+            preparedStatement.setString(15, employee.getPrivilege());
+            preparedStatement.setString(16, employee.getEmployee_type());
+
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {

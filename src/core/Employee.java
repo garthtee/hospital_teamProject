@@ -10,8 +10,8 @@ public class Employee {
 	private Calendar DOB;
 	private String contactNum;
 	private String email;
-	private int numHolidays;
-	private int contractHours;
+	private Double numHolidays;
+	private Double contractHours;
 	private double salary;
 	private Double onHoliday = 0.0;
 	private Double offSick = 0.0;
@@ -28,8 +28,8 @@ public class Employee {
 		this.fName = fName;
 	}
 
-	public Employee(String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-					int contractHours, double salary, int ward_ID) {
+	public Employee(String fName, String sName, Calendar dOB, String contactNum, String email, Double numHolidays,
+					Double contractHours, double salary, int ward_ID) {
 		this.fName = fName;
 		this.sName = sName;
 		this.DOB = dOB;
@@ -43,9 +43,9 @@ public class Employee {
 		this.ward_ID = ward_ID;
 	}
 
-    public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
-                    int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID,
-					String password, String privilege, String employee_type) {
+    public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, Double numHolidays,
+                    Double contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID,
+					String password, String employee_type, String privilege) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;
@@ -115,19 +115,19 @@ public class Employee {
 		this.email = email;
 	}
 
-	public int getNumHolidays() {
+	public Double getNumHolidays() {
 		return numHolidays;
 	}
 
-	public void setNumHolidays(int numHolidays) {
+	public void setNumHolidays(Double numHolidays) {
 		this.numHolidays = numHolidays;
 	}
 
-	public int getContractHours() {
+	public Double getContractHours() {
 		return contractHours;
 	}
 
-	public void setContractHours(int contractHours) {
+	public void setContractHours(Double contractHours) {
 		this.contractHours = contractHours;
 	}
 

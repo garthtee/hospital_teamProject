@@ -1,5 +1,7 @@
 package core;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -127,8 +129,8 @@ public class ViewEmployee extends JFrame implements ActionListener {
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
-        txtEmployeeType.setText(employee.getEmployee_type());
-        txtPrivilege.setText(employee.getPrivilege());
+        txtEmployeeType.setText(StringUtils.capitalize(employee.getEmployee_type()));
+        txtPrivilege.setText(StringUtils.capitalize(employee.getPrivilege()));
 
         // Making text boxes uneditable
         txtID.setEditable(false);

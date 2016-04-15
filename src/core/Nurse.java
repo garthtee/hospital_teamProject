@@ -18,7 +18,7 @@ public class Nurse extends Employee{
 		this.nurseType = nurseType;
 	}
 
-	public Nurse(String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays, int contractHours, double salary, int ward_ID, String nurseGrade, String nurseType) {
+	public Nurse(String fName, String sName, Calendar dOB, String contactNum, String email, Double numHolidays, Double contractHours, double salary, int ward_ID, String nurseGrade, String nurseType) {
 		super(fName, sName, dOB, contactNum, email, numHolidays, contractHours, salary, ward_ID);
 		this.nurseGrade = nurseGrade;
 		this.nurseType = nurseType;

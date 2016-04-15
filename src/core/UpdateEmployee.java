@@ -1,5 +1,6 @@
 package core;
 
+import com.sun.xml.internal.ws.util.StringUtils;
 import database.DBConnection;
 
 import javax.swing.*;
@@ -18,12 +19,12 @@ import java.util.Calendar;
 public class UpdateEmployee extends JFrame implements ActionListener {
 
     private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPrivilege, txtEmployeeType;
+            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID;
     private JComboBox<String> jcbType, jcbEmpType;
     private JPasswordField txtPassword;
     private String selectedPrivilege;
+    private String selectedEmpType;
     private EmailValidator emailValidator = new EmailValidator();
-    private String selectedEmpType = "doctor";
 
     public static void getUpdateEmployeePage(Employee employeeIn) {
         UpdateEmployee updateEmployeeFrame = new UpdateEmployee(employeeIn);
@@ -76,7 +77,6 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtPassword = new JPasswordField();
         lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
-        txtPrivilege = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblID);
@@ -160,7 +160,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
-        jcbType.setSelectedItem(employee.getPrivilege());
+        jcbEmpType.setSelectedItem(StringUtils.capitalize(employee.getEmployee_type()));
+        jcbType.setSelectedItem(StringUtils.capitalize(employee.getPrivilege()));
 
 
         // Setting ID to be uneditable
@@ -208,7 +209,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                     } else if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
                         JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (txtContactNum.getText().length() < 7) {
-                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invalid holidays.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (txtEmail.getText().length() <= 3 || txtEmail.getText().length() > 100 || !txtEmail.getText().contains("@")
                             || !txtEmail.getText().contains(".") || !emailValidator.validateEmail(txtEmail.getText())) {
                         JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -218,10 +219,13 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Integer.valueOf(txtWard_ID.getText()) > 10) {
                         JOptionPane.showMessageDialog(null, "Invalid ward!", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (selectedPrivilege == null) {
-                        selectedPrivilege = "employee";
-                    } else if (txtPassword.getText().length() < 8 || txtPassword.getText().length() > 30) {
+                    } else if (String.valueOf(txtPassword.getPassword()).length() < 8 ||
+                            String.valueOf(txtPassword.getPassword()).length() > 30) {
                         JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (selectedEmpType == null) {
+                        selectedEmpType = "doctor";
+                    } else if (selectedPrivilege == null) {
+                        selectedEmpType = "employee";
                     } else {
                         // Creating a calendar object and parsing the date text entered by user
                         Calendar calendar = Calendar.getInstance();
@@ -239,14 +243,14 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setDOB(calendar);
                         employee.setContactNum(txtContactNum.getText());
                         employee.setEmail(txtEmail.getText());
-                        employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
-                        employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
+                        employee.setNumHolidays(Double.valueOf(txtNumHoldiays.getText()));
+                        employee.setContractHours(Double.valueOf(txtContractHours.getText()));
                         employee.setSalary(Double.valueOf(txtSalary.getText()));
                         employee.setOnHoliday(Double.valueOf(txtOnHoliday.getText()));
                         employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                         employee.setPassword(String.valueOf(txtPassword.getPassword()));
-                        employee.setEmployee_type(txtEmployeeType.getText());
+                        employee.setEmployee_type(StringUtils.capitalize(selectedEmpType));
                         employee.setPrivilege(selectedPrivilege);
                         // Update employee details in DB
                         DBConnection dbConnection = new DBConnection();

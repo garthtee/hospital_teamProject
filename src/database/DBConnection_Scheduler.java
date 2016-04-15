@@ -11,7 +11,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.LongSummaryStatistics;
 
 /**
  * Created by garth on 10/04/2016.
@@ -105,8 +104,8 @@ public class DBConnection_Scheduler {
                 String DOB = resultSet.getString("DOB");
                 String contactNum = resultSet.getString("contactNum");
                 String email = resultSet.getString("email");
-                int numHolidays = resultSet.getInt("numHolidays");
-                int contractHours = resultSet.getInt("contractHours");
+                Double numHolidays = resultSet.getDouble("numHolidays");
+                Double contractHours = resultSet.getDouble("contractHours");
                 int salary = resultSet.getInt("salary");
                 Double onHoliday = resultSet.getDouble("onHoliday");
                 Double offSick = resultSet.getDouble("offSick");
