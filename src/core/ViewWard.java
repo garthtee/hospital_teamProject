@@ -13,8 +13,8 @@ import java.awt.event.ActionListener;
  */
 public class ViewWard extends JFrame implements ActionListener {
 
-    private JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors;
-    private JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors;
+    private JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors, lblScheduled;
+    private JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors, txtScheduled;
     private JButton btnOk;
 
     public static void getViewWard(Ward selectedWard) {
@@ -33,7 +33,7 @@ public class ViewWard extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(4, 2));
+        p1.setLayout(new GridLayout(5, 2));
         lblID = new JLabel("ID: ");
         txtID = new JTextField();
         lblWardType = new JLabel("Ward Type: ");
@@ -42,6 +42,8 @@ public class ViewWard extends JFrame implements ActionListener {
         txtReqNurses = new JTextField();
         lblReqDoctors = new JLabel("Req Doctors: ");
         txtReqDoctors = new JTextField();
+        lblScheduled = new JLabel("Scheduled: ");
+        txtScheduled = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblID);
@@ -53,6 +55,8 @@ public class ViewWard extends JFrame implements ActionListener {
         p1.add(txtReqNurses);
         p1.add(lblReqDoctors);
         p1.add(txtReqDoctors);
+        p1.add(lblScheduled);
+        p1.add(txtScheduled);
 
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
@@ -71,6 +75,7 @@ public class ViewWard extends JFrame implements ActionListener {
         txtWardType.setText(ward.getWardType());
         txtReqNurses.setText(String.valueOf(ward.getReqNurses()));
         txtReqDoctors.setText(String.valueOf(ward.getReqDoctors()));
+        txtScheduled.setText(ward.getScheduled());
 
 
         // Making text boxes uneditable
@@ -78,6 +83,7 @@ public class ViewWard extends JFrame implements ActionListener {
         txtWardType.setEditable(false);
         txtReqNurses.setEditable(false);
         txtReqDoctors.setEditable(false);
+        txtScheduled.setEditable(false);
 
 
         // Presses ok button on enter key press

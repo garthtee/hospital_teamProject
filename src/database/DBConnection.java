@@ -323,6 +323,7 @@ public class DBConnection {
                 ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
+                ward.setScheduled(resultSet.getString("scheduled"));
                 wards.add(ward);
             }
         } catch (Exception e) {

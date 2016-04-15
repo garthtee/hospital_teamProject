@@ -251,7 +251,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                         employee.setPassword(String.valueOf(txtPassword.getPassword()));
                         employee.setEmployee_type(StringUtils.capitalize(selectedEmpType));
-                        employee.setPrivilege(selectedPrivilege);
+                        employee.setPrivilege(StringUtils.capitalize(selectedPrivilege));
                         // Update employee details in DB
                         DBConnection dbConnection = new DBConnection();
                         dbConnection.updateEmployee(employee);

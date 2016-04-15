@@ -9,14 +9,16 @@ public class Ward {
     private String wardType;
     private int reqNurses;
     private int reqDoctors;
+    private String scheduled;
 
     public Ward() {}
 
-    public Ward(int ward_ID, String wardType, int reqNurses, int reqDoctors) {
+    public Ward(int ward_ID, String wardType, int reqNurses, int reqDoctors, String scheduled) {
         this.ward_ID = ward_ID;
         this.wardType = wardType;
         this.reqNurses = reqNurses;
         this.reqDoctors = reqDoctors;
+        this.scheduled = scheduled;
     }
 
     public int getWard_ID() {
@@ -49,6 +51,14 @@ public class Ward {
 
     public void setReqDoctors(int reqDoctors) {
         this.reqDoctors = reqDoctors;
+    }
+
+    public String getScheduled() {
+        return scheduled;
+    }
+
+    public void setScheduled(String scheduled) {
+        this.scheduled = scheduled;
     }
 
     @Override

@@ -14,8 +14,8 @@ import java.awt.event.ActionListener;
  */
 public class AddWard extends JFrame implements ActionListener {
 
-    private JLabel lblWardType, lblReqNurses, lblReqDoctors;
-    private JTextField txtWardType, txtReqNurses, txtReqDoctors;
+    private JLabel lblWardType, lblReqNurses, lblReqDoctors, lblScheduled;
+    private JTextField txtWardType, txtReqNurses, txtReqDoctors, txtScheduled;
     private JButton btnAdd, btnCancel;
 
     public static void getAddWard() {
@@ -34,13 +34,15 @@ public class AddWard extends JFrame implements ActionListener {
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(3, 2));
+        p1.setLayout(new GridLayout(4, 2));
         lblWardType = new JLabel("Ward Type: ");
         txtWardType = new JTextField();
         lblReqNurses = new JLabel("Required Nurses: ");
         txtReqNurses = new JTextField();
         lblReqDoctors = new JLabel("Required Doctors: ");
         txtReqDoctors = new JTextField();
+        lblScheduled = new JLabel("Scheduled: ");
+        txtScheduled = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblWardType);
@@ -49,6 +51,8 @@ public class AddWard extends JFrame implements ActionListener {
         p1.add(txtReqNurses);
         p1.add(lblReqDoctors);
         p1.add(txtReqDoctors);
+        p1.add(lblScheduled);
+        p1.add(txtScheduled);
 
         p1.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p1, BorderLayout.NORTH);
@@ -72,7 +76,8 @@ public class AddWard extends JFrame implements ActionListener {
         switch (event.getActionCommand()) {
             case "Add":
                 // Checking if text has been entered to all TextFields
-                if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
+                if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("") ||
+                        txtScheduled.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -97,6 +102,7 @@ public class AddWard extends JFrame implements ActionListener {
                     ward.setWardType(txtWardType.getText());
                     ward.setReqNurses(Integer.valueOf(txtReqNurses.getText()));
                     ward.setReqDoctors(Integer.valueOf(txtReqDoctors.getText()));
+                    ward.setScheduled(txtScheduled.getText());
                     dbConnection.addWard(ward);
 
                     this.dispose();
