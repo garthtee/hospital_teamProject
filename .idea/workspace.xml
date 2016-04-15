@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" afterPath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AssignToWard.java" afterPath="$PROJECT_DIR$/src/core/AssignToWard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/E_ManagerPage.java" afterPath="$PROJECT_DIR$/src/core/E_ManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/LogInForm.java" afterPath="$PROJECT_DIR$/src/core/LogInForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/UpdateWard.java" afterPath="$PROJECT_DIR$/src/core/UpdateWard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/E_ManagerPage.java" afterPath="$PROJECT_DIR$/src/core/E_ManagerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AssignToWard.java" afterPath="$PROJECT_DIR$/src/core/AssignToWard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Ward.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" afterPath="$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/LogInForm.java" afterPath="$PROJECT_DIR$/src/core/LogInForm.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +32,11 @@
     <favorites_list name="TeamProject_Hospital" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="UpdateWard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.46483704">
+            <state vertical-scroll-proportion="0.02910959">
               <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
               <folding />
             </state>
@@ -100,20 +100,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="450" column="38" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
-              <folding>
-                <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-                <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-                <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-                <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-                <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-                <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-                <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-                <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-                <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-                <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-                <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-                <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -302,8 +289,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -563,133 +550,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -704,16 +564,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -779,9 +629,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -807,21 +654,12 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -878,38 +716,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
     <list size="5">
@@ -1199,32 +1005,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34042552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34042552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1326,7 +1132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,20 +1139,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,20 +1187,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1443,20 +1221,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="110" column="81" selection-start-line="110" selection-start-column="81" selection-end-line="110" selection-end-column="81" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1482,20 +1247,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1521,20 +1273,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1586,9 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#708#709#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1640,9 +1376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32246998">
           <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1650,12 +1383,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.15437393">
           <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
-          <folding>
-            <marker date="1460680180526" expanded="true" signature="1749:1792" placeholder="INSERT INTO shift_employee... " />
-            <marker date="1460680180526" expanded="true" signature="2528:2550" placeholder="select * fro... employee" />
-            <marker date="1460680180526" expanded="true" signature="5341:5374" placeholder="select * fro... ward" />
-            <marker date="1460680180526" expanded="true" signature="5934:5953" placeholder="select * fro... shift" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1685,7 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1747,20 +1474,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="450" column="38" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
-          <folding>
-            <marker date="1460714257799" expanded="true" signature="1709:1731" placeholder="select * fro... employee" />
-            <marker date="1460714257799" expanded="true" signature="4525:4585" placeholder="INSERT INTO employee... " />
-            <marker date="1460714257799" expanded="true" signature="6519:6556" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="7449:7494" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460714257799" expanded="true" signature="8178:8472" placeholder="UPDATE emplo... " />
-            <marker date="1460714257799" expanded="true" signature="10457:10513" placeholder="SELECT * FRO... employee" />
-            <marker date="1460714257799" expanded="true" signature="11493:11511" placeholder="select * fro... ward" />
-            <marker date="1460714257799" expanded="true" signature="12374:12393" placeholder="select * fro... shift" />
-            <marker date="1460714257799" expanded="true" signature="13460:13494" placeholder="INSERT INTO ward... " />
-            <marker date="1460714257799" expanded="true" signature="14329:14363" placeholder="DELETE from " />
-            <marker date="1460714257799" expanded="true" signature="15157:15273" placeholder="UPDATE ward " />
-            <marker date="1460714257799" expanded="true" signature="16252:16273" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1786,7 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.81646657">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1802,7 +1515,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.46483704">
+        <state vertical-scroll-proportion="0.02910959">
           <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
           <folding />
         </state>
