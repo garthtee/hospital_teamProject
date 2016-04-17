@@ -134,7 +134,7 @@ public class ShiftMainPage extends JFrame implements ActionListener {
                                     + selectedShift.getShift_ID() + "?",
                             "Remove shift", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
-//                        dbConnection.removeShift(selectedShift);
+                        dbConnection.removeShift(selectedShift);
                         defaultListModel.removeElement(selectedShift);
                     }
                 } else // if no shift selected
@@ -148,10 +148,10 @@ public class ShiftMainPage extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "You must select an shift!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Shift":
+                SearchShift.getSearchShift(shiftList);
                 break;
             case "View Shift":
                 if (selectedShift != null) { // if a shift is selected
-                    this.dispose();
                     ViewShift.getViewShift(selectedShift);
                 } else // if no shift selected
                     JOptionPane.showMessageDialog(null, "You must select an shift!", "Error", JOptionPane.ERROR_MESSAGE);

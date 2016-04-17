@@ -94,7 +94,6 @@ public class ViewShift extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "Ok":
                 this.dispose();
-                ShiftMainPage.getShiftMainPage();
                 break;
         }
     }

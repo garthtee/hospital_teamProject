@@ -102,6 +102,15 @@ public class UpdateShift extends JFrame implements ActionListener {
                         txtWardID.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
+                } else if(!TimeValidator.validateTime(txtShiftStart.getText())) {
+                    JOptionPane.showMessageDialog(null, "Incorrect start time. \n\nCorrect format example, 12:00\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(!TimeValidator.validateTime(txtShiftEnd.getText())) {
+                    JOptionPane.showMessageDialog(null, "Incorrect end time. \n\nCorrect format example, 12:00\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(isNumeric(txtShiftType.getText())) {
+                    JOptionPane.showMessageDialog(null, "Shift type must not be numeric.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 } else {
                     try {
                         shift.setShift_ID(Integer.valueOf(txtID.getText()));
@@ -120,5 +129,18 @@ public class UpdateShift extends JFrame implements ActionListener {
                 ShiftMainPage.getShiftMainPage();
                 break;
         }
+    }
+
+    public boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
     }
 }

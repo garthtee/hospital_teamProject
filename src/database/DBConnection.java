@@ -177,7 +177,7 @@ public class DBConnection {
         shiftsAssigned = removeEmployeeFromShift_Employee(employee);
         boolean employeeRemoved = false;
 
-        if(!shiftsAssigned) {
+        if (!shiftsAssigned) {
             getDBConnection();
 
             try {
@@ -340,6 +340,31 @@ public class DBConnection {
         }
         return shifts;
     }
+
+    public void removeShift(Shift shift) {
+
+        getDBConnection();
+
+        try {
+            int id = shift.getShift_ID();
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("DELETE from shift WHERE shift_ID = ?;");
+            preparedStatement.setInt(1, shift.getShift_ID());
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0) {
+                JOptionPane.showMessageDialog(null, "Shift " + id + " has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.getStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
 
     public void addShift(Shift shift) {
 
@@ -515,7 +540,7 @@ public class DBConnection {
                 String empID = resultSet.getString("emp_ID");
                 int employeeId = Integer.parseInt(empID);
 
-                Request request = new Request( startDate,  endDate,  employeeId);
+                Request request = new Request(startDate, endDate, employeeId);
                 requestList.add(request);
             }
 

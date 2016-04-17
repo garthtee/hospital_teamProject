@@ -1,5 +1,7 @@
 package core;
 
+import database.DBConnection;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -13,6 +15,7 @@ import java.awt.event.ActionListener;
 public class AddShift extends JFrame implements ActionListener {
 
     private JButton btnAdd, btnCancel;
+    private JTextField txtShiftStart, txtShiftEnd, txtShiftType, txtWardID;
 
     public static void getAddShift() {
         AddShift addShift = new AddShift();
@@ -26,7 +29,6 @@ public class AddShift extends JFrame implements ActionListener {
     public AddShift(){
 
         JLabel lblShiftStart, lblShiftEnd, lblShiftType, lblWardID;
-        JTextField txtShiftStart, txtShiftEnd, txtShiftType, txtWardID;
 
         setTitle("Create");
         setLayout(new BorderLayout());
@@ -73,6 +75,34 @@ public class AddShift extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add":
+                if(txtShiftStart.getText().equals("") || txtShiftEnd.getText().equals("") ||
+                        txtShiftType.getText().equals("") || txtWardID.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(!TimeValidator.validateTime(txtShiftStart.getText())) {
+                    JOptionPane.showMessageDialog(null, "Incorrect start time. \n\nCorrect format example, 12:00\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(!TimeValidator.validateTime(txtShiftEnd.getText())) {
+                    JOptionPane.showMessageDialog(null, "Incorrect end time. \n\nCorrect format example, 12:00\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if(isNumeric(txtShiftType.getText())) {
+                    JOptionPane.showMessageDialog(null, "Shift type must not be numeric.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                    try {
+                        DBConnection dbConnection = new DBConnection();
+                        Shift shift = new Shift();
+                        shift.setStartTime(txtShiftStart.getText());
+                        shift.setEndTime(txtShiftEnd.getText());
+                        shift.setShiftType(txtShiftType.getText());
+                        shift.setWard_ID(Integer.valueOf(txtWardID.getText()));
+                        dbConnection.addShift(shift);
+                        this.dispose();
+                        ShiftMainPage.getShiftMainPage();
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ward must be a number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
                 break;
             case "Cancel":
                 this.dispose();
@@ -80,5 +110,18 @@ public class AddShift extends JFrame implements ActionListener {
                 break;
         }
 
+    }
+
+    public boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
     }
 }

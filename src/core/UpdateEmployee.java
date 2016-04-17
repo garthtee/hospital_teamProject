@@ -113,7 +113,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         jcbEmpType.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedEmpType = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+                selectedEmpType = String.valueOf(jcbEmpType.getSelectedItem()).toLowerCase();
             }
         });
         p1.add(jcbEmpType);
@@ -250,8 +250,8 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         employee.setOffSick(Double.valueOf(txtOffSick.getText()));
                         employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
                         employee.setPassword(String.valueOf(txtPassword.getPassword()));
-                        employee.setEmployee_type(StringUtils.capitalize(selectedEmpType));
-                        employee.setPrivilege(StringUtils.capitalize(selectedPrivilege));
+                        employee.setEmployee_type(selectedEmpType);
+                        employee.setPrivilege(selectedPrivilege);
                         // Update employee details in DB
                         DBConnection dbConnection = new DBConnection();
                         dbConnection.updateEmployee(employee);
