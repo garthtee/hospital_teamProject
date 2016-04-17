@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/AdminPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Shift.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/core/Shift.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/TeamProject_Hospital/database/DBConnection.class" />
+    <list default="true" id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="resolve merge conflict with scheduler page, scheduler now working">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/AddShift.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/ShiftMainPage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/UpdateShift.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/AdminPage.java" afterPath="$PROJECT_DIR$/src/core/AdminPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Shift.java" afterPath="$PROJECT_DIR$/src/core/Shift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/database/DBConnection.java" />
     </list>
     <ignored path="TeamProject_Hospital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,56 +31,9 @@
       <file leaf-file-name="AddShift.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/AddShift.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="68" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateShift.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/UpdateShift.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateWard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="139" column="9" selection-start-line="94" selection-start-column="8" selection-end-line="139" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5423">
-              <caret line="330" column="62" selection-start-line="330" selection-start-column="62" selection-end-line="330" selection-end-column="62" />
-              <folding>
-                <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-                <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-                <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-                <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-                <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-                <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-                <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-                <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-                <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-                <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-                <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-                <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-                <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-                <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -91,18 +41,28 @@
       <file leaf-file-name="AdminPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2363">
+            <state vertical-scroll-proportion="0.0">
               <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShiftMainPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShiftMainPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/ShiftMainPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="136" column="64" selection-start-line="136" selection-start-column="64" selection-end-line="136" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateShift.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/core/UpdateShift.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6792453">
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/core/Shift.java" />
         <option value="$PROJECT_DIR$/src/core/AddShift.java" />
-        <option value="$PROJECT_DIR$/src/core/UpdateShift.java" />
         <option value="$PROJECT_DIR$/src/core/ShiftMainPage.java" />
+        <option value="$PROJECT_DIR$/src/core/UpdateShift.java" />
       </list>
     </option>
   </component>
@@ -182,8 +142,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -262,7 +222,7 @@
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="false" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="2" id="Add" />
@@ -283,6 +243,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,8 +301,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -464,21 +424,31 @@
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -488,15 +458,27 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -666,12 +648,13 @@
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
       <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -839,7 +822,6 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -850,12 +832,10 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
-      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
@@ -890,9 +870,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -901,7 +879,6 @@
       <changelist id="d37eccf1-766c-45c7-88b4-c147a3630c93" name="Default" comment="" />
       <created>1458128196543</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1458128196543</updated>
       <workItem from="1458128199932" duration="296000" />
       <workItem from="1458128800097" duration="609000" />
@@ -935,270 +912,233 @@
       <workItem from="1460844750474" duration="804000" />
       <workItem from="1460885544014" duration="2654000" />
       <workItem from="1460888849448" duration="27000" />
+      <workItem from="1460904597322" duration="1019000" />
     </task>
     <task id="LOCAL-00001" summary="Added remove functionality so that an employee is removed from the database. List now refreshes when admin creates a new employee.">
       <created>1458155343615</created>
       <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1458155343615</updated>
     </task>
     <task id="LOCAL-00002" summary="Code tidy. Made a start on search employee. Added, but commented out updateEmployee method in DBConnection.">
       <created>1458166782432</created>
       <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1458166782432</updated>
     </task>
     <task id="LOCAL-00003" summary="Update employee method added">
       <created>1459073198266</created>
       <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1459073198266</updated>
     </task>
     <task id="LOCAL-00004" summary="Disposal of update GUI when user is finished updating.">
       <created>1459190774911</created>
       <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1459190774911</updated>
     </task>
     <task id="LOCAL-00005" summary="Search employee working. User cam search by first name.">
       <created>1459192283541</created>
       <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1459192283541</updated>
     </task>
     <task id="LOCAL-00006" summary="Created new button view employee in AdminPage - user can view all details of selected employee.">
       <created>1459262738096</created>
       <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1459262738096</updated>
     </task>
     <task id="LOCAL-00007" summary="Search Employee improved. User can now search by id, first name or surname.">
       <created>1459264759882</created>
       <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1459264759882</updated>
     </task>
     <task id="LOCAL-00008" summary="Search Employee error checking added.">
       <created>1459698465858</created>
       <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1459698465858</updated>
     </task>
     <task id="LOCAL-00009" summary="Removed a comment.">
       <created>1459698535846</created>
       <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1459698535846</updated>
     </task>
     <task id="LOCAL-00010" summary="Closing all resources of database  in DBConnection class.">
       <created>1459698881350</created>
       <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1459698881350</updated>
     </task>
     <task id="LOCAL-00011" summary="Fixed connection error in DBConnection. A connection method was created and each method that worked with the DB used the method.">
       <created>1459699342476</created>
       <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1459699342476</updated>
     </task>
     <task id="LOCAL-00012" summary="Removed the get connection method in constructor as it's not needed.">
       <created>1459699470270</created>
       <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1459699470270</updated>
     </task>
     <task id="LOCAL-00013" summary="Comments updated to &quot;Group 5&quot;. UpdateEmployee panel cancel button now takes user back to AdminPanel.">
       <created>1459761070065</created>
       <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1459761070065</updated>
     </task>
     <task id="LOCAL-00014" summary="To String edited.">
       <created>1459931838471</created>
       <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1459931838471</updated>
     </task>
     <task id="LOCAL-00015" summary="read wards and shifts from database">
       <created>1460024116181</created>
       <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
       <updated>1460024116181</updated>
     </task>
     <task id="LOCAL-00016" summary="continued development on schedular&#10;">
       <created>1460109815350</created>
       <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1460109815350</updated>
     </task>
     <task id="LOCAL-00017" summary="continued development on schedular&#10;">
       <created>1460109871056</created>
       <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1460109871056</updated>
     </task>
     <task id="LOCAL-00018" summary="continued development on schedular&#10;">
       <created>1460109947323</created>
       <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1460109947323</updated>
     </task>
     <task id="LOCAL-00019" summary="continued development on schedular&#10;">
       <created>1460110104756</created>
       <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
       <updated>1460110104756</updated>
     </task>
     <task id="LOCAL-00020" summary="fixed date incrementation for first day">
       <created>1460391656460</created>
       <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
       <updated>1460391656460</updated>
     </task>
     <task id="LOCAL-00021" summary="basic logic for employee schedular">
       <created>1460451830090</created>
       <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
       <updated>1460451830090</updated>
     </task>
     <task id="LOCAL-00022" summary="further logic for employee scheduler">
       <created>1460454881976</created>
       <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
       <updated>1460454881976</updated>
     </task>
     <task id="LOCAL-00023" summary="change get wards to get ward">
       <created>1460459151168</created>
       <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
       <updated>1460459151168</updated>
     </task>
     <task id="LOCAL-00024" summary="Created ward main page where admin can view and edit wards to DB. More work required as only the add and remove functions were implemented. TODO: UpdateWard, ViewWard.">
       <created>1460542817372</created>
       <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
       <updated>1460542817372</updated>
     </task>
     <task id="LOCAL-00025" summary="Created updateWard and removed ID from add ward as it's autoincrement. Fixed issue with removing employee when they have been assigned to a shift.">
       <created>1460565142614</created>
       <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
       <updated>1460565142614</updated>
     </task>
     <task id="LOCAL-00026" summary="Changed layout in DBConnection.">
       <created>1460571173904</created>
       <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
       <updated>1460571173904</updated>
     </task>
     <task id="LOCAL-00027" summary="Updated admin panel to deal with employee_type variable. Added JCB to add employee.">
       <created>1460625826171</created>
       <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
       <updated>1460625826171</updated>
     </task>
     <task id="LOCAL-00028" summary="WardMain page finised. Some more error checking required.">
       <created>1460629824549</created>
       <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
       <updated>1460629824549</updated>
     </task>
     <task id="LOCAL-00029" summary="Removed duplicate code by adding methods to create a instance of each page. I then implement that method where I need to create that page thus removing duplicate code.">
       <created>1460633427118</created>
       <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
       <updated>1460633427118</updated>
     </task>
     <task id="LOCAL-00030" summary="Small commit to create branch in gthub.">
       <created>1460650453274</created>
       <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
       <updated>1460650453274</updated>
     </task>
     <task id="LOCAL-00031" summary="Small code/forms clean-up.">
       <created>1460674010646</created>
       <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
       <updated>1460674010646</updated>
     </task>
     <task id="LOCAL-00032" summary="Password now hidden from administrator. Error handling - Employee/Ward - Create/Update.">
       <created>1460676060490</created>
       <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
       <updated>1460676060490</updated>
     </task>
     <task id="LOCAL-00033" summary="Fixed bug that was mixing up employee privilege and employee_type.">
       <created>1460680019588</created>
       <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
       <updated>1460680019588</updated>
     </task>
     <task id="LOCAL-00034" summary="Fixing small error with numHolidays and contractHours being integers.">
       <created>1460680369670</created>
       <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
       <updated>1460680369671</updated>
     </task>
     <task id="LOCAL-00035" summary="Fixing small error with numHolidays and contractHours being integers.">
       <created>1460680673203</created>
       <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
       <updated>1460680673203</updated>
     </task>
     <task id="LOCAL-00036" summary="Fixing small error with numHolidays and contractHours being integers.">
       <created>1460680705079</created>
       <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
       <updated>1460680705079</updated>
     </task>
     <task id="LOCAL-00037" summary="Schedule added to wards.">
       <created>1460712376096</created>
       <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
       <updated>1460712376096</updated>
     </task>
     <task id="LOCAL-00038" summary="Merge conflicts">
       <created>1460726735271</created>
       <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
       <updated>1460726735271</updated>
     </task>
@@ -1206,36 +1146,36 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86485000" />
+    <option name="totallyTimeSpent" value="87504000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33878887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2607143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2602118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33951965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1318,30 +1258,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
           <folding />
         </state>
@@ -1349,58 +1274,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AddEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="106" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="174" column="52" selection-start-line="174" selection-start-column="52" selection-end-line="174" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1408,44 +1318,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AddEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="110" column="81" selection-start-line="110" selection-start-column="81" selection-end-line="110" selection-end-column="81" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="136" column="48" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
           <folding />
         </state>
@@ -1453,37 +1348,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="129" column="48" selection-start-line="129" selection-start-column="48" selection-end-line="129" selection-end-column="48" />
           <folding />
         </state>
@@ -1491,37 +1371,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1529,7 +1386,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1537,247 +1402,231 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AssignEmployees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AssignToWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/bookHolidays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/EmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Shift_Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="13" column="63" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/SearchWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/WardMainPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/SearchEmployeePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AssignEmployeeToWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ViewEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Nurse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="112" selection-start-line="20" selection-start-column="112" selection-end-line="20" selection-end-column="112" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Doctor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="113" selection-start-line="20" selection-start-column="113" selection-end-line="20" selection-end-column="113" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AddEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="111" column="41" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Ward.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="55" column="34" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4114">
+        <state vertical-scroll-proportion="0.0">
           <caret line="253" column="88" selection-start-line="253" selection-start-column="88" selection-end-line="253" selection-end-column="88" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ViewWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state vertical-scroll-proportion="0.0">
           <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/AddWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state vertical-scroll-proportion="0.0">
           <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Tester1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
+        <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ApproveHolidayRequestPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/LogInForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/E_ManagerPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/SchedulePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state vertical-scroll-proportion="0.0">
           <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection_Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
+        <state vertical-scroll-proportion="0.0">
           <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Shift.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-443">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5423">
+        <state vertical-scroll-proportion="9.285959">
           <caret line="330" column="62" selection-start-line="330" selection-start-column="62" selection-end-line="330" selection-end-column="62" />
-          <folding>
-            <marker date="1460887397306" expanded="true" signature="1730:1752" placeholder="select * fro... employee" />
-            <marker date="1460887397306" expanded="true" signature="4546:4606" placeholder="INSERT INTO employee... " />
-            <marker date="1460887397306" expanded="true" signature="6540:6577" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="7470:7515" placeholder="SELECT * fro... shift_employee" />
-            <marker date="1460887397306" expanded="true" signature="8199:8493" placeholder="UPDATE emplo... " />
-            <marker date="1460887397306" expanded="true" signature="10478:10534" placeholder="SELECT * FRO... employee" />
-            <marker date="1460887397306" expanded="true" signature="11534:11553" placeholder="select * fro... shift" />
-            <marker date="1460887397306" expanded="true" signature="12553:12588" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="13376:13490" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="14411:14429" placeholder="select * fro... ward" />
-            <marker date="1460887397306" expanded="true" signature="15416:15450" placeholder="INSERT INTO ward... " />
-            <marker date="1460887397306" expanded="true" signature="16281:16315" placeholder="DELETE from " />
-            <marker date="1460887397306" expanded="true" signature="17109:17225" placeholder="UPDATE ward " />
-            <marker date="1460887397306" expanded="true" signature="18224:18245" placeholder="select * fro... request" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/AddShift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="68" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateWard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="139" column="9" selection-start-line="94" selection-start-column="8" selection-end-line="139" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.37842464">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/WardMainPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02915952">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AddShift.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ShiftMainPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/UpdateShift.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ShiftMainPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="136" column="64" selection-start-line="136" selection-start-column="64" selection-end-line="136" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.6792453">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
