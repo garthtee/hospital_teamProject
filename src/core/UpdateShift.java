@@ -16,7 +16,7 @@ public class UpdateShift extends JFrame implements ActionListener {
 
     private JTextField txtID, txtShiftStart, txtShiftEnd, txtShiftType, txtWardID;
 
-    public static void getUpdateShift(Shift shift) {
+    static void getUpdateShift(Shift shift) {
         UpdateShift updateShift = new UpdateShift(shift);
         updateShift.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         updateShift.pack();
@@ -59,7 +59,7 @@ public class UpdateShift extends JFrame implements ActionListener {
         p1.add(lblWardID);
         p1.add(txtWardID);
 
-        p1.setBorder(new EmptyBorder(15, 15, 15, 15));
+        p1.setBorder(new EmptyBorder(30, 70, 30, 70));
         add(p1, BorderLayout.NORTH);
 
         // Panel 2 //

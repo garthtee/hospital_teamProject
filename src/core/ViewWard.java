@@ -13,11 +13,10 @@ import java.awt.event.ActionListener;
  */
 public class ViewWard extends JFrame implements ActionListener {
 
-    private JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors, lblScheduled;
-    private JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors, txtScheduled;
+
     private JButton btnOk;
 
-    public static void getViewWard(Ward selectedWard) {
+    static void getViewWard(Ward selectedWard) {
         ViewWard viewWard = new ViewWard(selectedWard);
         viewWard.setVisible(true);
         viewWard.pack();
@@ -27,6 +26,9 @@ public class ViewWard extends JFrame implements ActionListener {
     }
 
     public ViewWard(Ward ward) {
+
+        JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors, lblScheduled;
+        JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors, txtScheduled;
 
         setTitle("View");
         setLayout(new BorderLayout());
