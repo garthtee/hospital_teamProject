@@ -64,6 +64,8 @@ public class DBConnection {
         }
     }
 
+    /* Employees */
+
     public ArrayList<Employee> getEmployees() {
 
         getDBConnection();
@@ -312,6 +314,86 @@ public class DBConnection {
         return resultList;
     }
 
+    /* SHIFTS */
+
+    public ArrayList<Shift> getShifts() {
+        getDBConnection();
+        String query = "select * from shift;";
+        ArrayList<Shift> shifts = new ArrayList<>();
+        try {
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Shift shift = new Shift();
+                shift.setShift_ID(resultSet.getInt("shift_ID"));
+                shift.setStartTime(resultSet.getString("startTime"));
+                shift.setEndTime(resultSet.getString("endTime"));
+                shift.setShiftType(resultSet.getString("shiftType"));
+                shift.setWard_ID(resultSet.getInt("ward_ID"));
+                shifts.add(shift);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+        return shifts;
+    }
+
+    public void addShift(Shift shift) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("INSERT INTO shift VALUES(?,?,?,?,?);");
+            preparedStatement.setInt(1, 0); // shift id 0 as it's auto incremented in DB
+            preparedStatement.setString(2, shift.getStartTime());
+            preparedStatement.setString(3, shift.getEndTime());
+            preparedStatement.setString(4, shift.getShiftType());
+            preparedStatement.setInt(5, shift.getWard_ID());
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public void updateShift(Shift shift) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE shift SET startTime = ?, endTime = ?, " +
+                    "shiftType = ?, ward_ID = ? WHERE shift_ID = " + shift.getShift_ID() + ";");
+            preparedStatement.setString(1, shift.getStartTime());
+            preparedStatement.setString(2, shift.getEndTime());
+            preparedStatement.setString(3, shift.getShiftType());
+            preparedStatement.setInt(4, shift.getWard_ID());
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, "Shift updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Shift not updated.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    /* WARDS */
+
     public ArrayList<Ward> getWards() {
         getDBConnection();
         String query = "select * from ward;";
@@ -337,31 +419,6 @@ public class DBConnection {
         return wards;
     }
 
-    public ArrayList<Shift> getShifts() {
-        String query = "select * from shift;";
-        ArrayList<Shift> shifts = new ArrayList<>();
-        try {
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                Shift shift = new Shift();
-                shift.setShift_ID(resultSet.getInt("shift_ID"));
-                shift.setStartTime(resultSet.getString("startTime"));
-                shift.setEndTime(resultSet.getString("endTime"));
-                shift.setShiftType(resultSet.getString("shiftType"));
-                shift.setWard_ID(resultSet.getInt("ward_ID"));
-                shift.setDayOfWeek(resultSet.getString("dayOfWeek"));
-                shifts.add(shift);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeResultSet();
-            closeStatement();
-            closeConnection();
-        }
-        return shifts;
-    }
-
     public void addWard(Ward ward) {
 
         getDBConnection();
@@ -369,7 +426,7 @@ public class DBConnection {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?,?);");
-            preparedStatement.setInt(1, 0); // employee id 0 as it's auto incremented in DB
+            preparedStatement.setInt(1, 0); // ward id 0 as it's auto incremented in DB
             preparedStatement.setString(2, ward.getWardType());
             preparedStatement.setInt(3, ward.getReqNurses());
             preparedStatement.setInt(4, ward.getReqDoctors());
@@ -437,6 +494,8 @@ public class DBConnection {
             closeConnection();
         }
     }
+
+    /* REQUESTS */
 
     public ArrayList<Request> getReq() {
 
