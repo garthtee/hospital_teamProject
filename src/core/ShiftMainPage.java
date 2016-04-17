@@ -142,6 +142,7 @@ public class ShiftMainPage extends JFrame implements ActionListener {
                 break;
             case "Update Shift":
                 if (selectedShift != null) { // if a shift is selected
+                    this.dispose();
                     UpdateShift.getUpdateShift(selectedShift);
                 } else // if no shift selected
                     JOptionPane.showMessageDialog(null, "You must select an shift!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -149,6 +150,11 @@ public class ShiftMainPage extends JFrame implements ActionListener {
             case "Search Shift":
                 break;
             case "View Shift":
+                if (selectedShift != null) { // if a shift is selected
+                    this.dispose();
+                    ViewShift.getViewShift(selectedShift);
+                } else // if no shift selected
+                    JOptionPane.showMessageDialog(null, "You must select an shift!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Go back":
                 this.dispose();

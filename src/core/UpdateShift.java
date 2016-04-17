@@ -1,5 +1,7 @@
 package core;
 
+import database.DBConnection;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -94,7 +96,28 @@ public class UpdateShift extends JFrame implements ActionListener {
                 ShiftMainPage.getShiftMainPage();
                 break;
             case "Update":
+                DBConnection dbConnection = new DBConnection();
+                Shift shift = new Shift();
+                if(txtShiftStart.getText().equals("") || txtShiftEnd.getText().equals("") || txtShiftType.getText().equals("") ||
+                        txtWardID.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                    try {
+                        shift.setShift_ID(Integer.valueOf(txtID.getText()));
+                        shift.setStartTime(txtShiftStart.getText());
+                        shift.setEndTime(txtShiftEnd.getText());
+                        shift.setShiftType(txtShiftType.getText());
+                        shift.setWard_ID(Integer.valueOf(txtWardID.getText()));
 
+                        dbConnection.updateShift(shift);
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ward must be a number.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+                this.dispose();
+                ShiftMainPage.getShiftMainPage();
                 break;
         }
     }
