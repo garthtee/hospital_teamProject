@@ -16,7 +16,6 @@ public class Shift {
     private int reqDoctors;
     private int reqNurses;
     private int ward_ID;
-    private String dayOfWeek;
 
     public Shift(){
 
@@ -78,20 +77,12 @@ public class Shift {
         this.reqNurses = reqNurses;
     }
 
-    public int ward_ID() {
+    public int getWard_ID() {
         return ward_ID;
     }
 
     public void setWard_ID(int ward_ID) {
         this.ward_ID = ward_ID;
-    }
-
-    public String getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(String dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
     }
 
 	@Override

@@ -42,7 +42,7 @@ public class AdminPage extends JFrame implements ActionListener {
     public AdminPage(int emp_ID_In) {
 
         // Creating variables
-        JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnLogout;
+        JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnShifts, btnLogout;
         JPanel p1, p2, panelLeft, panelLeftTop;
         JScrollPane scrollPane = new JScrollPane();
 
@@ -82,13 +82,14 @@ public class AdminPage extends JFrame implements ActionListener {
 
         // Panel 2 //
         p2 = new JPanel();
-        p2.setLayout(new GridLayout(7, 1, 10, 10));
+        p2.setLayout(new GridLayout(8, 1, 10, 10));
         p2.add(btnAddEmp = new JButton("Add Employee"));
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
         p2.add(btnSearchEmp = new JButton("Search Employees"));
         p2.add(btnViewEmp = new JButton("View Employee"));
-        p2.add(btnWards = new JButton("Wards page"));
+        p2.add(btnWards = new JButton("Wards"));
+        p2.add(btnShifts = new JButton("Shifts"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p2, BorderLayout.EAST);
@@ -100,6 +101,7 @@ public class AdminPage extends JFrame implements ActionListener {
         btnSearchEmp.addActionListener(this);
         btnViewEmp.addActionListener(this);
         btnWards.addActionListener(this);
+        btnShifts.addActionListener(this);
         btnLogout.addActionListener(this);
     }
 
@@ -116,7 +118,7 @@ public class AdminPage extends JFrame implements ActionListener {
                                                       int index, boolean isSelected, boolean cellHasFocus) {
             Employee employee = (Employee) value;
             setText("Employee " +employee.getEmp_ID() + ": " + employee.getfName()
-                + " " + employee.getsName() + " " + employee.getEmployee_type());
+                + " " + employee.getsName());
             this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 
             if (isSelected) {
@@ -170,9 +172,13 @@ public class AdminPage extends JFrame implements ActionListener {
             case "Search Employees":
                 SearchEmployeePage.getSearchEmployeePage(employeeList);
                 break;
-            case "Wards page":
+            case "Wards":
                 this.dispose();
                 WardMainPage.getWardMainPage();
+                break;
+            case "Shifts":
+                this.dispose();
+                ShiftMainPage.getShiftMainPage();
                 break;
             case "Log Out":
                 this.dispose();
