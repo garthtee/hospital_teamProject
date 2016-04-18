@@ -1,5 +1,6 @@
 package database;
 
+import com.mysql.jdbc.exceptions.jdbc4.CommunicationsException;
 import core.Employee;
 import core.Request;
 import core.Shift;
@@ -33,6 +34,8 @@ public class DBConnection {
 
             statement = connection.createStatement();
 
+        } catch (CommunicationsException e){
+            JOptionPane.showMessageDialog(null, "No internet connection.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,7 +44,8 @@ public class DBConnection {
     private void closeConnection() {
         try {
             connection.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -301,7 +305,8 @@ public class DBConnection {
             else
                 JOptionPane.showMessageDialog(null, "Login incorrect or no user exists.", "Incorrect Login", JOptionPane.ERROR_MESSAGE);
 
-        } catch (Exception e) {
+        } catch (NullPointerException e) {}
+        catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeResultSet();
@@ -373,7 +378,7 @@ public class DBConnection {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO shift VALUES(?,?,?,?,?);");
-            preparedStatement.setInt(1, 0); // shift id 0 as it's auto incremented in DB
+            preparedStatement.setInt(1, shift.getShift_ID()); // shift id 0 as it's auto incremented in DB
             preparedStatement.setString(2, shift.getStartTime());
             preparedStatement.setString(3, shift.getEndTime());
             preparedStatement.setString(4, shift.getShiftType());

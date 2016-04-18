@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 public class AddShift extends JFrame implements ActionListener {
 
     private JButton btnAdd, btnCancel;
-    private JTextField txtShiftStart, txtShiftEnd, txtShiftType, txtWardID;
+    private JTextField txtID, txtShiftStart, txtShiftEnd, txtShiftType, txtWardID;
 
     public static void getAddShift() {
         AddShift addShift = new AddShift();
@@ -28,14 +28,16 @@ public class AddShift extends JFrame implements ActionListener {
 
     public AddShift(){
 
-        JLabel lblShiftStart, lblShiftEnd, lblShiftType, lblWardID;
+        JLabel lblID, lblShiftStart, lblShiftEnd, lblShiftType, lblWardID;
 
         setTitle("Create");
         setLayout(new BorderLayout());
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(4, 2));
+        p1.setLayout(new GridLayout(5, 2));
+        lblID = new JLabel("ID: ");
+        txtID = new JTextField();
         lblShiftStart = new JLabel("Shift start: ");
         txtShiftStart = new JTextField();
         lblShiftEnd = new JLabel("Shift end: ");
@@ -46,6 +48,8 @@ public class AddShift extends JFrame implements ActionListener {
         txtWardID = new JTextField();
 
         // Add components to panel 1 //
+        p1.add(lblID);
+        p1.add(txtID);
         p1.add(lblShiftStart);
         p1.add(txtShiftStart);
         p1.add(lblShiftEnd);
@@ -92,6 +96,7 @@ public class AddShift extends JFrame implements ActionListener {
                     try {
                         DBConnection dbConnection = new DBConnection();
                         Shift shift = new Shift();
+                        shift.setShift_ID(Integer.valueOf(txtID.getText()));
                         shift.setStartTime(txtShiftStart.getText());
                         shift.setEndTime(txtShiftEnd.getText());
                         shift.setShiftType(txtShiftType.getText());
