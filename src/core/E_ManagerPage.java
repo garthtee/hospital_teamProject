@@ -85,7 +85,7 @@ public class E_ManagerPage extends JFrame implements ActionListener {
 
         // Add action listeners on each button
         btnAssignWard.addActionListener(this);
-        //btnViewHours.addActionListener(this);
+        btnViewHours.addActionListener(this);
         //btnApproveHols.addActionListener(this);
         btnSHours.addActionListener(this);
 
@@ -132,8 +132,10 @@ public class E_ManagerPage extends JFrame implements ActionListener {
             aw.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             aw.setLocationRelativeTo(null);
             this.dispose();
+        } else if (e.getSource() == btnViewHours) {
+            this.dispose();
+            ViewHours.getViewHours();
         } else if (e.getSource() == btnSHours) {
-            System.out.print("HELLO");
             this.dispose();
             SchedulePage.getSchedulePage();
         } else if (e.getSource() == btnLogout) {
