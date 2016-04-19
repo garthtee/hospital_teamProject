@@ -1,16 +1,11 @@
 package core;
 
-import database.DBConnection;
 import database.DBConnection_Scheduler;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Scheduler {
     private Ward ward;
@@ -194,7 +189,7 @@ public class Scheduler {
         }
     }
 
-    public void schedule(){
+    public boolean schedule(){
         filterEmployees("doctor");
         ArrayList<Employee> test1=tempList;
 
@@ -208,9 +203,11 @@ public class Scheduler {
             scheduleNurses();
             addScheduleToDB();
             JOptionPane.showMessageDialog(null, "Ward successfully scheduled", "Success", JOptionPane.INFORMATION_MESSAGE);
+            return true;
         }
         else{
             JOptionPane.showMessageDialog(null, "Insufficient Staff to schedule ward.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
 

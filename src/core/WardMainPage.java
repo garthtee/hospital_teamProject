@@ -27,8 +27,10 @@ public class WardMainPage extends JFrame implements ActionListener {
     public void createWardModel() {
         wardList = dbConnection.getWards();
         defaultListModel = new DefaultListModel<>();
-        for (Ward ward : wardList)
-            defaultListModel.addElement(ward); // Add employees to Default List Model
+        for (Ward ward : wardList) {
+            if(ward.getWard_ID() != 0)
+                defaultListModel.addElement(ward); // Add employees to Default List Model
+        }
     }
 
     public static void getWardMainPage() {

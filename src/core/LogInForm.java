@@ -111,12 +111,7 @@ public class LogInForm extends JFrame implements ActionListener {
                                     this.dispose();
                                     break;
                                 case "manager":
-                                    E_ManagerPage e_managerPage = new E_ManagerPage();
-                                    e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                    e_managerPage.pack();
-                                    e_managerPage.setResizable(false);
-                                    e_managerPage.setLocationRelativeTo(null);
-                                    e_managerPage.setVisible(true);
+                                    E_ManagerPage.getManagerPage();
                                     this.dispose();
                                     break;
                             }

@@ -43,7 +43,7 @@ public class SchedulePage extends JFrame implements ActionListener {
         jcbSchedule = new JComboBox<>();
 
         for(int i=0; i<wards.size(); i++) {
-            if(wards.get(i).getScheduled().equals("false")) {
+            if(wards.get(i).getScheduled().equals("false") && wards.get(i).getWard_ID() != 0) {
                 jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
             }
 
@@ -82,23 +82,28 @@ public class SchedulePage extends JFrame implements ActionListener {
 
             case "Cancel":
                 this.dispose();
+                E_ManagerPage.getManagerPage();
                 break;
             case "Schedule":
                 Scheduler s=new Scheduler(selectedItem);
-                s.schedule();
+                boolean isScheduled = s.schedule();
                 DBConnection_Scheduler dbc_s=new DBConnection_Scheduler();
                 Ward ward=dbc_s.getWard(selectedItem);
-                ward.setScheduled("true");
-                DBConnection dbConnection = new DBConnection();
-                dbConnection.updateWard(ward);
-                this.dispose();
-                getSchedulePage();
+                if(isScheduled) {
+                    ward.setScheduled("true");
+                    DBConnection dbConnection = new DBConnection();
+                    dbConnection.updateWard(ward);
+                    this.dispose();
+                    E_ManagerPage.getManagerPage();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Not scheduled.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 break;
         }
 
     }
 
-    public void getSchedulePage() {
+    public static void getSchedulePage() {
         SchedulePage frame=new SchedulePage();
         frame.setVisible(true);
         frame.setSize(300, 150);
