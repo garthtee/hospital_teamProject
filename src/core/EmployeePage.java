@@ -29,8 +29,13 @@ public class EmployeePage extends JFrame implements ActionListener {
     private ArrayList<Shift> listOfShifts = new ArrayList<>();
     public int employee_id_in;
 
+    private JButton btnViewRequest;
+
+
+
 
     private DefaultListModel<Shift> defaultListModel;
+
 
 	public void createShiftModel(){
 		listOfShifts = dbConnection.getShifts();
@@ -43,6 +48,17 @@ public class EmployeePage extends JFrame implements ActionListener {
 			defaultListModel.addElement(shift);
 
 	}
+//    public void createRequestModel(){
+//        listOfRequests = dbConnection.getRequests();
+//
+//
+//        requestDefaultListModelModel = new DefaultListModel<>();
+//
+//
+//        for (Request request:listOfRequests)
+//            requestDefaultListModelModel.addElement(request);
+//
+//    }
 
     public EmployeePage(int emp_ID_In) {
 
@@ -67,6 +83,22 @@ public class EmployeePage extends JFrame implements ActionListener {
         listOfHours.add(scrollPane, BorderLayout.SOUTH);
         listOfHours.setBorder(BorderFactory.createTitledBorder("Hours for week"));
 
+//        listOfReq= new JPanel();
+//        reqList= new JList(listOfRequests.toArray());
+//        scrollPaneReq.getViewport().setView(reqList);
+//        //scrollPaneReq.setPreferredSize(new Dimension(400, 360));
+//        reqList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+//        reqList.setLayoutOrientation(JList.VERTICAL);
+//
+//        listOfReq.setBorder(BorderFactory.createTitledBorder("Requests made"));
+//
+//        listOfReq.add(scrollPane, BorderLayout.SOUTH);
+
+
+//        bothLists=new JPanel();
+//        bothLists.setLayout(new GridLayout(2,1));
+//        bothLists.add(listOfHours,BorderLayout.NORTH);
+//        bothLists.add(listOfReq, BorderLayout.SOUTH);
 
         // Panel Left //
         center = new JPanel();
@@ -77,12 +109,16 @@ public class EmployeePage extends JFrame implements ActionListener {
 
         // Panel 2 //
         btnPanel = new JPanel();
-        btnPanel.setLayout(new GridLayout(4, 1, 10, 10));
+        btnPanel.setLayout(new GridLayout(5, 1, 10, 10));
         btnPanel.add(btnClockIn = new JButton("Clock In"));
         btnPanel.add(btnBookHoliday = new JButton("Request Holiday"));
+        btnPanel.add(btnViewRequest = new JButton("View Requests"));
+
         btnPanel.add(lblSpace = new JLabel(""));
         btnPanel.add(btnLogout = new JButton("Log Out"));
         btnPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+       ;
         add(btnPanel, BorderLayout.EAST);
 
         // Add action listeners on each button
@@ -90,7 +126,7 @@ public class EmployeePage extends JFrame implements ActionListener {
         btnBookHoliday.addActionListener(this);
 
         btnLogout.addActionListener(this);
-
+        btnViewRequest.addActionListener(this);
 
     }
 
@@ -131,6 +167,16 @@ public class EmployeePage extends JFrame implements ActionListener {
                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 sp.setLocationRelativeTo(null);
                 break;
+
+            case "View Requests":
+
+                viewRequest vr= new viewRequest(employee_id_in);
+                vr.setVisible(true);
+                vr.pack();
+                vr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vr.setLocationRelativeTo(null);
+                break;
+
             case "Log Out":
                 LogInForm logInForm = new LogInForm();
                 logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

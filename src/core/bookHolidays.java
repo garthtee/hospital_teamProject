@@ -80,6 +80,9 @@ public class bookHolidays extends JFrame implements ActionListener {
 		switch (e.getActionCommand()) {
         
         case "Place Request":
+
+
+
             JOptionPane.showMessageDialog(null, "Request submitted!", "Request", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
 

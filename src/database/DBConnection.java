@@ -559,4 +559,95 @@ public class DBConnection {
 
         return requestList;
     }
+    public void removeRequest(Request request) {
+
+        getDBConnection();
+
+        try {
+            int name = request.getRequest_ID();
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("DELETE from request WHERE request_ID = ?;");
+            preparedStatement.setInt(1, request.getRequest_ID());
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, name + " booking has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Request not cancelled correctly.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public ArrayList<Request> getRequests(int userID) {
+
+        getDBConnection();
+
+        ArrayList<Request> requestList = new ArrayList<>();
+
+        try {
+
+//            String query = "select * from requests;";
+//            resultSet = statement.executeQuery(query);
+
+            PreparedStatement preparedStatement;
+
+            preparedStatement = connection.prepareStatement("select * from request WHERE emp_ID = ?;");
+            preparedStatement.setInt(1, userID);
+            resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+
+                int request_id=resultSet.getInt("request_ID");
+                String startDate = resultSet.getString("dateFrom");
+                String endDate = resultSet.getString("dateTo");
+                String status = resultSet.getString("status");
+                int emp_id = resultSet.getInt("emp_ID");
+
+
+
+                Request request = new Request();
+                request.setRequest_ID(request_id);
+                request.setStatus(status);
+                request.setEmp_ID2(emp_id);
+
+//                Employee employee = new Employee();
+//                employee.setEmp_ID(emp_id);
+
+                // Creating a calendar object and parsing the date from DB
+                Calendar calendar = Calendar.getInstance();
+                Calendar calendar1 = Calendar.getInstance();
+                try { // try parsing the string to a Calendar object
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    calendar.setTime(dateFormat.parse(endDate));
+                    calendar1.setTime(dateFormat.parse(startDate));
+                } catch (ParseException exception) {
+                    exception.printStackTrace();
+                }
+
+               // request.setEndDate(endDate);
+                //request.setStartDate(startDate);
+
+
+                requestList.add(request);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+        return requestList;
+    }
+
+
 }
