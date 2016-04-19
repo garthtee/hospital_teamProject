@@ -15,22 +15,38 @@ import java.util.Calendar;
 /**
  * Created by Group 5 on 3/2/2016.
  */
-public class CreateEmployee extends JFrame implements ActionListener {
+public class AddEmployee extends JFrame implements ActionListener {
 
-    private JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays, lblContractHours, lblSalary, lblWard_ID,
-            lblPassword, lblPrivilege;
     private JTextField txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHoldiays, txtContractHours, txtSalary, txtWard_ID,
-            txtPassword, txtPrivilege;
-    private JButton btnCreate, btnCancel;
+            txtPrivilege, txtEmployeeType;
+    private JPasswordField txtPassword;
+    private JComboBox<String> jcbType, jcbEmpType;
+    private String selectedPrivilege;
+    private String selectedEmpType;
 
-    public CreateEmployee() {
+    public static void getAddEmployeePage() {
+        AddEmployee addEmployee = new AddEmployee();
+        addEmployee.setVisible(true);
+        addEmployee.pack();
+        addEmployee.setResizable(false);
+        addEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        addEmployee.setLocationRelativeTo(null);
+    }
+
+    public AddEmployee() {
+
+        // Creating variables
+        JLabel lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
+                lblContractHours, lblSalary, lblWard_ID,
+                lblPassword, lblPrivilege, lblEmployeeType;
+        JButton btnCreate, btnCancel;
 
         setTitle("Create");
         setLayout(new BorderLayout());
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(11, 2));
+        p1.setLayout(new GridLayout(12, 2));
         lblFname = new JLabel("First Name: ");
         txtFName = new JTextField();
         lblSname = new JLabel("Surname: ");
@@ -50,9 +66,10 @@ public class CreateEmployee extends JFrame implements ActionListener {
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JTextField();
+        txtPassword = new JPasswordField();
+        lblEmployeeType = new JLabel("Employee Type: ");
         lblPrivilege = new JLabel("Privilege: ");
-        txtPrivilege = new JTextField();
+
 
         // Add components to panel 1 //
         p1.add(lblFname);
@@ -75,8 +92,31 @@ public class CreateEmployee extends JFrame implements ActionListener {
         p1.add(txtWard_ID);
         p1.add(lblPassword);
         p1.add(txtPassword);
+        p1.add(lblEmployeeType);
+
+        // Adding privilege as JComboBox
+        String[] empTypes = {"Doctor", "Nurse"};
+        jcbEmpType = new JComboBox<>(empTypes);
+        jcbEmpType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedEmpType = String.valueOf(jcbEmpType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbEmpType);
+
         p1.add(lblPrivilege);
-        p1.add(txtPrivilege);
+
+        // Adding privilege as JComboBox
+        String[] types = {"Employee", "Admin", "Manager"};
+        jcbType = new JComboBox<>(types);
+        jcbType.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedPrivilege = String.valueOf(jcbType.getSelectedItem()).toLowerCase();
+            }
+        });
+        p1.add(jcbType);
 
         p1.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p1, BorderLayout.NORTH);
@@ -92,13 +132,23 @@ public class CreateEmployee extends JFrame implements ActionListener {
         // Add button action listeners
         btnCancel.addActionListener(this);
         btnCreate.addActionListener(this);
+
+        // Presses ok button on enter key press
+        this.getRootPane().setDefaultButton(btnCreate);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
-                if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                // Checking if text has been entered to all TextFields
+                if(txtFName.getText().equals("") || txtSName.getText().equals("") || txtDOB.getText().equals("") ||
+                        txtContactNum.getText().equals("") || txtEmail.getText().equals("") ||
+                        String.valueOf(txtPassword.getPassword()).equals("") || txtNumHoldiays.getText().equals("") ||
+                        txtContractHours.getText().equals("") || txtSalary.getText().equals("") ||
+                        txtWard_ID.getText().equals("")  || txtContractHours.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
                     JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
@@ -113,7 +163,14 @@ public class CreateEmployee extends JFrame implements ActionListener {
                 } else if(txtContactNum.getText().length() < 7) {
                     JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
-                }  else {
+                } else if (String.valueOf(txtPassword.getPassword()).length() < 8 ||
+                        String.valueOf(txtPassword.getPassword()).length() > 30) {
+                    JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (selectedEmpType == null) {
+                    selectedEmpType = "doctor";
+                } else if (selectedPrivilege == null) {
+                    selectedPrivilege = "employee";
+                } else {
                     Calendar calendar = Calendar.getInstance();
                     DBConnection dbConnection = new DBConnection();
                     try { // try parsing the string to a Calendar object
@@ -122,10 +179,20 @@ public class CreateEmployee extends JFrame implements ActionListener {
                     } catch (ParseException exception) {
                         exception.printStackTrace();
                     }
-                    dbConnection.createEmployee(txtFName.getText(), txtSName.getText(), calendar, txtContactNum.getText(),
-                            txtEmail.getText(), Double.valueOf(txtNumHoldiays.getText()), Double.valueOf(txtContractHours.getText()),
-                            Double.valueOf(txtSalary.getText()), Integer.valueOf(txtWard_ID.getText()),
-                            txtPassword.getText(), txtPrivilege.getText());
+                    Employee employee = new Employee();
+                    employee.setfName(txtFName.getText());
+                    employee.setsName(txtSName.getText());
+                    employee.setDOB(calendar);
+                    employee.setContactNum(txtContactNum.getText());
+                    employee.setEmail(txtEmail.getText());
+                    employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
+                    employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
+                    employee.setSalary(Double.valueOf(txtSalary.getText()));
+                    employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
+                    employee.setPassword(String.valueOf(txtPassword.getPassword()));
+                    employee.setEmployee_type(selectedEmpType);
+                    employee.setPrivilege(selectedPrivilege);
+                    dbConnection.createEmployee(employee);
                     this.dispose();
                     AdminPage adminPage = new AdminPage(-1);
                     adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

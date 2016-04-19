@@ -45,7 +45,7 @@ public class Employee {
 
     public Employee(int emp_ID, String fName, String sName, Calendar dOB, String contactNum, String email, int numHolidays,
                     int contractHours, double salary, Double onHoliday, Double offSick, String lastShift, int ward_ID,
-					String password, String privilege, String employee_type) {
+					String password, String employee_type, String privilege) {
 		this.emp_ID = emp_ID;
 		this.fName = fName;
 		this.sName = sName;

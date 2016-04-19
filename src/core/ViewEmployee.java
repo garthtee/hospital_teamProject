@@ -1,5 +1,7 @@
 package core;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -12,20 +14,32 @@ import java.text.SimpleDateFormat;
  */
 public class ViewEmployee extends JFrame implements ActionListener {
 
-    private JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
-            lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege;
-    private JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHolidays,
-            txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPassword, txtPrivilege;
-    private JButton btnOk;
+    private JPasswordField txtPassword;
+
+    public static void getViewEmployeePage(Employee selectedEmployee) {
+        ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
+        viewEmployee.setVisible(true);
+        viewEmployee.pack();
+        viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        viewEmployee.setResizable(false);
+        viewEmployee.setLocationRelativeTo(null);
+    }
 
     public ViewEmployee(Employee employee) {
+
+        // Creating variables
+        JLabel lblID, lblFname, lblSname, lblDOB, lblContactNum, lblEmail, lblNumHolidays,
+                lblContractHours, lblSalary,lblOnHoliday, lblOffSick, lblWard_ID, lblPassword, lblPrivilege, lblEmployeeType;
+        JTextField txtID, txtFName, txtSName, txtDOB, txtContactNum, txtEmail, txtNumHolidays,
+                txtContractHours, txtSalary, txtOnHoliday, txtOffSick, txtWard_ID, txtPrivilege, txtEmployeeType;
+        JButton btnOk;
 
         setTitle("View");
         setLayout(new BorderLayout());
 
         // Panel 1 //
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(14, 2));
+        p1.setLayout(new GridLayout(15, 2));
         lblID = new JLabel("ID: ");
         txtID = new JTextField();
         lblFname = new JLabel("First Name: ");
@@ -51,7 +65,9 @@ public class ViewEmployee extends JFrame implements ActionListener {
         lblWard_ID = new JLabel("Ward ID: ");
         txtWard_ID = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JTextField();
+        txtPassword = new JPasswordField();
+        lblEmployeeType = new JLabel("Employee Type: ");
+        txtEmployeeType = new JTextField();
         lblPrivilege = new JLabel("Privilege: ");
         txtPrivilege = new JTextField();
 
@@ -82,6 +98,8 @@ public class ViewEmployee extends JFrame implements ActionListener {
         p1.add(txtWard_ID);
         p1.add(lblPassword);
         p1.add(txtPassword);
+        p1.add(lblEmployeeType);
+        p1.add(txtEmployeeType);
         p1.add(lblPrivilege);
         p1.add(txtPrivilege);
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -111,7 +129,8 @@ public class ViewEmployee extends JFrame implements ActionListener {
         txtOffSick.setText(String.valueOf(employee.isOffSick()));
         txtWard_ID.setText(String.valueOf(employee.getWard_ID()));
         txtPassword.setText(employee.getPassword());
-        txtPrivilege.setText(employee.getPrivilege());
+        txtEmployeeType.setText(StringUtils.capitalize(employee.getEmployee_type()));
+        txtPrivilege.setText(StringUtils.capitalize(employee.getPrivilege()));
 
         // Making text boxes uneditable
         txtID.setEditable(false);
@@ -127,6 +146,7 @@ public class ViewEmployee extends JFrame implements ActionListener {
         txtOffSick.setEditable(false);
         txtWard_ID.setEditable(false);
         txtPassword.setEditable(false);
+        txtEmployeeType.setEditable(false);
         txtPrivilege.setEditable(false);
 
         // Presses ok button on enter key press

@@ -13,14 +13,11 @@ import java.util.ArrayList;
 
 /**
  * Created by Group 5 on 3/1/16.
- * Description:
+ * Description: Administration page for Employees.
  */
 public class AdminPage extends JFrame implements ActionListener {
 
-    private JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnLogout;
-    private JPanel p1, p2, panelLeft, panelLeftTop;
     private JList<Employee> list;
-    private JScrollPane scrollPane = new JScrollPane();
     private DBConnection dbConnection = new DBConnection();
     ArrayList<Employee> employeeList = new ArrayList<>();
     private Employee selectedEmployee;
@@ -33,7 +30,21 @@ public class AdminPage extends JFrame implements ActionListener {
             defaultListModel.addElement(employee); // Add employees to Default List Model
     }
 
+    public static void getAdminPage(int id) {
+        AdminPage adminPage = new AdminPage(id);
+        adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        adminPage.setSize(600, 500);
+        adminPage.setResizable(false);
+        adminPage.setLocationRelativeTo(null);
+        adminPage.setVisible(true);
+    }
+
     public AdminPage(int emp_ID_In) {
+
+        // Creating variables
+        JButton btnAddEmp, btnRemoveEmp, btnUpdateEmp, btnSearchEmp, btnViewEmp, btnWards, btnShifts, btnLogout;
+        JPanel p1, p2, panelLeft, panelLeftTop;
+        JScrollPane scrollPane = new JScrollPane();
 
         setLayout(new BorderLayout());
         setTitle("Manage Employees");
@@ -49,6 +60,7 @@ public class AdminPage extends JFrame implements ActionListener {
         // Panel 1 //
         p1 = new JPanel();
         list = new JList(defaultListModel); //data has type Object[]
+        list.setCellRenderer(new employeeCellRenderer());
         scrollPane.getViewport().setView(list);
         scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -70,12 +82,14 @@ public class AdminPage extends JFrame implements ActionListener {
 
         // Panel 2 //
         p2 = new JPanel();
-        p2.setLayout(new GridLayout(6, 1, 10, 10));
+        p2.setLayout(new GridLayout(8, 1, 10, 10));
         p2.add(btnAddEmp = new JButton("Add Employee"));
         p2.add(btnRemoveEmp = new JButton("Remove Employee"));
         p2.add(btnUpdateEmp = new JButton("Update Employee"));
         p2.add(btnSearchEmp = new JButton("Search Employees"));
         p2.add(btnViewEmp = new JButton("View Employee"));
+        p2.add(btnWards = new JButton("Wards"));
+        p2.add(btnShifts = new JButton("Shifts"));
         p2.add(btnLogout = new JButton("Log Out"));
         p2.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(p2, BorderLayout.EAST);
@@ -86,19 +100,43 @@ public class AdminPage extends JFrame implements ActionListener {
         btnUpdateEmp.addActionListener(this);
         btnSearchEmp.addActionListener(this);
         btnViewEmp.addActionListener(this);
+        btnWards.addActionListener(this);
+        btnShifts.addActionListener(this);
         btnLogout.addActionListener(this);
+    }
+
+    // editing list items
+    class employeeCellRenderer extends JLabel implements ListCellRenderer {
+        private final Color SELECTED_BACKGROUND_COLOR = new Color(0, 128, 128);
+
+        public employeeCellRenderer() {
+            setOpaque(true);
+            setIconTextGap(12);
+        }
+
+        public Component getListCellRendererComponent(JList list, Object value,
+                                                      int index, boolean isSelected, boolean cellHasFocus) {
+            Employee employee = (Employee) value;
+            setText("Employee " +employee.getEmp_ID() + ": " + employee.getfName()
+                + " " + employee.getsName());
+            this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+
+            if (isSelected) {
+                setBackground(SELECTED_BACKGROUND_COLOR);
+                setForeground(Color.white);
+            } else {
+                setBackground(Color.white);
+                setForeground(Color.black);
+            }
+            return this;
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add Employee":
-                CreateEmployee createEmployeeFrame = new CreateEmployee();
-                createEmployeeFrame.setVisible(true);
-                createEmployeeFrame.pack();
-                createEmployeeFrame.setResizable(false);
-                createEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                createEmployeeFrame.setLocationRelativeTo(null);
+                AddEmployee.getAddEmployeePage();
                 this.dispose();
                 break;
             case "Remove Employee":
@@ -107,8 +145,12 @@ public class AdminPage extends JFrame implements ActionListener {
                                     + selectedEmployee.getfName() + "?",
                             "Remove employee", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
-                        dbConnection.removeEmployee(selectedEmployee);
-                        defaultListModel.removeElement(selectedEmployee);
+                        boolean employeeRemoved = false;
+                        employeeRemoved = dbConnection.removeEmployee(selectedEmployee);
+                        if(employeeRemoved)
+                            defaultListModel.removeElement(selectedEmployee);
+                        else
+                            JOptionPane.showMessageDialog(null, "Employee has shifts assigned.", "Error", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
                 } else // if no employee selected
@@ -116,43 +158,31 @@ public class AdminPage extends JFrame implements ActionListener {
                 break;
             case "Update Employee":
                 if (selectedEmployee != null) {
-                    UpdateEmployee updateEmployeeFrame = new UpdateEmployee(selectedEmployee);
-                    updateEmployeeFrame.setVisible(true);
+                    UpdateEmployee.getUpdateEmployeePage(selectedEmployee);
                     this.dispose();
-                    updateEmployeeFrame.pack();
-                    updateEmployeeFrame.setResizable(false);
-                    updateEmployeeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    updateEmployeeFrame.setLocationRelativeTo(null);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "View Employee":
                 if (selectedEmployee != null) {
-                    ViewEmployee viewEmployee = new ViewEmployee(selectedEmployee);
-                    viewEmployee.setVisible(true);
-                    viewEmployee.pack();
-                    viewEmployee.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    viewEmployee.setResizable(false);
-                    viewEmployee.setLocationRelativeTo(null);
+                    ViewEmployee.getViewEmployeePage(selectedEmployee);
                 } else
                     JOptionPane.showMessageDialog(null, "You must select an employee!", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             case "Search Employees":
-                SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeList);
-                searchEmployeePage.setVisible(true);
-                searchEmployeePage.setSize(300, 165);
-                searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchEmployeePage.setResizable(false);
-                searchEmployeePage.setLocationRelativeTo(null);
-
+                SearchEmployeePage.getSearchEmployeePage(employeeList);
+                break;
+            case "Wards":
+                this.dispose();
+                WardMainPage.getWardMainPage();
+                break;
+            case "Shifts":
+                this.dispose();
+                ShiftMainPage.getShiftMainPage();
                 break;
             case "Log Out":
-                LogInForm logInForm = new LogInForm();
-                logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                logInForm.setSize(300, 250);
-                logInForm.setLocationRelativeTo(null);
-                logInForm.setVisible(true);
                 this.dispose();
+                LogInForm.getLoginPage();
                 break;
         }
     }

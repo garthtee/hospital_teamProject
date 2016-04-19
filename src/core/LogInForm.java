@@ -13,15 +13,26 @@ public class LogInForm extends JFrame implements ActionListener {
 
     private JTextField txtUsername;
     private JPasswordField txtPassword;
-    private JPanel panel0, panel1, panel2, panel3;
-    private JLabel lblTitle, lblUsername, lblPassword;
-    private JButton btnLogin, btnCancel;
     private DBConnection dbConnection = new DBConnection();
+
+    public static void getLoginPage() {
+        LogInForm logInForm = new LogInForm();
+        logInForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        logInForm.setSize(300, 250);
+        logInForm.setLocationRelativeTo(null);
+        logInForm.setVisible(true);
+    }
 
     /**
      * Initialize the contents of the frame.
      */
     public LogInForm() {
+
+        // Creating variables
+        JPanel panel0, panel1, panel2, panel3;
+        JLabel lblTitle, lblUsername, lblPassword;
+        JButton btnLogin, btnCancel;
+
         setTitle("STAFF  - Welcome");
         setLayout(new GridLayout(4, 1));
 
@@ -96,21 +107,11 @@ public class LogInForm extends JFrame implements ActionListener {
                                     this.dispose();
                                     break;
                                 case "admin":
-                                    AdminPage adminPage = new AdminPage(Integer.valueOf(txtUsername.getText()));
-                                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                    adminPage.setSize(600, 500);
-                                    adminPage.setResizable(false);
-                                    adminPage.setLocationRelativeTo(null);
-                                    adminPage.setVisible(true);
+                                    AdminPage.getAdminPage(Integer.valueOf(txtUsername.getText()));
                                     this.dispose();
                                     break;
                                 case "manager":
-                                    E_ManagerPage e_managerPage = new E_ManagerPage(Integer.valueOf(txtUsername.getText()));
-                                    e_managerPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                    e_managerPage.setSize(650, 500);
-                                    e_managerPage.setResizable(false);
-                                    e_managerPage.setLocationRelativeTo(null);
-                                    e_managerPage.setVisible(true);
+                                    E_ManagerPage.getManagerPage();
                                     this.dispose();
                                     break;
                             }
@@ -127,6 +128,7 @@ public class LogInForm extends JFrame implements ActionListener {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Incorrect login details.", "Error", JOptionPane.ERROR_MESSAGE);
+                txtPassword.setText("");
                 break;
         }
     }

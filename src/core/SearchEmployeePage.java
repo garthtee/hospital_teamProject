@@ -9,23 +9,35 @@ import java.util.ArrayList;
 
 public class SearchEmployeePage extends JFrame implements ActionListener {
 
-    private JLabel lblEmpName, lblSpace;
     private JTextField txtSearch;
-    private JButton btnSearch, btnCancel;
-    private JPanel panelTop, panelBottom;
     private String selectedItem;
     private ArrayList<Employee> employeeList = new ArrayList<>();
     private JComboBox<String> jcbSearch;
-    ArrayList<Employee> tempList = new ArrayList<>();;
+    ArrayList<Employee> tempList = new ArrayList<>();
+
+    public static void getSearchEmployeePage(ArrayList<Employee> employeeListIn) {
+        SearchEmployeePage searchEmployeePage = new SearchEmployeePage(employeeListIn);
+        searchEmployeePage.setVisible(true);
+        searchEmployeePage.pack();
+        searchEmployeePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        searchEmployeePage.setResizable(false);
+        searchEmployeePage.setLocationRelativeTo(null);
+    }
 
     public SearchEmployeePage(ArrayList<Employee> employeeList) {
+
+        // Creating variables
+        JButton btnSearch, btnCancel;
+        JPanel panelTop, panelBottom;
+        JLabel lblEmpName;
+
         this.employeeList = employeeList;
 
         setTitle("Search Employees");
         setLayout(new BorderLayout());
 
         // Assign variables
-        lblEmpName = new JLabel("Employee Name: ");
+        lblEmpName = new JLabel("Search criteria: ");
         txtSearch = new JTextField(12);
         btnCancel = new JButton("Cancel");
         btnSearch = new JButton("Search");
@@ -54,9 +66,9 @@ public class SearchEmployeePage extends JFrame implements ActionListener {
         panelBottom.add(btnSearch);
         add(panelBottom, BorderLayout.SOUTH);
 
-        // adding style // top / left / bottom / rights
-        panelTop.setBorder(new EmptyBorder(20, 10, 5, 10));
-        panelBottom.setBorder(new EmptyBorder(5, 10, 10, 10));
+        // adding style // top / left / bottom / right
+        panelTop.setBorder(new EmptyBorder(10, 10, 10, 10));
+        panelBottom.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         // Add actionListeners
         btnCancel.addActionListener(this);
