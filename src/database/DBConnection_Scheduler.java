@@ -87,6 +87,27 @@ public class DBConnection_Scheduler {
         }
     }
 
+    public ArrayList<Shift_Employee> getShift_Employees(){
+        getDBConnection();
+        String query="select * from shift_employee;";
+        ArrayList<Shift_Employee> shift_employees=new ArrayList<>();
+        try {
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                Shift_Employee shift_employee = new Shift_Employee();
+                shift_employee.setShift_employee_ID(resultSet.getInt("shift_employee_id"));
+                shift_employee.setShift_ID(resultSet.getInt("shift_ID"));
+                shift_employee.setEmployee_ID(resultSet.getInt("emp_ID"));
+                shift_employee.setDate(resultSet.getString("date"));
+                shift_employees.add(shift_employee);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return shift_employees;
+    }
+
     public ArrayList<Employee> getEmployees() {
 
         getDBConnection();

@@ -2,15 +2,13 @@ package core;
 
 import database.DBConnection;
 import database.DBConnection_Clock;
+import database.DBConnection_Scheduler;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -24,9 +22,9 @@ public class EmployeePage extends JFrame implements ActionListener {
     private JButton btnBookHoliday, btnClockIn, btnLogout;
     private JLabel lblSpace;
     private Employee loggedInEmp;
-    private DBConnection dbConnection = new DBConnection();
+    private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
     private DBConnection_Clock dbConnection_clock = new DBConnection_Clock();
-    private ArrayList<Shift> listOfShifts = new ArrayList<>();
+    private ArrayList<Shift_Employee> shift_employees = new ArrayList<>();
     public int employee_id_in;
 
     private JButton btnViewRequest;
@@ -37,15 +35,22 @@ public class EmployeePage extends JFrame implements ActionListener {
     private DefaultListModel<Shift> defaultListModel;
 
 
-	public void createShiftModel(){
-		listOfShifts = dbConnection.getShifts();
-
-
+	public void createShiftModel(int employee_id_in){
+        ArrayList<Shift> shifts = new ArrayList<>();
+        DBConnection dbConnection = new DBConnection();
+        shifts=dbConnection.getShifts();
+        shift_employees = dbConnection_scheduler.getShift_Employees();
 		defaultListModel = new DefaultListModel<>();
 
-
-		for (Shift shift:listOfShifts)
-			defaultListModel.addElement(shift);
+		for (Shift_Employee se : shift_employees) {
+            for(Shift shift : shifts) {
+                if(shift.getShift_ID() == se.getShift_ID()) {
+                    if(se.getEmployee_ID() == employee_id_in) {
+                        defaultListModel.addElement(shift);
+                    }
+                }
+            }
+        }
 
 	}
 //    public void createRequestModel(){
@@ -61,8 +66,10 @@ public class EmployeePage extends JFrame implements ActionListener {
 //    }
 
     public EmployeePage(int emp_ID_In) {
-
         employee_id_in = emp_ID_In;
+        createShiftModel(employee_id_in);
+
+
 
         setLayout(new BorderLayout());
         setTitle("Employee Home Page");
@@ -74,7 +81,7 @@ public class EmployeePage extends JFrame implements ActionListener {
 
 
         listOfHours = new JPanel();
-        list = new JList(listOfShifts.toArray()); //data has type Object[]
+        list = new JList(defaultListModel); //data has type Object[]
         scrollPane.getViewport().setView(list);
         scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);

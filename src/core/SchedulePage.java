@@ -8,7 +8,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Kevin on 4/14/2016.
@@ -16,6 +20,7 @@ import java.util.ArrayList;
 public class SchedulePage extends JFrame implements ActionListener {
 
     private JLabel lblWard;
+    private JTextField dateEntered = new JTextField(10);
     private JButton btnSchedule, btnCancel;
     private JPanel panelTop, panelBottom;
     private JComboBox<String> jcbSchedule;
@@ -30,20 +35,20 @@ public class SchedulePage extends JFrame implements ActionListener {
         btnCancel = new JButton("Cancel");
         btnSchedule = new JButton("Schedule");
 
-        lblWard=new JLabel("Wards to schedule");
+        lblWard = new JLabel("Wards to schedule");
 
         // panelTop
         panelTop = new JPanel();
-        panelTop.setLayout(new BorderLayout());
+        panelTop.setLayout(new GridLayout(4, 1, 5, 5));
 
-        ArrayList<Ward> wards=new ArrayList<>();
-        DBConnection dbConnection=new DBConnection();
-        wards=dbConnection.getWards();
+        ArrayList<Ward> wards = new ArrayList<>();
+        DBConnection dbConnection = new DBConnection();
+        wards = dbConnection.getWards();
         //int[] wardIds = new int[10];
         jcbSchedule = new JComboBox<>();
 
-        for(int i=0; i<wards.size(); i++) {
-            if(wards.get(i).getScheduled().equals("false") && wards.get(i).getWard_ID() != 0) {
+        for (int i = 0; i < wards.size(); i++) {
+            if (wards.get(i).getScheduled().equals("false") && wards.get(i).getWard_ID() != 0) {
                 jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
             }
 
@@ -55,8 +60,10 @@ public class SchedulePage extends JFrame implements ActionListener {
                 selectedItem = Integer.valueOf(jcbSchedule.getSelectedItem().toString());
             }
         });
-        panelTop.add(lblWard, BorderLayout.NORTH);
-        panelTop.add(jcbSchedule, BorderLayout.CENTER);
+        panelTop.add(lblWard);
+        panelTop.add(jcbSchedule);
+        panelTop.add(new JLabel("Week Start: "));
+        panelTop.add(dateEntered);
         add(panelTop, BorderLayout.CENTER);
 
         // panelBottom
@@ -85,11 +92,18 @@ public class SchedulePage extends JFrame implements ActionListener {
                 E_ManagerPage.getManagerPage();
                 break;
             case "Schedule":
-                Scheduler s=new Scheduler(selectedItem);
-                boolean isScheduled = s.schedule();
-                DBConnection_Scheduler dbc_s=new DBConnection_Scheduler();
-                Ward ward=dbc_s.getWard(selectedItem);
-                if(isScheduled) {
+                Scheduler s = new Scheduler(selectedItem);
+                Calendar calendar = Calendar.getInstance();
+                try { // try parsing the string to a Calendar object
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    calendar.setTime(dateFormat.parse(dateEntered.getText()));
+                } catch (ParseException exception) {
+                    exception.printStackTrace();
+                }
+                boolean isScheduled = s.schedule(calendar);
+                DBConnection_Scheduler dbc_s = new DBConnection_Scheduler();
+                Ward ward = dbc_s.getWard(selectedItem);
+                if (isScheduled) {
                     ward.setScheduled("true");
                     DBConnection dbConnection = new DBConnection();
                     dbConnection.updateWard(ward);
@@ -98,23 +112,25 @@ public class SchedulePage extends JFrame implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Not scheduled.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+
                 break;
         }
 
     }
 
     public static void getSchedulePage() {
-        SchedulePage frame=new SchedulePage();
+        SchedulePage frame = new SchedulePage();
         frame.setVisible(true);
-        frame.setSize(300, 150);
+        frame.pack();
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
     }
-    public static void main(String[] args){
-        SchedulePage frame=new SchedulePage();
+
+    public static void main(String[] args) {
+        SchedulePage frame = new SchedulePage();
         frame.setVisible(true);
-        frame.setSize(300, 150);
+        frame.pack();
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);

@@ -24,7 +24,7 @@ public class E_ManagerPage extends JFrame implements ActionListener {
         employeeList = dbConnection.getEmployees(); // adding database records to employee list
         defaultListModel = new DefaultListModel<>();
         for (Employee employee : employeeList) {
-            if (employee.getWard_ID() == 0)
+            if (employee.getWard_ID() == 0 && employee.getPrivilege().equals("employee"))
                 defaultListModel.addElement(employee); // Add employees to Default List Model
         }
     }

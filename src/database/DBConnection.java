@@ -526,39 +526,39 @@ public class DBConnection {
     }
 
     /* REQUESTS */
-
-    public ArrayList<Request> getReq() {
-
-        getDBConnection();
-
-        ArrayList<Request> requestList = new ArrayList<>();
-
-        try {
-            String query = "select * from request;";
-            resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                int emp_id = resultSet.getInt("request_ID");
-                String startDate = resultSet.getString("dateFrom");
-                String endDate = resultSet.getString("dateTo");
-                String status = resultSet.getString("status");
-                String empID = resultSet.getString("emp_ID");
-                int employeeId = Integer.parseInt(empID);
-
-                Request request = new Request(startDate, endDate, employeeId);
-                requestList.add(request);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeResultSet();
-            closeStatement();
-            closeConnection();
-        }
-
-        return requestList;
-    }
+//
+//    public ArrayList<Request> getReq() {
+//
+//        getDBConnection();
+//
+//        ArrayList<Request> requestList = new ArrayList<>();
+//
+//        try {
+//            String query = "select * from request;";
+//            resultSet = statement.executeQuery(query);
+//
+//            while (resultSet.next()) {
+//                int emp_id = resultSet.getInt("request_ID");
+//                String startDate = resultSet.getString("dateFrom");
+//                String endDate = resultSet.getString("dateTo");
+//                String status = resultSet.getString("status");
+//                String empID = resultSet.getString("emp_ID");
+//                int employeeId = Integer.parseInt(empID);
+//
+//                Request request = new Request(startDate, endDate, employeeId);
+//                requestList.add(request);
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            closeResultSet();
+//            closeStatement();
+//            closeConnection();
+//        }
+//
+//        return requestList;
+//    }
     public void removeRequest(Request request) {
 
         getDBConnection();

@@ -1,24 +1,15 @@
 package core;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import database.DBConnection;
-import database.DBConnection_Clock;
 import database.DBConnection_Holidays;
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by home on 14/04/2016.
@@ -47,9 +38,9 @@ public class viewRequest extends JFrame implements ActionListener {
     public void createRequestModel(){
         listOfRequests = dbConnection.getRequests(passed_in_id); //getting requests and adding them
         requestDefaultListModelModel = new DefaultListModel<>();
-
-        for (Request request:listOfRequests)
-            requestDefaultListModelModel.addElement(request);
+//
+//        for (Request request:listOfRequests)
+//            requestDefaultListModelModel.addElement(request);
 
     }
 

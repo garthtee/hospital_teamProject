@@ -19,15 +19,12 @@ public class Request {
 
     }
 
-
     public Request(int request_ID, Calendar startDate, Calendar endDate, int emp_ID){
         this.endDate=endDate;
         this.startDate=startDate;
         this.request_ID=request_ID;
         status="waiting";
         this.emp_ID2=emp_ID;
-
-
     }
 
     public int getEmp_ID2() {

@@ -67,12 +67,11 @@ public class Scheduler {
         }
     }
 
-    public void scheduleDoctors() {
+    public void scheduleDoctors(Calendar calendarIn) {
         //declare date
         // Creating a calendar object and parsing the date from DB
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2015, 0, 1);
+        Calendar calendar = calendarIn;
 
         int offShiftTracker =0;
         int employeeTracker=0;
@@ -128,12 +127,11 @@ public class Scheduler {
         }
     }
 
-    public void scheduleNurses() {
+    public void scheduleNurses(Calendar calendarIn) {
         //declare date
         // Creating a calendar object and parsing the date from DB
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2015, 0, 1);
+        Calendar calendar = calendarIn;
 
         int offShiftTracker =0;
         int employeeTracker=0;
@@ -189,7 +187,7 @@ public class Scheduler {
         }
     }
 
-    public boolean schedule(){
+    public boolean schedule(Calendar calendarIn){
         filterEmployees("doctor");
         ArrayList<Employee> test1=tempList;
 
@@ -198,9 +196,9 @@ public class Scheduler {
 
         if(test1.size()>=4 && test2.size()>=4){
             filterEmployees("doctor");
-            scheduleDoctors();
+            scheduleDoctors(calendarIn);
             filterEmployees("nurse");
-            scheduleNurses();
+            scheduleNurses(calendarIn);
             addScheduleToDB();
             JOptionPane.showMessageDialog(null, "Ward successfully scheduled", "Success", JOptionPane.INFORMATION_MESSAGE);
             return true;

@@ -1,10 +1,8 @@
 package core;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class Shift_Employee {
     private int employee_ID;
+    private int shift_employee_ID;
     private int shift_ID;
     private String date;
 
@@ -26,6 +24,26 @@ public class Shift_Employee {
 
     public String getDate() {
         return date;
+    }
+
+    public void setEmployee_ID(int employee_ID) {
+        this.employee_ID = employee_ID;
+    }
+
+    public void setShift_ID(int shift_ID) {
+        this.shift_ID = shift_ID;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getShift_employee_ID() {
+        return shift_employee_ID;
+    }
+
+    public void setShift_employee_ID(int shift_employee_ID) {
+        this.shift_employee_ID = shift_employee_ID;
     }
 
     @Override
