@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ViewHours extends JFrame implements ActionListener {
 
     ArrayList<Shift_Employee> shift_employees = new ArrayList<>();
-    private Shift_Employee selectedEmployee;
+    private Shift_Employee selectedShift_Employee;
     private DefaultListModel<Shift_Employee> defaultListModel;
     private DBConnection_Scheduler dbConnection_scheduler = new DBConnection_Scheduler();
     private JList<Shift_Employee> list;
@@ -32,7 +32,7 @@ public class ViewHours extends JFrame implements ActionListener {
     static void getViewHours() {
         ViewHours viewHours = new ViewHours();
         viewHours.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        viewHours.setSize(800, 500);
+        viewHours.pack();
         viewHours.setLocationRelativeTo(null);
         viewHours.setVisible(true);
     }
@@ -53,13 +53,13 @@ public class ViewHours extends JFrame implements ActionListener {
         list = new JList(defaultListModel); //data has type Object[]
         list.setCellRenderer(new shift_employeeCellRenderer());
         scrollPane.getViewport().setView(list);
-        scrollPane.setPreferredSize(new Dimension(700, 360));
+        scrollPane.setPreferredSize(new Dimension(400, 360));
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         list.setLayoutOrientation(JList.VERTICAL);
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                selectedEmployee = list.getSelectedValue();
+                selectedShift_Employee = list.getSelectedValue();
             }
         });
         p1.add(scrollPane, BorderLayout.SOUTH);
@@ -68,7 +68,6 @@ public class ViewHours extends JFrame implements ActionListener {
         // Panel 2 //
         p2 = new JPanel();
         p2.setLayout(new BorderLayout());
-        p2.add(new JLabel(""));
         p2.add(btnOk = new JButton("Ok"));
 
         add(p1, BorderLayout.NORTH);
@@ -90,8 +89,8 @@ public class ViewHours extends JFrame implements ActionListener {
         public Component getListCellRendererComponent(JList list, Object value,
                                                       int index, boolean isSelected, boolean cellHasFocus) {
             Shift_Employee se = (Shift_Employee) value;
-            setText("Assigned shift " +se.getShift_employee_ID() + ": Shift ID = " + se.getShift_ID() + " Employee ID = " + se.getEmployee_ID()
-                    + " Date = " + se.getDate());
+            setText("Assigned shift " +se.getShift_employee_ID() + ": Shift ID" + se.getShift_ID() + " " + se.getEmployee_ID()
+                    + " " + se.getDate());
             this.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 
             if (isSelected) {

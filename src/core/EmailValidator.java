@@ -2,7 +2,7 @@ package core;
 
 /**
  * Created by Garth Toland on 10/04/2016.
- * Description:
+ * Description: Validates an email address.
  */
 public class EmailValidator {
 
@@ -12,9 +12,9 @@ public class EmailValidator {
                 || emailIn.contains("|") || emailIn.contains("]")  || emailIn.contains("[")
                 || emailIn.contains("}")  || emailIn.contains("{")  || emailIn.contains(")")
                 || emailIn.contains("(")  || emailIn.contains("*")  || emailIn.contains("/")
-                || emailIn.contains("+")  || emailIn.contains("<")  || emailIn.contains(">")) {
+                || emailIn.contains("+")  || emailIn.contains("<")  || emailIn.contains(">"))
             return false;
-        } else
+        else
             return true;
     }
 }

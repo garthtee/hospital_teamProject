@@ -79,6 +79,34 @@ public class AddShift extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "Add":
+
+                try {
+                    DateValidator dateValidator = new DateValidator();
+                    dateValidator.setYear(txtShiftStart.getText());
+                    dateValidator.setMonth(txtShiftStart.getText());
+                    dateValidator.setDay(txtShiftStart.getText());
+                } catch (StringIndexOutOfBoundsException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid date.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (IllegalArgumentException ex) {
+                    JOptionPane.showMessageDialog(null, "Date error.\n\n" +ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                try {
+                    DateValidator dateValidator = new DateValidator();
+                    dateValidator.setYear(txtShiftEnd.getText());
+                    dateValidator.setMonth(txtShiftEnd.getText());
+                    dateValidator.setDay(txtShiftEnd.getText());
+                } catch (StringIndexOutOfBoundsException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid date.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (IllegalArgumentException ex) {
+                    JOptionPane.showMessageDialog(null, "Date error.\n\n" +ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+
                 if(txtShiftStart.getText().equals("") || txtShiftEnd.getText().equals("") ||
                         txtShiftType.getText().equals("") || txtWardID.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);

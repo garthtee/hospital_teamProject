@@ -1,6 +1,7 @@
 package core;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Created by Garth Toland on 10/04/2016.
@@ -11,7 +12,10 @@ public class DateValidator implements Serializable {
     private int day;
     private int month;
     private int year;
-    private static int thisYear = 2015; // Set current year here
+    static Calendar calendar = Calendar.getInstance();
+    private static int thisYear = calendar.get(Calendar.YEAR); // Set current year here
+    private static int thisMonth = calendar.get(Calendar.MONTH); // Set current month here
+    private static int thisDay = calendar.get(Calendar.DAY_OF_MONTH); // Set current day here
 
     public DateValidator() {
     }
@@ -55,7 +59,7 @@ public class DateValidator implements Serializable {
             return null;
         }
 
-        if ((day <= 0 || (day > 31)))
+        if ((day <= 0 || (day > 31)) || day > thisDay)
             throw new IllegalArgumentException("Day is an incorrect value.");
 
         // No exception thrown
@@ -80,7 +84,7 @@ public class DateValidator implements Serializable {
             return null;
         }
 
-        if ((month <= 0) || (month > 12))
+        if ((month <= 0) || (month > 12) || month > thisMonth)
             throw new IllegalArgumentException("Month is an incorrect value.");
 
         // No exception thrown

@@ -141,74 +141,89 @@ public class AddEmployee extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         switch (event.getActionCommand()) {
             case "Create":
-                // Checking if text has been entered to all TextFields
-                if(txtFName.getText().equals("") || txtSName.getText().equals("") || txtDOB.getText().equals("") ||
-                        txtContactNum.getText().equals("") || txtEmail.getText().equals("") ||
-                        String.valueOf(txtPassword.getPassword()).equals("") || txtNumHoldiays.getText().equals("") ||
-                        txtContractHours.getText().equals("") || txtSalary.getText().equals("") ||
-                        txtWard_ID.getText().equals("")  || txtContractHours.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if(txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
-                    JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
-                    JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(txtDOB.getText().length() < 10) {
-                    JOptionPane.showMessageDialog(null, "Please enter valid date.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(!txtDOB.getText().contains("-")) {
-                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if(txtContactNum.getText().length() < 7) {
-                    JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else if (String.valueOf(txtPassword.getPassword()).length() < 8 ||
-                        String.valueOf(txtPassword.getPassword()).length() > 30) {
-                    JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (selectedEmpType == null) {
-                    selectedEmpType = "doctor";
-                } else if (selectedPrivilege == null) {
-                    selectedPrivilege = "employee";
-                } else {
-                    Calendar calendar = Calendar.getInstance();
-                    DBConnection dbConnection = new DBConnection();
-                    try { // try parsing the string to a Calendar object
-                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                        calendar.setTime(dateFormat.parse(txtDOB.getText()));
-                    } catch (ParseException exception) {
-                        exception.printStackTrace();
+
+                    try {
+                        DateValidator dateValidator = new DateValidator();
+                        dateValidator.setYear(txtDOB.getText());
+                        dateValidator.setMonth(txtDOB.getText());
+                        dateValidator.setDay(txtDOB.getText());
+                    } catch (StringIndexOutOfBoundsException ex) {
+                        JOptionPane.showMessageDialog(null, "Invalid date.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(null, "Date error.\n\n" +e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
                     }
-                    Employee employee = new Employee();
-                    employee.setfName(txtFName.getText());
-                    employee.setsName(txtSName.getText());
-                    employee.setDOB(calendar);
-                    employee.setContactNum(txtContactNum.getText());
-                    employee.setEmail(txtEmail.getText());
-                    employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
-                    employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
-                    employee.setSalary(Double.valueOf(txtSalary.getText()));
-                    employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
-                    employee.setPassword(String.valueOf(txtPassword.getPassword()));
-                    employee.setEmployee_type(selectedEmpType);
-                    employee.setPrivilege(selectedPrivilege);
-                    dbConnection.createEmployee(employee);
-                    this.dispose();
-                    AdminPage adminPage = new AdminPage(-1);
-                    adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    adminPage.setSize(600, 500);
-                    adminPage.setLocationRelativeTo(null);
-                    adminPage.setVisible(true);
+
+                    // Checking if text has been entered to all TextFields
+                    if (txtFName.getText().equals("") || txtSName.getText().equals("") || txtDOB.getText().equals("") ||
+                            txtContactNum.getText().equals("") || txtEmail.getText().equals("") ||
+                            String.valueOf(txtPassword.getPassword()).equals("") || txtNumHoldiays.getText().equals("") ||
+                            txtContractHours.getText().equals("") || txtSalary.getText().equals("") ||
+                            txtWard_ID.getText().equals("") || txtContractHours.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (txtEmail.getText().length() <= 3 || !txtEmail.getText().contains("@")) {
+                        JOptionPane.showMessageDialog(null, "Invalid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else if (txtFName.getText().length() <= 1 || txtSName.getText().length() <= 1 || txtFName.getText().length() < 1) {
+                        JOptionPane.showMessageDialog(null, "Please enter valid data.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else if (txtDOB.getText().length() < 10) {
+                        JOptionPane.showMessageDialog(null, "Please enter valid date.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else if (!txtDOB.getText().contains("-")) {
+                        JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else if (txtContactNum.getText().length() < 7) {
+                        JOptionPane.showMessageDialog(null, "Invalid contact number.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else if (String.valueOf(txtPassword.getPassword()).length() < 8 ||
+                            String.valueOf(txtPassword.getPassword()).length() > 30) {
+                        JOptionPane.showMessageDialog(null, "Invalid password.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (selectedEmpType == null) {
+                        selectedEmpType = "doctor";
+                    } else if (selectedPrivilege == null) {
+                        selectedPrivilege = "employee";
+                    } else {
+                        Calendar calendar = Calendar.getInstance();
+                        DBConnection dbConnection = new DBConnection();
+                        try { // try parsing the string to a Calendar object
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            calendar.setTime(dateFormat.parse(txtDOB.getText()));
+                        } catch (ParseException exception) {
+                            exception.printStackTrace();
+                            return;
+                        }
+                        Employee employee = new Employee();
+                        employee.setfName(txtFName.getText());
+                        employee.setsName(txtSName.getText());
+                        employee.setDOB(calendar);
+                        employee.setContactNum(txtContactNum.getText());
+                        employee.setEmail(txtEmail.getText());
+                        employee.setNumHolidays(Integer.valueOf(txtNumHoldiays.getText()));
+                        employee.setContractHours(Integer.valueOf(txtContractHours.getText()));
+                        employee.setSalary(Double.valueOf(txtSalary.getText()));
+                        employee.setWard_ID(Integer.valueOf(txtWard_ID.getText()));
+                        employee.setPassword(String.valueOf(txtPassword.getPassword()));
+                        employee.setEmployee_type(selectedEmpType);
+                        employee.setPrivilege(selectedPrivilege);
+                        dbConnection.createEmployee(employee);
+                        this.dispose();
+                        AdminPage adminPage = new AdminPage(-1);
+                        adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        adminPage.setSize(600, 500);
+                        adminPage.setLocationRelativeTo(null);
+                        adminPage.setVisible(true);
+                    }
+                    break;
+                    case "Cancel":
+                        this.dispose(); // disposes the create employee frame
+                        AdminPage adminPage = new AdminPage(-1);
+                        adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        adminPage.setSize(600, 500);
+                        adminPage.setLocationRelativeTo(null);
+                        adminPage.setVisible(true);
+                        break;
                 }
-                break;
-            case "Cancel":
-                this.dispose(); // disposes the create employee frame
-                AdminPage adminPage = new AdminPage(-1);
-                adminPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                adminPage.setSize(600, 500);
-                adminPage.setLocationRelativeTo(null);
-                adminPage.setVisible(true);
-                break;
         }
     }
-}

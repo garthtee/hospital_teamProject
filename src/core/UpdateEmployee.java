@@ -195,7 +195,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Invalid date.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
                     } catch (IllegalArgumentException ex) {
-                        JOptionPane.showMessageDialog(null, "Date error.  \n\nExample format: yyyy-mm-dd\n", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Date error.\n\n" +ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
