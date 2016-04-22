@@ -1,8 +1,13 @@
 package database;
 
+import core.Employee;
+
+import javax.swing.*;
 import java.sql.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -14,7 +19,9 @@ public class DBConnection_Holidays {
     private Statement statement;
     private ResultSet resultSet;
 
-    public DBConnection_Holidays() {}
+    public DBConnection_Holidays() {
+    }
+
 
     /* Remote AWS database connection */
     private void getDBConnection() {
@@ -29,7 +36,74 @@ public class DBConnection_Holidays {
         }
     }
 
-    public void createRequest(int emp_ID, Calendar startDate, Calendar endDate){
+    public boolean updateHolidayHours(int numHolidays, int employeeID) {
+        int empHours = getEmployeeHours(employeeID);
+        if (empHours <= 0 || numHolidays > empHours) {
+            JOptionPane.showMessageDialog(null, "You do not have enough holidays to place this request.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            empHours = empHours - numHolidays;
+
+            boolean isSuccessful = updateHours(empHours, employeeID);
+
+            if (isSuccessful)
+                return true;
+            else
+                return false;
+        }
+    }
+
+    public int getEmployeeHours(int employeeID) {
+
+        int numHolidays = 0;
+
+        getDBConnection();
+
+        try {
+            String query = "select * from employee WHERE emp_ID = " + employeeID + ";";
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next())
+                numHolidays = resultSet.getInt("numHolidays");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+        return numHolidays;
+    }
+
+    public boolean updateHours(int numHolidays, int employeeID) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE employee set numHolidays = ? WHERE emp_ID = " + employeeID + ";");
+            preparedStatement.setInt(1, numHolidays);
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                return true;
+            else
+                return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+
+    public void createRequest(int emp_ID, Calendar startDate, Calendar endDate) {
         getDBConnection();
 
         try {

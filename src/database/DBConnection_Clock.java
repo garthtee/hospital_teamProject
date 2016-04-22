@@ -40,7 +40,7 @@ public class DBConnection_Clock {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("INSERT INTO employee_clockin VALUES (?, ?, ?, ?);");
-            preparedStatement.setInt(1,1);
+            preparedStatement.setInt(1,0);
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String dateAsString = dateFormat.format(startTime.getTime());
@@ -64,20 +64,22 @@ public class DBConnection_Clock {
 
     }
 
-    public void createClockOutTime(int emp_ID, Calendar endTime, int idIn){
+    public void createClockOutTime(int emp_ID, Calendar endTime){
 
-        if(idIn != -1) {
+        if(emp_ID != -1) {
             getDBConnection();
 
             try {
                 PreparedStatement preparedStatement;
-                preparedStatement = connection.prepareStatement("UPDATE employee_clockin SET end_time = ? WHERE emp_id = ?");
+                preparedStatement = connection.prepareStatement("UPDATE employee_clockin SET endTime = ? WHERE emp_ID = ?");
 
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 String dateAsString = dateFormat.format(endTime.getTime());
 
                 preparedStatement.setString(1, dateAsString);
-                preparedStatement.setInt(2, idIn);
+                preparedStatement.setInt(2, emp_ID);
+                System.out.println("-----> " +dateAsString);
+                System.out.println("-----> " +emp_ID);
 
                 preparedStatement.executeUpdate();
 

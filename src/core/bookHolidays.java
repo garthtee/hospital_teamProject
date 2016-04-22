@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import database.DBConnection;
 import database.DBConnection_Clock;
@@ -81,34 +82,60 @@ public class bookHolidays extends JFrame implements ActionListener {
         
         case "Place Request":
 
-
-
-            JOptionPane.showMessageDialog(null, "Request submitted!", "Request", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
-
-            Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = Calendar.getInstance();
-            System.out.print("staryfield = " + startField.getText());
+            Calendar calendarStart = Calendar.getInstance();
+            Calendar calendarEnd = Calendar.getInstance();
+            Calendar cur = Calendar.getInstance();
+            //System.out.print("staryfield = " + startField.getText());
             try { // try parsing the string to a Calendar object
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                calendar.setTime(dateFormat.parse(startField.getText()));
-                calendar2.setTime(dateFormat.parse(endField.getText()));
+                calendarStart.setTime(dateFormat.parse(startField.getText()));
+                calendarEnd.setTime(dateFormat.parse(endField.getText()));
             } catch (ParseException exception) {
                 exception.printStackTrace();
             } catch (Exception exception) {
                 exception.printStackTrace();
                 System.out.print(exception);
             }
+            long current= System.currentTimeMillis();
+            cur.setTimeInMillis(current);
 
-            dbConnection_hol.createRequest(passed_in_id, calendar, calendar2);
+            if(startField.getText().equals("") || endField.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter dates into each field.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else if(calendarEnd.before(calendarStart)) {
+                JOptionPane.showMessageDialog(null, "End date can not be before Start date.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+                }
+            else if(calendarStart.before(cur)){
+                JOptionPane.showMessageDialog(null, "You can not book a holiday in the past.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else{
+                    JOptionPane.showMessageDialog(null, "Request submitted!", "Request", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
 
-           // Select dates between the two dates
-           // ("select Date, TotalAllowance from Calculation where EmployeeId = 1
-           // and Date >= '2011/02/25' and Date <= '2011/02/27'")
+                    dbConnection_hol.createRequest(passed_in_id, calendarStart, calendarEnd);
+
+//                    int daysBetween = calendarEnd.DAY_OF_MONTH - calendarStart.DAY_OF_MONTH;
+
+                    int daysBetween = daysBetween(calendarStart.getTime(), calendarEnd.getTime());
 
 
-        	break;
-        	
+                    boolean isSuccessful = dbConnection_hol.updateHolidayHours(daysBetween,passed_in_id);
+
+                if (!isSuccessful) {
+                    JOptionPane.showMessageDialog(null, "Something unexpected happened.", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }
+
+                    // Select dates between the two dates
+                    // ("select Date, TotalAllowance from Calculation where EmployeeId = 1
+                    // and Date >= '2011/02/25' and Date <= '2011/02/27'")
+
+
+                    break;
+                }
         case "Cancel":
             this.dispose();
         	
@@ -118,7 +145,11 @@ public class bookHolidays extends JFrame implements ActionListener {
 		
 		
 	}
-	
+
 	
 	}
+
+    public int daysBetween(Date d1, Date d2){
+        return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
+    }
 }

@@ -32,7 +32,7 @@ public class EmployeePage extends JFrame implements ActionListener {
 
 
 
-    private DefaultListModel<Shift_Employee> defaultListModel;
+    private DefaultListModel<Shift> defaultListModel;
 
 
 	public void createShiftModel(int employee_id_in){
@@ -43,23 +43,17 @@ public class EmployeePage extends JFrame implements ActionListener {
 		defaultListModel = new DefaultListModel<>();
 
 		for (Shift_Employee se : shift_employees) {
-            if(se.getEmployee_ID()==employee_id_in){
-                defaultListModel.addElement(se);
+            for(Shift shift : shifts) {
+                if(shift.getShift_ID() == se.getShift_ID()) {
+                    if(se.getEmployee_ID() == employee_id_in) {
+                        defaultListModel.addElement(shift);
+                    }
+                }
             }
         }
 
 	}
-//    public void createRequestModel(){
-//        listOfRequests = dbConnection.getRequests();
-//
-//
-//        requestDefaultListModelModel = new DefaultListModel<>();
-//
-//
-//        for (Request request:listOfRequests)
-//            requestDefaultListModelModel.addElement(request);
-//
-//    }
+
 
     public EmployeePage(int emp_ID_In) {
         employee_id_in = emp_ID_In;
@@ -86,22 +80,6 @@ public class EmployeePage extends JFrame implements ActionListener {
         listOfHours.add(scrollPane, BorderLayout.SOUTH);
         listOfHours.setBorder(BorderFactory.createTitledBorder("Hours for week"));
 
-//        listOfReq= new JPanel();
-//        reqList= new JList(listOfRequests.toArray());
-//        scrollPaneReq.getViewport().setView(reqList);
-//        //scrollPaneReq.setPreferredSize(new Dimension(400, 360));
-//        reqList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-//        reqList.setLayoutOrientation(JList.VERTICAL);
-//
-//        listOfReq.setBorder(BorderFactory.createTitledBorder("Requests made"));
-//
-//        listOfReq.add(scrollPane, BorderLayout.SOUTH);
-
-
-//        bothLists=new JPanel();
-//        bothLists.setLayout(new GridLayout(2,1));
-//        bothLists.add(listOfHours,BorderLayout.NORTH);
-//        bothLists.add(listOfReq, BorderLayout.SOUTH);
 
         // Panel Left //
         center = new JPanel();
@@ -144,10 +122,12 @@ public class EmployeePage extends JFrame implements ActionListener {
 
                 startTime = System.currentTimeMillis();
                 calendar.setTimeInMillis(startTime);
+                System.out.print("CALENDAR OBJECT = " + calendar);
                 btnClockIn.setText("Clock Out");
                 JOptionPane.showMessageDialog(null, "Clock in time: " + calendar.getTime());
 
-                dbConnection_clock.createClockInTime(1, calendar); //just paassing the value one rather than actual user ID
+
+                dbConnection_clock.createClockInTime(employee_id_in, calendar);
 
 
                 break;
@@ -159,7 +139,7 @@ public class EmployeePage extends JFrame implements ActionListener {
                 btnClockIn.setText("Clock In");
 
                 //System.getProperty("user_ID");
-                dbConnection_clock.createClockOutTime(1, calendar, employee_id_in);
+                dbConnection_clock.createClockOutTime(employee_id_in,calendar);
 
                 break;
             case "Request Holiday":

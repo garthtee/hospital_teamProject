@@ -568,7 +568,7 @@ public class DBConnection {
             int count = preparedStatement.executeUpdate();
 
             if (count > 0)
-                JOptionPane.showMessageDialog(null, name + " booking has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Booking " + name + " has been removed.", "Success", JOptionPane.INFORMATION_MESSAGE);
             else
                 JOptionPane.showMessageDialog(null, "Request not cancelled correctly.", "Error", JOptionPane.ERROR_MESSAGE);
 
@@ -611,12 +611,12 @@ public class DBConnection {
 
 
                 Request request = new Request();
-//                request.setRequest_ID(request_id);
-//                request.setStatus(status);
-//                request.setEmp_ID2(emp_id);
+                request.setRequest_ID(request_id);
+                request.setStatus(status);
+                request.setEmp_ID2(emp_id);
 
-//                Employee employee = new Employee();
-//                employee.setEmp_ID(emp_id);
+                Employee employee = new Employee();
+                employee.setEmp_ID(emp_id);
 
                 // Creating a calendar object and parsing the date from DB
                 Calendar calendar = Calendar.getInstance();
@@ -629,8 +629,8 @@ public class DBConnection {
                     exception.printStackTrace();
                 }
 
-               // request.setEndDate(endDate);
-                //request.setStartDate(startDate);
+                request.setEndDate(calendar);
+                request.setStartDate(calendar1);
 
 
                 requestList.add(request);
@@ -710,8 +710,8 @@ public class DBConnection {
                 String empID = resultSet.getString("emp_ID");
                 int employeeId = Integer.parseInt(empID);
 
-                Request request = new Request(request_id, startDate,  endDate, status,  employeeId);
-                requestList.add(request);
+//                Request request = new Request(request_id, startDate,  endDate, status,  employeeId);
+//                requestList.add(request);
             }
 
         } catch (Exception e) {
@@ -724,6 +724,9 @@ public class DBConnection {
 
         return requestList;
     }
+
+
+
 
 
 }

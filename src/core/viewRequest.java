@@ -27,7 +27,7 @@ public class viewRequest extends JFrame implements ActionListener {
     private JList<Request> reqList;
     private JScrollPane scrollPaneReq = new JScrollPane();
     private ArrayList<Request> listOfRequests = new ArrayList<>();
-    private DefaultListModel<Employee> requestDefaultListModelModel;
+    private DefaultListModel<Request> requestDefaultListModelModel;
 
     private JButton ok, cancelSelected;
     public JPanel mainPanel, btnPanel;
@@ -38,10 +38,18 @@ public class viewRequest extends JFrame implements ActionListener {
     public void createRequestModel(){
         listOfRequests = dbConnection.getRequests(passed_in_id); //getting requests and adding them
         requestDefaultListModelModel = new DefaultListModel<>();
-//
-//        for (Request request:listOfRequests)
-//            requestDefaultListModelModel.addElement(request);
 
+        for (Request request:listOfRequests)
+            requestDefaultListModelModel.addElement(request);
+
+    }
+
+    public static void getviewRequest(int emp_id) {
+        viewRequest page = new viewRequest(emp_id);
+        page.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        page.pack();
+        page.setLocationRelativeTo(null);
+        page.setVisible(true);
     }
 
 
@@ -88,6 +96,9 @@ public class viewRequest extends JFrame implements ActionListener {
         btnPanel.add(cancelSelected);
         mainPanel.add(btnPanel);
 
+        ok.addActionListener(this);
+        cancelSelected.addActionListener(this);
+
 
 
     }
@@ -99,12 +110,15 @@ public class viewRequest extends JFrame implements ActionListener {
                 this.dispose();
                 break;
             case "Remove":
-                if (selectedReq != null) { // if an employee is selected
+                if (selectedReq != null) {
                     int chosenOption = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this request?",
                             "Remove Request", JOptionPane.YES_NO_OPTION);
                     if (chosenOption == 0) {
                         dbConnection.removeRequest(selectedReq);
                         requestDefaultListModelModel.removeElement(selectedReq);
+
+                        this.dispose();
+                        getviewRequest(passed_in_id);
                         break;
                     }
                 } else // if no employee selected
