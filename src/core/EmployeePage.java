@@ -32,7 +32,7 @@ public class EmployeePage extends JFrame implements ActionListener {
 
 
 
-    private DefaultListModel<Shift> defaultListModel;
+    private DefaultListModel<Shift_Employee> defaultListModel;
 
 
 	public void createShiftModel(int employee_id_in){
@@ -43,12 +43,8 @@ public class EmployeePage extends JFrame implements ActionListener {
 		defaultListModel = new DefaultListModel<>();
 
 		for (Shift_Employee se : shift_employees) {
-            for(Shift shift : shifts) {
-                if(shift.getShift_ID() == se.getShift_ID()) {
-                    if(se.getEmployee_ID() == employee_id_in) {
-                        defaultListModel.addElement(shift);
-                    }
-                }
+            if(se.getEmployee_ID()==employee_id_in){
+                defaultListModel.addElement(se);
             }
         }
 
@@ -148,7 +144,6 @@ public class EmployeePage extends JFrame implements ActionListener {
 
                 startTime = System.currentTimeMillis();
                 calendar.setTimeInMillis(startTime);
-                System.out.print("CALENDAR OBJECT = " + calendar);
                 btnClockIn.setText("Clock Out");
                 JOptionPane.showMessageDialog(null, "Clock in time: " + calendar.getTime());
 

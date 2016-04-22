@@ -436,7 +436,6 @@ public class DBConnection {
                 ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
-                ward.setScheduled(resultSet.getString("scheduled"));
                 wards.add(ward);
             }
         } catch (Exception e) {
@@ -455,12 +454,11 @@ public class DBConnection {
 
         try {
             PreparedStatement preparedStatement;
-            preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?,?);");
-            preparedStatement.setInt(1, 0); // ward id 0 as it's auto incremented in DB
+            preparedStatement = connection.prepareStatement("INSERT INTO ward VALUES(?,?,?,?);");
+            preparedStatement.setInt(1, ward.getWard_ID());
             preparedStatement.setString(2, ward.getWardType());
             preparedStatement.setInt(3, ward.getReqNurses());
             preparedStatement.setInt(4, ward.getReqDoctors());
-            preparedStatement.setString(5, ward.getScheduled());
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
@@ -504,11 +502,10 @@ public class DBConnection {
         try {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("UPDATE ward SET wardType = ?, reqNurses = ?, " +
-                    "reqDoctors = ?, scheduled = ? WHERE ward_ID = " + ward.getWard_ID() + ";");
+                    "reqDoctors = ?WHERE ward_ID = " + ward.getWard_ID() + ";");
             preparedStatement.setString(1, ward.getWardType());
             preparedStatement.setInt(2, ward.getReqNurses());
             preparedStatement.setInt(3, ward.getReqDoctors());
-            preparedStatement.setString(4, ward.getScheduled());
             int count = preparedStatement.executeUpdate();
 
             if (count > 0)
@@ -614,9 +611,9 @@ public class DBConnection {
 
 
                 Request request = new Request();
-                request.setRequest_ID(request_id);
-                request.setStatus(status);
-                request.setEmp_ID2(emp_id);
+//                request.setRequest_ID(request_id);
+//                request.setStatus(status);
+//                request.setEmp_ID2(emp_id);
 
 //                Employee employee = new Employee();
 //                employee.setEmp_ID(emp_id);
@@ -638,6 +635,85 @@ public class DBConnection {
 
                 requestList.add(request);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+
+        return requestList;
+    }
+
+    public void updateRequest(int reqId, String status) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE request SET status = ? WHERE request_ID = " + reqId + ";");
+            preparedStatement.setString(1, status);
+
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, "Request updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Request not updated.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public void updateEmployeeWard(int ward_id, int empID) {
+
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE employee SET ward_ID = ? WHERE emp_ID = " + empID + ";");
+            preparedStatement.setInt(1, ward_id);
+            int count = preparedStatement.executeUpdate();
+
+            if (count > 0)
+                JOptionPane.showMessageDialog(null, "Emp updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(null, "Emp not updated.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public ArrayList<Request> getReq() {
+        getDBConnection();
+        ArrayList<Request> requestList = new ArrayList<>();
+        try {
+            String query = "select * from request;";
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int request_id = resultSet.getInt("request_ID");
+                String startDate = resultSet.getString("dateFrom");
+                String endDate = resultSet.getString("dateTo");
+                String status = resultSet.getString("status");
+                String empID = resultSet.getString("emp_ID");
+                int employeeId = Integer.parseInt(empID);
+
+                Request request = new Request(request_id, startDate,  endDate, status,  employeeId);
+                requestList.add(request);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

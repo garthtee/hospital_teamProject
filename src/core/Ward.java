@@ -13,7 +13,7 @@ public class Ward {
 
     public Ward() {}
 
-    public Ward(int ward_ID, String wardType, int reqNurses, int reqDoctors, String scheduled) {
+    public Ward(int ward_ID, String wardType, int reqNurses, int reqDoctors) {
         this.ward_ID = ward_ID;
         this.wardType = wardType;
         this.reqNurses = reqNurses;
@@ -53,13 +53,6 @@ public class Ward {
         this.reqDoctors = reqDoctors;
     }
 
-    public String getScheduled() {
-        return scheduled;
-    }
-
-    public void setScheduled(String scheduled) {
-        this.scheduled = scheduled;
-    }
 
     @Override
     public String toString() {

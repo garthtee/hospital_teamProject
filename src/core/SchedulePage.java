@@ -1,7 +1,6 @@
 package core;
 
 import database.DBConnection;
-import database.DBConnection_Scheduler;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -24,7 +23,9 @@ public class SchedulePage extends JFrame implements ActionListener {
     private JButton btnSchedule, btnCancel;
     private JPanel panelTop, panelBottom;
     private JComboBox<String> jcbSchedule;
-    private int selectedItem;
+    private String selectedItem;
+    private String endDate;
+    ArrayList<Ward> wards;
 
     public SchedulePage() {
 
@@ -41,15 +42,15 @@ public class SchedulePage extends JFrame implements ActionListener {
         panelTop = new JPanel();
         panelTop.setLayout(new GridLayout(4, 1, 5, 5));
 
-        ArrayList<Ward> wards = new ArrayList<>();
+        wards = new ArrayList<>();
         DBConnection dbConnection = new DBConnection();
         wards = dbConnection.getWards();
         //int[] wardIds = new int[10];
         jcbSchedule = new JComboBox<>();
 
         for (int i = 0; i < wards.size(); i++) {
-            if (wards.get(i).getScheduled().equals("false") && wards.get(i).getWard_ID() != 0) {
-                jcbSchedule.addItem(String.valueOf(wards.get(i).getWard_ID()));
+            if (wards.get(i).getWard_ID() != 0) {
+                jcbSchedule.addItem(wards.get(i).getWardType());
             }
 
         }
@@ -57,7 +58,7 @@ public class SchedulePage extends JFrame implements ActionListener {
         jcbSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedItem = Integer.valueOf(jcbSchedule.getSelectedItem().toString());
+                selectedItem = jcbSchedule.getSelectedItem().toString();
             }
         });
         panelTop.add(lblWard);
@@ -92,30 +93,24 @@ public class SchedulePage extends JFrame implements ActionListener {
                 E_ManagerPage.getManagerPage();
                 break;
             case "Schedule":
-                Scheduler s = new Scheduler(selectedItem);
+                int wardIDPassIn=0;
+                for(Ward ward: wards){
+                    if(ward.getWardType().equals(selectedItem)){
+                        wardIDPassIn=ward.getWard_ID();
+                    }
+                }
+                Scheduler s = new Scheduler(wardIDPassIn);
                 Calendar calendar = Calendar.getInstance();
                 try { // try parsing the string to a Calendar object
                     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     calendar.setTime(dateFormat.parse(dateEntered.getText()));
                 } catch (ParseException exception) {
-                    exception.printStackTrace();
-                }
-                boolean isScheduled = s.schedule(calendar);
-                DBConnection_Scheduler dbc_s = new DBConnection_Scheduler();
-                Ward ward = dbc_s.getWard(selectedItem);
-                if (isScheduled) {
-                    ward.setScheduled("true");
-                    DBConnection dbConnection = new DBConnection();
-                    dbConnection.updateWard(ward);
-                    this.dispose();
-                    E_ManagerPage.getManagerPage();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Not scheduled.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Date must contain '-' \n\n Example format: yyyy-mm-dd", "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
-                break;
+                s.schedule(calendar);
+
         }
-
     }
 
     public static void getSchedulePage() {

@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
 public class UpdateWard extends JFrame implements ActionListener {
 
     private JButton btnUpdate, btnCancel;
-    private JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors, lblScheduled;
-    private JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors, txtScheduled;
+    private JLabel lblID, lblWardType, lblReqNurses, lblReqDoctors;
+    private JTextField txtID, txtWardType, txtReqNurses, txtReqDoctors;
     private JComboBox<String> jcbType;
     private String selectedPrivilege;
     private EmailValidator emailValidator = new EmailValidator();
@@ -46,8 +46,6 @@ public class UpdateWard extends JFrame implements ActionListener {
         txtReqNurses = new JTextField();
         lblReqDoctors = new JLabel("Required Doctors: ");
         txtReqDoctors = new JTextField();
-        lblScheduled = new JLabel("Scheduled: ");
-        txtScheduled = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblID);
@@ -58,8 +56,6 @@ public class UpdateWard extends JFrame implements ActionListener {
         p1.add(txtReqNurses);
         p1.add(lblReqDoctors);
         p1.add(txtReqDoctors);
-        p1.add(lblScheduled);
-        p1.add(txtScheduled);
 
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
@@ -81,7 +77,6 @@ public class UpdateWard extends JFrame implements ActionListener {
         txtWardType.setText(ward.getWardType());
         txtReqNurses.setText(String.valueOf(ward.getReqNurses()));
         txtReqDoctors.setText(String.valueOf(ward.getReqDoctors()));
-        txtScheduled.setText(ward.getScheduled());
 
         // Setting ID to be uneditable
         txtID.setEditable(false);
@@ -103,8 +98,7 @@ public class UpdateWard extends JFrame implements ActionListener {
                 break;
             case "Update":
                 // Checking if text has been entered to all TextFields
-                if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("") ||
-                        txtScheduled.getText().equals("")) {
+                if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if(txtWardType.getText().equals("") || txtReqNurses.getText().equals("") || txtReqDoctors.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -130,7 +124,6 @@ public class UpdateWard extends JFrame implements ActionListener {
                     ward.setWardType(txtWardType.getText());
                     ward.setReqNurses(Integer.valueOf(txtReqNurses.getText()));
                     ward.setReqDoctors(Integer.valueOf(txtReqDoctors.getText()));
-                    ward.setScheduled(txtScheduled.getText());
                     dbConnection.updateWard(ward);
                     // Close update ward page and open ward main page..
                     this.dispose();

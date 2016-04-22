@@ -190,7 +190,6 @@ public class DBConnection_Scheduler {
                 ward.setWardType(resultSet.getString("wardType"));
                 ward.setReqNurses(resultSet.getInt("reqNurses"));
                 ward.setReqDoctors(resultSet.getInt("reqDoctors"));
-                ward.setScheduled(resultSet.getString("scheduled"));
             }
         }
         catch (Exception e){
@@ -219,5 +218,40 @@ public class DBConnection_Scheduler {
             e.printStackTrace();
         }
         return shifts;
+    }
+
+    public void setLastDate(String last_date, int ward_ID) {
+        getDBConnection();
+
+        try {
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement("UPDATE last_shift_date SET last_date = ? WHERE ward_ID = ?;");
+            preparedStatement.setString(1, last_date);
+            preparedStatement.setInt(2, ward_ID);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet();
+            closeStatement();
+            closeConnection();
+        }
+    }
+
+    public String getLastDate(int ward_ID) {
+        getDBConnection();
+        String query="SELECT * FROM last_shift_date WHERE ward_ID = " + ward_ID +";";
+        String last_date = "";
+        try {
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                last_date = resultSet.getString("last_date");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return last_date;
     }
 }

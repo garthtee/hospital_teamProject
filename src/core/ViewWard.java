@@ -44,8 +44,6 @@ public class ViewWard extends JFrame implements ActionListener {
         txtReqNurses = new JTextField();
         lblReqDoctors = new JLabel("Req Doctors: ");
         txtReqDoctors = new JTextField();
-        lblScheduled = new JLabel("Scheduled: ");
-        txtScheduled = new JTextField();
 
         // Add components to panel 1 //
         p1.add(lblID);
@@ -57,8 +55,6 @@ public class ViewWard extends JFrame implements ActionListener {
         p1.add(txtReqNurses);
         p1.add(lblReqDoctors);
         p1.add(txtReqDoctors);
-        p1.add(lblScheduled);
-        p1.add(txtScheduled);
 
         p1.setBorder(new EmptyBorder(15, 15, 15, 15));
         add(p1, BorderLayout.NORTH);
@@ -77,7 +73,6 @@ public class ViewWard extends JFrame implements ActionListener {
         txtWardType.setText(ward.getWardType());
         txtReqNurses.setText(String.valueOf(ward.getReqNurses()));
         txtReqDoctors.setText(String.valueOf(ward.getReqDoctors()));
-        txtScheduled.setText(ward.getScheduled());
 
 
         // Making text boxes uneditable
@@ -85,7 +80,6 @@ public class ViewWard extends JFrame implements ActionListener {
         txtWardType.setEditable(false);
         txtReqNurses.setEditable(false);
         txtReqDoctors.setEditable(false);
-        txtScheduled.setEditable(false);
 
 
         // Presses ok button on enter key press
